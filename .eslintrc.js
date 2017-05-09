@@ -1,7 +1,7 @@
 module.exports = {
   "parser": "babel-eslint",
   "rules": {
-    "max-len": [2, 120, 2],
+    "max-len": [2, 150, 2],
     "jsx-quotes": [2, "prefer-double"],
     "react/jsx-no-bind": [2, {
       "ignoreRefs": true

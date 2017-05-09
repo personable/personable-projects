@@ -1,0 +1,18 @@
+.LogoLink {
+  display: block;
+  box-sizing: border-box;
+  padding: 0.125rem;
+}
+
+.LogoLink::after {
+  display: none;
+}
+
+.LogoLink::before {
+  opacity: 0;
+  bottom: -0.25rem;
+}
+
+.LogoLink:focus::before {
+  opacity: 1;
+}

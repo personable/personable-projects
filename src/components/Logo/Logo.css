@@ -1,0 +1,7 @@
+.Logo {
+  display: block;
+}
+
+.Logo--ActiveColor {
+  fill: var(--color-active);
+}

@@ -1,0 +1,50 @@
+.AppHeader {
+  background: white;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+}
+
+.AppHeader__Primary {
+  flex: 0 0 10rem;
+}
+
+.AppHeader__Secondary {
+  box-sizing: border-box;
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.AppNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AppNav__ListItem {
+  margin: 0 0 0 1rem;
+}
+
+.AppNav__Link {
+  font-family: "OpenSansCond";
+  text-transform: uppercase;
+  display: block;
+  color: var(--color-dark);
+  padding: 0.125rem 0;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+.AppNav__Link::before {
+  height: 0.25rem;
+  opacity: 0;
+  bottom: -0.125rem;
+}
+
+.AppNav__Link.AppNav__Link--Active::before,
+.AppNav__Link:focus::before {
+  opacity: 1;
+}
