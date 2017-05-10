@@ -1,0 +1,23 @@
+.Icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.Icon > svg {
+  width: 1em;
+  height: 1em;
+  fill: currentcolor;
+  display: block;
+}
+
+.Icon--small {
+  font-size: 2rem;
+}
+
+.Icon--medium {
+  font-size: 4rem;
+}
+
+.Icon--large {
+  font-size: 6rem;
+}

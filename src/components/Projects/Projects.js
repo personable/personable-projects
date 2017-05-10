@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-// import { gradient } from './util/gradient'
+import Page from '../Page/Page'
 import './Projects.css'
 
 class Projects extends Component {
@@ -8,14 +8,8 @@ class Projects extends Component {
   }
 
   render () {
-    // document.documentElement.style.setProperty('--color-active', 'red')
-    // const headerStyles = {
-    //   background: gradient(this.props.color)
-    // }
     return (
-      <div>
-        {this.props.projectData[0].name}
-      </div>
+      <Page heading="Projects" color="rebeccapurple">Hi there, Projects!</Page>
     )
   }
 }
