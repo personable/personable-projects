@@ -11,13 +11,25 @@
 }
 
 .Icon--small {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .Icon--medium {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .Icon--large {
   font-size: 6rem;
+}
+
+.Icon--light {
+  color: var(--color-light);
+}
+
+.Icon--active {
+  color: var(--color-active);
+}
+
+.Icon--dark {
+  color: var(--color-dark);
 }

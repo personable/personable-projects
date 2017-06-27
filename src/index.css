@@ -1,22 +1,16 @@
 :root {
   --root-font-size: 80%;
   --color-text: white;
-  --color-dark: #222;
+  --color-body: white;
+  --color-light: white;
+  --color-seethru: rgba(255, 255, 255, 0.2);
+  --color-frosted: rgba(255, 255, 255, 0.9);
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-dark: #333;
   --color-active: blue;
+  --app-header: 4rem;
   height: 100%;
   font-size: var(--root-font-size);
-}
-
-@media screen and (min-width: 48rem) {
-  :root {
-    --root-font-size: 90%;
-  }
-}
-
-@media screen and (min-width: 62rem) {
-  :root {
-    --root-font-size: 100%;
-  }
 }
 
 body {
@@ -24,7 +18,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "OpenSans", sans-serif;
-  background: var(--color-dark);
+  background: var(--color-body);
   color: var(--color-text);
   line-height: 1.4;
 }
@@ -85,4 +79,27 @@ a:focus::after {
 
 a:focus::before {
   transform: scaleY(3);
+}
+
+@media screen and (min-width: 48rem) {
+  :root {
+    --root-font-size: 90%;
+  }
+}
+
+@media screen and (min-width: 62rem) {
+  :root {
+    --root-font-size: 100%;
+    --app-header: 5rem;
+  }
+
+  body {
+    --color-body: #333;
+  }
+}
+
+@media screen and (min-width: 75rem) {
+  :root {
+    --root-font-size: 100%;
+  }
 }

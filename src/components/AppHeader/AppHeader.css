@@ -3,17 +3,33 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding: 0.75rem 1rem;
+  padding: 0 1rem;
+  height: var(--app-header);
 }
 
 .AppHeader__Primary {
-  flex: 0 0 10rem;
+  width: 10rem;
 }
 
 .AppHeader__Secondary {
   box-sizing: border-box;
   flex: 1;
   padding-left: 1rem;
+}
+
+@media screen and (min-width: 62rem) {
+  .AppHeader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--color-frosted);
+    box-shadow: 0 0 1.5rem var(--color-shadow);
+    z-index: 1;
+  }
+
+  .AppHeader__Secondary {
+    padding-left: 2rem;
+  }
 }
 
 .AppNav {
@@ -25,7 +41,15 @@
 }
 
 .AppNav__ListItem {
-  margin: 0 0 0 1rem;
+  margin: 0 1rem 0 0;
+}
+
+.AppNav__ListItem:last-of-type {
+  margin-right: 0;
+}
+
+.AppNav__ListItem.AppNav__ListItem--Icon .AppNav__Link {
+  padding: 0;
 }
 
 .AppNav__Link {

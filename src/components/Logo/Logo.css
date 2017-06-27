@@ -5,3 +5,7 @@
 .Logo--ActiveColor {
   fill: var(--color-active);
 }
+
+.Logo--SecondaryColor {
+  fill: var(--color-dark);
+}

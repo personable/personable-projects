@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Projects from '../Projects/Projects'
 import AppHeader from '../AppHeader/AppHeader'
 import Page from '../Page/Page'
-import Icon from '../Icon/Icon'
 // import { gradient } from './util/gradient'
 import './App.css'
 
@@ -17,14 +16,18 @@ class App extends Component {
       <Projects projectData={this.props.projectData} />
     )
     const AboutPage = () => (
-      <Page heading="About" color="tomato">Hi there, About!</Page>
+      <Page
+        heading="Hello and welcome!"
+        color="tomato"
+        media="http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg"
+        mediaAlt="A picture of me"
+        mediaType="video"
+      />
     )
     return (
       <Router>
         <div className="App">
           <AppHeader />
-          <Icon label="My Codepen account" name="CodePen" />
-          <Icon label="My Github account" name="GitHub" />
           <main className="AppMain">
             <Route exact path="/" component={ProjectPage} />
             <Route path="/about" component={AboutPage} />

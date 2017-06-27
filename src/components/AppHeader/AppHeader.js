@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './AppHeader.css'
 import LogoLink from '../LogoLink/LogoLink'
+import Icon from '../Icon/Icon'
 
 class AppHeader extends Component {
   render () {
@@ -16,6 +17,7 @@ class AppHeader extends Component {
               <NavLink
                 exact
                 to="/"
+                title="Projects"
                 className="AppNav__Link"
                 activeClassName="AppNav__Link--Active">
                   Projects
@@ -25,15 +27,24 @@ class AppHeader extends Component {
               <NavLink
                 exact
                 to="/about"
+                title="About"
                 className="AppNav__Link"
                 activeClassName="AppNav__Link--Active">
                   About
               </NavLink>
             </li>
-            <li className="AppNav__ListItem">
+            <li className="AppNav__ListItem AppNav__ListItem--Icon">
               <a href="http://codepen.io/personable"
+                title="My CodePen"
                 className="AppNav__Link">
-                CodePen
+                <Icon name="CodePen" label="My CodePen" />
+              </a>
+            </li>
+            <li className="AppNav__ListItem AppNav__ListItem--Icon">
+              <a href="https://github.com/personable"
+                title="My GitHub"
+                className="AppNav__Link">
+                <Icon name="GitHub" label="My GitHub" />
               </a>
             </li>
           </ul>
