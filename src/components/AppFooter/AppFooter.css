@@ -1,0 +1,16 @@
+.AppFooter {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: var(--color-light);
+}
+
+@media screen and (min-width: 62rem) {
+  .AppFooter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: var(--color-frosted);
+    box-shadow: 0 0 1.5rem var(--color-shadow);
+    color: var(--color-text);
+  }
+}

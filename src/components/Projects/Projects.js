@@ -9,7 +9,7 @@ class Projects extends Component {
 
   render () {
     return (
-      <Page heading="Projects" color="rebeccapurple">Hi there, Projects!</Page>
+      <h1>Projects go here, you alllll</h1>
     )
   }
 }

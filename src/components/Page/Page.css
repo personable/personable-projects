@@ -13,10 +13,18 @@
   left: 0;
   box-shadow: 0 0 2rem var(--color-shadow);
   box-sizing: border-box;
-  /* border: 0.5rem solid rgba(255, 255, 255, 0.2) */
+}
+
+.PageSecondaryInfo {
+  display: flex;
+  background: var(--color-frosted);
 }
 
 @media screen and (min-width: 62rem) {
+  .PageVideoContainer {
+    /* overflow: visible; */
+  }
+
   .Page {
     display: flex;
     height: 100%;
@@ -33,10 +41,10 @@
 
   .PageVideoContainer {
     height: 400px;
-    perspective: 38rem;
+    /* perspective: 38rem; */
   }
 
   .PageVideo {
-    transform: rotate3d(0, 1, 0, -15deg);
+    /* transform: rotate3d(0, 1, 0, -15deg); */
   }
 }

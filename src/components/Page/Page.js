@@ -1,41 +1,56 @@
 import React, { Component, PropTypes } from 'react'
+import marked from 'marked'
 import { gradient } from '../../util/gradient'
+import Checklist from '../Checklist/Checklist'
 
 import './Page.css'
 
 class Page extends Component {
   static propTypes = {
-    heading: PropTypes.string.isRequired,
-    bodyCopy: PropTypes.node,
+    heading: PropTypes.node.isRequired,
     children: PropTypes.node,
     color: PropTypes.string.isRequired,
-    media: PropTypes.node,
-    mediaType: PropTypes.oneOf(['image', 'video']),
-    mediaAlt: PropTypes.string
+    media: PropTypes.shape({
+      type: PropTypes.oneOf(['image', 'video']),
+      src: PropTypes.string,
+      img: PropTypes.string,
+      alt: PropTypes.string
+    }),
+    items: PropTypes.arrayOf(PropTypes.string),
+    details: PropTypes.arrayOf(PropTypes.string),
+    year: PropTypes.string
   }
 
   static defaultProps = {
     mediaType: 'image'
   }
 
+  renderDescription () {
+
+  }
+
+  renderList () {
+    return (
+      <Checklist items={this.props.items} />
+    )
+  }
+
   renderMedia () {
-    if (this.props.mediaType === 'video') {
+    if (this.props.media.type === 'video') {
       return (
-        <div className="PageVideoContainer">
-          <video
-            loop
-            muted
-            autoPlay
-            poster="http://ui.specbee.com/sample/videoframe.jpg"
-            className="PageVideo"
-          >
-            <source src="http://ui.specbee.com/sample/bird.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <video
+          loop
+          muted
+          autoPlay
+          poster={this.props.media.img}
+          className="PageVideo"
+        >
+          <source src={this.props.media.src} type="video/mp4" />
+        </video>
       )
     } else {
       return (
-        <img src={this.props.media} alt={this.props.mediaAlt} />
+        <img src={this.props.media.img} alt={this.props.media.alt} />
       )
     }
   }
@@ -50,11 +65,23 @@ class Page extends Component {
       >
         <div className="PagePrimary">
           <header className="PageHeader">
-            <h1 style={{background: gradient(this.props.color, 'linear')}}>{this.props.heading}</h1>
+            <h1 style={{background: gradient(this.props.color, 'linear')}}>
+              {this.props.heading}
+            </h1>
           </header>
+          <div className="PageBody">
+            <span dangerouslySetInnerHTML={{__html: marked(this.props.details[0])}} />
+            {this.props.children}
+          </div>
         </div>
         <div className="PageSecondary">
-          {this.renderMedia()}
+          <div className="PageVideoContainer">
+            {this.renderMedia()}
+          </div>
+          <div className="PageSecondaryInfo">
+            {this.props.year}
+            {(this.props.items) ? this.renderList() : null}
+          </div>
         </div>
       </article>
     )

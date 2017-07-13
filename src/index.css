@@ -1,6 +1,6 @@
 :root {
   --root-font-size: 80%;
-  --color-text: white;
+  --color-text: #222;
   --color-body: white;
   --color-light: white;
   --color-seethru: rgba(255, 255, 255, 0.2);
@@ -13,12 +13,17 @@
   font-size: var(--root-font-size);
 }
 
+::selection {
+  background: var(--color-active);
+  color: var(--color-light);
+}
+
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: "OpenSans", sans-serif;
-  background: var(--color-body);
+  background: var(--color-active);
   color: var(--color-text);
   line-height: 1.4;
 }
