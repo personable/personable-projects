@@ -1,18 +1,25 @@
 .PageVideoContainer {
   position: relative;
-  height: 300px;
-  overflow: hidden;
 }
 
 .PageVideo {
-  object-fit: cover;
-  position: absolute;
-  height: 100%;
   width: 100%;
+  height: auto;
+}
+
+.PageVideoOverlay {
+  display: block;
+  position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 0 2rem var(--color-shadow);
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-active);
 }
 
 .PageSecondaryInfo {
@@ -20,9 +27,35 @@
   background: var(--color-frosted);
 }
 
+.PageDetail {
+  background: var(--color-frosted);
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.PageDetail > p {
+  margin: 0;
+}
+
+.PageEmoji {
+  font-size: 1.5rem;
+}
+
 @media screen and (min-width: 62rem) {
   .PageVideoContainer {
-    /* overflow: visible; */
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .PageVideo {
+    object-fit: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
   }
 
   .Page {

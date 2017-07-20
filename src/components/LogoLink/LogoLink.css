@@ -2,6 +2,12 @@
   display: block;
   box-sizing: border-box;
   padding: 0.125rem;
+  overflow: hidden;
+  width: 2.125rem;
+}
+
+.LogoLink > svg {
+  width: 9.75rem;
 }
 
 .LogoLink::after {
@@ -15,4 +21,11 @@
 
 .LogoLink:focus::before {
   opacity: 1;
+}
+
+@media screen and (min-width: 48rem) {
+  .LogoLink {
+    overflow: visible;
+    width: auto;
+  }
 }

@@ -7,14 +7,16 @@
   height: var(--app-header);
 }
 
-.AppHeader__Primary {
-  width: 10rem;
-}
-
 .AppHeader__Secondary {
   box-sizing: border-box;
   flex: 1;
   padding-left: 1rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .AppHeader__Primary {
+    flex: 0 0 10rem;
+  }
 }
 
 @media screen and (min-width: 62rem) {

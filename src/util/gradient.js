@@ -1,7 +1,7 @@
 import Color from 'tinycolor2'
 
 export function gradient (color, direction) {
-  const desaturatedColor = Color(color).desaturate(10)
+  const desaturatedColor = Color(color).desaturate(1)
   const analogousColors = Color(desaturatedColor).analogous(7).map(function (t) {
     return t.toHexString()
   })
@@ -17,10 +17,10 @@ export function gradient (color, direction) {
     )
   } else {
     return (
-      `linear-gradient(to right,
-        ${analogousColors[1]} 0%,
+      `linear-gradient(to left,
+        ${analogousColors[3]} 0%,
         ${analogousColors[2]} 25%,
-        ${analogousColors[3]} 50%,
+        ${analogousColors[1]} 50%,
         ${analogousColors[4]} 75%,
         ${color} 100%)`
     )

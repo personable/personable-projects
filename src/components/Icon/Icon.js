@@ -3,7 +3,7 @@ import './Icon.css'
 
 class Icon extends Component {
   static propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     name: PropTypes.oneOf(['CodePen', 'GitHub', 'X', 'Check']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     color: PropTypes.oneOf(['dark', 'light', 'active'])

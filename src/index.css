@@ -1,14 +1,18 @@
 :root {
-  --root-font-size: 80%;
+  --root-font-size: 90%;
   --color-text: #222;
   --color-body: white;
   --color-light: white;
   --color-seethru: rgba(255, 255, 255, 0.2);
   --color-frosted: rgba(255, 255, 255, 0.9);
-  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-smoke: rgba(0, 0, 0, 0.75);
+  --color-shadow: rgba(0, 0, 0, 0.25);
   --color-dark: #333;
   --color-active: blue;
   --app-header: 4rem;
+  --icon-size-small: 1.5rem;
+  --icon-size-medium: 3rem;
+  --icon-size-large: 5rem;
   height: 100%;
   font-size: var(--root-font-size);
 }
@@ -86,9 +90,15 @@ a:focus::before {
   transform: scaleY(3);
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media screen and (min-width: 48rem) {
   :root {
-    --root-font-size: 90%;
+    --root-font-size: 95%;
   }
 }
 
@@ -105,6 +115,5 @@ a:focus::before {
 
 @media screen and (min-width: 75rem) {
   :root {
-    --root-font-size: 100%;
   }
 }

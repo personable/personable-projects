@@ -13,14 +13,12 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         media: {
           alt: 'A picture blah blah blah',
-          src: 'http://ui.specbee.com/sample/bird.mp4',
-          img: 'http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg'
+          src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
+          img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
         },
         details: [
-          // eslint-disable-next-line
-          'Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.',
-          // eslint-disable-next-line
-          'Tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.'
+          'Vivamus suscipit tortor eget felis porttitor volutpat.',
+          'Tortor eget felis porttitor volutpat.'
         ]
       },
       {
@@ -30,14 +28,26 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         media: {
           alt: 'A picture blah blah blah',
-          src: 'http://ui.specbee.com/sample/bird.mp4',
-          img: 'http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg'
+          src: '/video/screencast-twitcha.mp4',
+          img: '/img/poster-twitcha.png'
         },
         details: [
-          // eslint-disable-next-line
-          'Suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.',
-          // eslint-disable-next-line
-          'Tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.'
+          'Twitcha is still pretty awesome.',
+          'Best thing I ever did!'
+        ]
+      },
+      {
+        name: 'Something with an image',
+        color: '#69be28',
+        year: '2013',
+        items: ['Design', 'Front-end development'],
+        media: {
+          alt: 'A picture blah blah blah',
+          img: '/img/poster-twitcha.png'
+        },
+        details: [
+          'This only has an image.',
+          'I wonder what it looks like ?!'
         ]
       }
     ]}

@@ -11,15 +11,15 @@
 }
 
 .Icon--small {
-  font-size: 1.5rem;
+  font-size: var(--icon-size-small);
 }
 
 .Icon--medium {
-  font-size: 3rem;
+  font-size: var(--icon-size-medium);
 }
 
 .Icon--large {
-  font-size: 6rem;
+  font-size: var(--icon-size-large);
 }
 
 .Icon--light {

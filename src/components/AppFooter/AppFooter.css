@@ -2,6 +2,7 @@
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   color: var(--color-light);
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 62rem) {
