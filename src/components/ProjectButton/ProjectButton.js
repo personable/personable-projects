@@ -7,18 +7,13 @@ class ProjectButton extends Component {
     color: PropTypes.string,
     active: PropTypes.bool,
     onClick: PropTypes.func,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    id: PropTypes.string
   }
 
   static defaultProps = {
     color: 'blue'
   }
-
-  // constructor (props) {
-  //   super(props)
-  //
-  //   this.handleClick = this.handleClick.bind(this)
-  // }
 
   handleClick = (e) => {
     const {
@@ -48,6 +43,7 @@ class ProjectButton extends Component {
         className={(active)
           ? 'ProjectButton ProjectButton--active' : 'ProjectButton'}
         onClick={this.handleClick}
+        id={this.props.id}
       >
         {label}
       </button>

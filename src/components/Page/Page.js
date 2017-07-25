@@ -86,7 +86,7 @@ class Page extends Component {
             muted
             autoPlay
             poster={this.props.media.img}
-            className="PageVideo"
+            className={(this.state.videoLoaded) ? 'PageVideo PageVideo--loaded' : 'PageVideo'}
           >
             <source src={this.props.media.src} type="video/mp4" />
           </video>
@@ -160,12 +160,11 @@ class Page extends Component {
       >
         <div className="PagePrimary">
           <header className="PageHeader">
-            <h1 style={{background: gradient(this.props.color, 'linear')}}>
+            <h1 style={{margin: 0, background: gradient(this.props.color, 'linear')}}>
               {this.props.heading}
             </h1>
           </header>
           <div className="PageBody">
-            {(this.props.media.src && !this.state.videoLoaded) ? <h1>NO LOADRRRR</h1> : null}
             {(this.props.details) ? this.renderDetails() : null}
             {this.props.children}
           </div>

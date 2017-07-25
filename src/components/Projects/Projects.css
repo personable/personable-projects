@@ -1,1 +1,42 @@
+.Projects {
+  overflow-x: hidden;
+}
 
+.ProjectsLayout {
+  display: flex;
+  transition: all 0.3s ease-out;
+}
+
+.ProjectsNav,
+.ProjectsStage {
+  flex: 0 0 100%;
+}
+
+.Projects.Projects--showingProject .ProjectsLayout {
+  transform: translate3d(-100%, 0, 0);
+}
+
+@media screen and (min-width: 48rem) {
+}
+
+@media screen and (min-width: 62rem) {
+  .Projects,
+  .ProjectsLayout {
+    height: 100vh;
+  }
+
+  .Projects.Projects--showingProject .ProjectsLayout {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .ProjectsNav {
+    flex: 0 0 11rem;
+  }
+
+  .ProjectsStage {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 75rem) {
+}

@@ -5,6 +5,12 @@
 .PageVideo {
   width: 100%;
   height: auto;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.PageVideo.PageVideo--loaded {
+  opacity: 1;
 }
 
 .PageVideoOverlay {
@@ -60,7 +66,7 @@
 
   .Page {
     display: flex;
-    height: 100%;
+    min-height: 100vh;
   }
 
   .PagePrimary {

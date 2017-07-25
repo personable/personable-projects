@@ -12,7 +12,8 @@ class Projects extends Component {
     super(props)
 
     this.state = {
-      activeIndex: 0
+      activeIndex: 0,
+      showingProject: true
     }
   }
 
@@ -26,6 +27,7 @@ class Projects extends Component {
           active={index === this.state.activeIndex}
           // eslint-disable-next-line
           onClick={() => this.renderProject(index)}
+          id={`ProjectButton${index}`}
         />
       )
     )
@@ -34,34 +36,79 @@ class Projects extends Component {
   renderProject (index) {
     if (this.state.activeIndex !== index) {
       this.setState({
-        activeIndex: index
+        activeIndex: index,
+        focusedEl: document.activeElement
       })
+      if (!this.state.showingProject) {
+        this.setState({
+          showingProject: true
+        })
+      }
+      document.getElementById('closer').focus()
     }
   }
 
-  render () {
+  closeProject () {
+    this.setState({
+      showingProject: false
+    })
+
+    if (this.state.focusedEl) {
+      this.state.focusedEl.focus()
+    } else {
+      document.getElementById('ProjectButton0').focus()
+    }
+  }
+
+  renderContent () {
     const {
       projectData
     } = this.props
 
     return (
-      <div>
-        {this.renderButtons()}
-        <Page
-          key={`page(${this.state.activeIndex})`}
-          heading={projectData[this.state.activeIndex].name}
-          color={projectData[this.state.activeIndex].color}
-          media={{
-            src: projectData[this.state.activeIndex].media.src,
-            img: projectData[this.state.activeIndex].media.img,
-            alt: projectData[this.state.activeIndex].media.alt
-          }}
-          items={projectData[this.state.activeIndex].items}
-          year={projectData[this.state.activeIndex].year}
-          details={projectData[this.state.activeIndex].details}
-          projectID={this.state.activeIndex}
-        />
-      </div>
+      <Page
+        key={`page(${this.state.activeIndex})`}
+        heading={projectData[this.state.activeIndex].name}
+        color={projectData[this.state.activeIndex].color}
+        media={{
+          src: projectData[this.state.activeIndex].media.src,
+          img: projectData[this.state.activeIndex].media.img,
+          alt: projectData[this.state.activeIndex].media.alt
+        }}
+        items={projectData[this.state.activeIndex].items}
+        year={projectData[this.state.activeIndex].year}
+        details={projectData[this.state.activeIndex].details}
+        projectID={this.state.activeIndex}
+      />
+    )
+  }
+
+  render () {
+    return (
+      <section
+        className={
+          (this.state.showingProject)
+            ? 'Projects Projects--showingProject' : 'Projects'
+        }
+      >
+        <div className="ProjectsLayout">
+          <nav className="ProjectsNav">
+            {this.renderButtons()}
+          </nav>
+          <div className="ProjectsStage">
+            <button
+              id="closer"
+              type="button"
+              // eslint-disable-next-line
+              onClick={() => this.closeProject()}
+              style={{padding: '12px', fontSize: '12px', background: 'transparent'}}
+            >
+              Close
+            </button>
+            {this.renderContent()}
+          </div>
+        </div>
+      </section>
     )
   }
 }
