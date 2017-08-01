@@ -17,7 +17,13 @@ class App extends Component {
     )
     const AboutPage = () => (
       <Page
-        heading={<span>I designed something once &hellip;</span>}
+        heading={
+          <span>
+            <span className="sr">About page: </span>
+            <span>I designed something once &hellip;</span>
+          </span>
+        }
+        title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
         color="rebeccapurple"
         media={{
           src: 'http://ui.specbee.com/sample/bird.mp4',

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Page from '../Page/Page'
-import ProjectButton from '../ProjectButton/ProjectButton'
+import ProjectsNavButton from '../ProjectsNavButton/ProjectsNavButton'
+// import FocusTrap from 'focus-trap-react'
 import './Projects.css'
 
 class Projects extends Component {
@@ -11,23 +12,46 @@ class Projects extends Component {
   constructor (props) {
     super(props)
 
+    this.closeProject = this.closeProject.bind(this)
+
     this.state = {
       activeIndex: 0,
-      showingProject: true
+      showingProject: true,
+      navHasFocus: false
+      // activeTrap: false
     }
+  }
+
+  componentDidMount () {
+    document.addEventListener('focus', function (event) {
+      const nav = document.getElementById('navvy')
+      if (nav.contains(event.target)) {
+      } else {
+      }
+    }, true)
   }
 
   renderButtons () {
     return (
       this.props.projectData.map((project, index) =>
-        <ProjectButton
+        <ProjectsNavButton
           key={index}
-          label={project.name}
+          label={
+            <span>
+              <span className="sr">
+                {
+                  (index === this.state.activeIndex)
+                  ? 'Current project: ' : 'Open project: '
+                }
+              </span>
+              {project.name}
+            </span>
+          }
           color={project.color}
           active={index === this.state.activeIndex}
           // eslint-disable-next-line
           onClick={() => this.renderProject(index)}
-          id={`ProjectButton${index}`}
+          id={`ProjectsNavButton${index}`}
         />
       )
     )
@@ -37,27 +61,18 @@ class Projects extends Component {
     if (this.state.activeIndex !== index) {
       this.setState({
         activeIndex: index,
-        focusedEl: document.activeElement
+        showingProject: true
+        // activeTrap: false
       })
-      if (!this.state.showingProject) {
-        this.setState({
-          showingProject: true
-        })
-      }
-      document.getElementById('closer').focus()
     }
   }
 
   closeProject () {
     this.setState({
       showingProject: false
+      // activeTrap: true
     })
-
-    if (this.state.focusedEl) {
-      this.state.focusedEl.focus()
-    } else {
-      document.getElementById('ProjectButton0').focus()
-    }
+    document.getElementById(`ProjectsNavButton${this.state.activeIndex}`).focus()
   }
 
   renderContent () {
@@ -68,7 +83,13 @@ class Projects extends Component {
     return (
       <Page
         key={`page(${this.state.activeIndex})`}
-        heading={projectData[this.state.activeIndex].name}
+        heading={
+          <span>
+            <span className="sr">This is the project page for: </span>
+            {projectData[this.state.activeIndex].name}
+          </span>
+        }
+        title={`${projectData[this.state.activeIndex].name}: Personable Design & Development`}
         color={projectData[this.state.activeIndex].color}
         media={{
           src: projectData[this.state.activeIndex].media.src,
@@ -78,7 +99,8 @@ class Projects extends Component {
         items={projectData[this.state.activeIndex].items}
         year={projectData[this.state.activeIndex].year}
         details={projectData[this.state.activeIndex].details}
-        projectID={this.state.activeIndex}
+        id={this.state.activeIndex}
+        closePage={this.closeProject}
       />
     )
   }
@@ -87,24 +109,17 @@ class Projects extends Component {
     return (
       <section
         className={
-          (this.state.showingProject)
+          (this.state.showingProject && !this.state.navHasFocus)
             ? 'Projects Projects--showingProject' : 'Projects'
         }
       >
         <div className="ProjectsLayout">
-          <nav className="ProjectsNav">
-            {this.renderButtons()}
-          </nav>
+          <div className="ProjectsNav" aria-label="Projects Navigation">
+            <nav id="navvy">
+              {this.renderButtons()}
+            </nav>
+          </div>
           <div className="ProjectsStage">
-            <button
-              id="closer"
-              type="button"
-              // eslint-disable-next-line
-              onClick={() => this.closeProject()}
-              style={{padding: '12px', fontSize: '12px', background: 'transparent'}}
-            >
-              Close
-            </button>
             {this.renderContent()}
           </div>
         </div>

@@ -1,18 +1,15 @@
 import React, { Component, PropTypes } from 'react'
-import './ProjectButton.css'
+import './PageBackButton.css'
 
-class ProjectButton extends Component {
+class PageBackButton extends Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    color: PropTypes.string,
-    active: PropTypes.bool,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     id: PropTypes.string
   }
 
   static defaultProps = {
-    color: 'blue'
   }
 
   handleClick = (e) => {
@@ -32,18 +29,15 @@ class ProjectButton extends Component {
   render () {
     const {
       label,
-      color,
-      active
+      id
     } = this.props
 
     return (
       <button
         type="button"
-        style={{background: color}}
-        className={(active)
-          ? 'ProjectButton ProjectButton--active' : 'ProjectButton'}
+        className="PageBackButton"
         onClick={this.handleClick}
-        id={this.props.id}
+        id={id}
       >
         {label}
       </button>
@@ -51,4 +45,4 @@ class ProjectButton extends Component {
   }
 }
 
-export default ProjectButton
+export default PageBackButton

@@ -8,7 +8,7 @@ class AppFooter extends Component {
 
   render () {
     return (
-      <footer className="AppFooter">
+      <footer className="AppFooter" role="contentinfo">
         {this.props.children}
       </footer>
     )

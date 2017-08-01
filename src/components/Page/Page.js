@@ -3,12 +3,14 @@ import marked from 'marked'
 import { gradient } from '../../util/gradient'
 import Checklist from '../Checklist/Checklist'
 import Spinner from '../Spinner/Spinner'
+import PageBackButton from '../PageBackButton/PageBackButton'
 
 import './Page.css'
 
 class Page extends Component {
   static propTypes = {
     heading: PropTypes.node.isRequired,
+    title: PropTypes.string.isRequired,
     children: PropTypes.node,
     color: PropTypes.string.isRequired,
     media: PropTypes.shape({
@@ -19,7 +21,8 @@ class Page extends Component {
     items: PropTypes.arrayOf(PropTypes.string),
     details: PropTypes.arrayOf(PropTypes.string),
     year: PropTypes.string,
-    projectID: PropTypes.number
+    id: PropTypes.number,
+    closePage: PropTypes.func
   }
 
   static defaultProps = {
@@ -39,9 +42,10 @@ class Page extends Component {
   }
 
   componentDidMount () {
-    document.documentElement.style.setProperty(
-      '--color-active', this.props.color
-    )
+    document.documentElement.style.setProperty('--color-active', this.props.color)
+    document.title = this.props.title
+    // document.getElementById('fart').focus()
+    // setTimeout(() => document.getElementById('fart').focus(), 300)
 
     if (this.props.media.src) {
       const timer = setInterval(() => {
@@ -81,7 +85,7 @@ class Page extends Component {
       return (
         <div className="PageVideoContainer">
           <video
-            id={`video${this.props.projectID}`}
+            id={`video${this.props.id}`}
             loop
             muted
             autoPlay
@@ -101,7 +105,7 @@ class Page extends Component {
   }
 
   handleVideo (timer) {
-    const video = document.getElementById(`video${this.props.projectID}`)
+    const video = document.getElementById(`video${this.props.id}`)
 
     // If the video is in the DOM, and ready to play...
     if (video && video.readyState > 3) {
@@ -160,9 +164,21 @@ class Page extends Component {
       >
         <div className="PagePrimary">
           <header className="PageHeader">
-            <h1 style={{margin: 0, background: gradient(this.props.color, 'linear')}}>
+            <h1
+              tabIndex="-1"
+              id="fart"
+              style={{margin: 0, background: gradient(this.props.color, 'linear')}}
+            >
               {this.props.heading}
             </h1>
+            {
+              (this.props.closePage)
+                ? <PageBackButton
+                  label="Back to projects navigation"
+                  onClick={this.props.closePage}
+                  id="closer"
+                /> : null
+            }
           </header>
           <div className="PageBody">
             {(this.props.details) ? this.renderDetails() : null}

@@ -7,7 +7,7 @@ import Icon from '../Icon/Icon'
 class AppHeader extends Component {
   render () {
     return (
-      <header className="AppHeader">
+      <header className="AppHeader" aria-label="Main site navigation">
         <div className="AppHeader__Primary">
           <LogoLink />
         </div>
