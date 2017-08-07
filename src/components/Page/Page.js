@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import marked from 'marked'
 import { gradient } from '../../util/gradient'
 import Checklist from '../Checklist/Checklist'
+import ProjectsActionLink from '../ProjectsActionLink/ProjectsActionLink'
 import Spinner from '../Spinner/Spinner'
 import PageBackButton from '../PageBackButton/PageBackButton'
 
@@ -17,6 +18,10 @@ class Page extends Component {
       src: PropTypes.string,
       img: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired
+    }),
+    action: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      prompt: PropTypes.string.isRequired
     }),
     items: PropTypes.arrayOf(PropTypes.string),
     details: PropTypes.arrayOf(PropTypes.string),
@@ -44,7 +49,6 @@ class Page extends Component {
   componentDidMount () {
     document.documentElement.style.setProperty('--color-active', this.props.color)
     document.title = this.props.title
-    // document.getElementById('fart').focus()
     // setTimeout(() => document.getElementById('fart').focus(), 300)
 
     if (this.props.media.src) {
@@ -188,8 +192,22 @@ class Page extends Component {
         <div className="PageSecondary">
           {this.renderMedia()}
           <div className="PageSecondaryInfo">
-            {this.props.year}
-            {(this.props.items) ? this.renderList() : null}
+            <div className="PageSecondaryInfoLayout">
+              <div className="PageSecondaryInfoYear">
+                {this.props.year}
+              </div>
+              <div className="PageSecondaryInfoMain">
+                <div className="PageSecondaryInfoList">
+                  {(this.props.items) ? this.renderList() : null}
+                </div>
+                {(this.props.action)
+                  ? <ProjectsActionLink
+                    prompt={this.props.action.prompt}
+                    src={this.props.action.src}
+                  /> : null
+                }
+              </div>
+            </div>
           </div>
         </div>
       </article>

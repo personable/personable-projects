@@ -21,7 +21,7 @@
 
 .SpinnerAnimation {
   display: block;
-  background: purple;
+  background: var(--color-dark);
   height: var(--icon-size-large);
   position: relative;
 }

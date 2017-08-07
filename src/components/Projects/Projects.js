@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
+// import { gradient } from '../../util/gradient'
+// import { gradientMixed } from '../../util/gradient-mixed'
 import Page from '../Page/Page'
 import ProjectsNavButton from '../ProjectsNavButton/ProjectsNavButton'
-// import FocusTrap from 'focus-trap-react'
+import FocusTrap from 'focus-trap-react'
 import './Projects.css'
 
 class Projects extends Component {
@@ -13,22 +15,145 @@ class Projects extends Component {
     super(props)
 
     this.closeProject = this.closeProject.bind(this)
+    this.handleResize = this.handleResize.bind(this)
+    this.returnActiveLink = this.returnActiveLink.bind(this)
+    // this.handleFocus = this.handleFocus.bind(this)
 
     this.state = {
       activeIndex: 0,
-      showingProject: true,
-      navHasFocus: false
-      // activeTrap: false
+      showingNav: false
+      // navHasFocus: false
     }
   }
 
   componentDidMount () {
-    document.addEventListener('focus', function (event) {
-      const nav = document.getElementById('navvy')
-      if (nav.contains(event.target)) {
-      } else {
+    // document.addEventListener('focus', this.handleFocus.bind(this), true)
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize.bind(this))
+  }
+
+  componentWillUnmount () {
+    // document.removeEventListener('focus', this.handleFocus.bind(this), true)
+    window.removeEventListener('resize', this.handleResize.bind(this))
+  }
+
+  // handleFocus = (e) => {
+  //   this.setState({
+  //     navHasFocus: document.getElementById('js_hook_projectsNav').contains(e.target)
+  //   })
+  // }
+
+  handleResize () {
+    const width = window.innerWidth
+
+    if (width >= 992) {
+      this.setState({
+        desktopUI: true,
+        showingNav: false
+      })
+    } else {
+      this.setState({
+        desktopUI: false
+      })
+    }
+  }
+
+  returnActiveLink () {
+    return document.getElementById(`ProjectsNavButton${this.state.activeIndex}`)
+  }
+
+  renderProject (index) {
+    if (this.state.desktopUI) {
+      if (index !== this.state.activeIndex) {
+        this.setState({
+          activeIndex: index
+        })
       }
-    }, true)
+    } else {
+      this.setState({
+        activeIndex: index,
+        showingNav: false
+      })
+    }
+  }
+
+  closeProject () {
+    if (this.state.desktopUI) {
+      this.returnActiveLink().focus()
+    } else {
+      this.setState({
+        showingNav: true
+      })
+    }
+  }
+
+  // getColors () {
+  //   const arr = []
+  //   this.props.projectData.map((project, index) =>
+  //     arr.push(project.color)
+  //   )
+  //   return gradientMixed(arr)
+  // }
+
+  renderContent () {
+    const {
+      projectData
+    } = this.props
+
+    return (
+      <Page
+        key={`page(${this.state.activeIndex})`}
+        heading={
+          <span>
+            <span className="sr">This is the project page for: </span>
+            {projectData[this.state.activeIndex].name}
+          </span>
+        }
+        title={`${projectData[this.state.activeIndex].name}: Personable Design & Development`}
+        color={projectData[this.state.activeIndex].color}
+        media={{
+          src: projectData[this.state.activeIndex].media.src,
+          img: projectData[this.state.activeIndex].media.img,
+          alt: projectData[this.state.activeIndex].media.alt
+        }}
+        action={{
+          src: projectData[this.state.activeIndex].action.src,
+          prompt: projectData[this.state.activeIndex].action.prompt
+        }}
+        items={projectData[this.state.activeIndex].items}
+        year={projectData[this.state.activeIndex].year}
+        details={projectData[this.state.activeIndex].details}
+        id={this.state.activeIndex}
+        closePage={this.closeProject}
+      />
+    )
+  }
+
+  renderNavWrapper () {
+    if (this.state.desktopUI) {
+      return (
+        <div className="ProjectsNavDesktop" aria-label="Projects Navigation">
+          <nav className="ProjectsNavMenu">{this.renderButtons()}</nav>
+        </div>
+      )
+    } else {
+      if (this.state.showingNav) {
+        return (
+          <div className="ProjectsNavSmallScreens" aria-label="Projects Navigation">
+            <FocusTrap
+              focusTrapOptions={{
+                initialFocus: this.returnActiveLink,
+                pause: !this.state.showingNav
+              }}
+            >
+              <nav className="ProjectsNavMenu">
+                {this.renderButtons()}
+              </nav>
+            </FocusTrap>
+          </div>
+        )
+      }
+    }
   }
 
   renderButtons () {
@@ -52,56 +177,9 @@ class Projects extends Component {
           // eslint-disable-next-line
           onClick={() => this.renderProject(index)}
           id={`ProjectsNavButton${index}`}
+          desktopUI={this.state.desktopUI}
         />
       )
-    )
-  }
-
-  renderProject (index) {
-    if (this.state.activeIndex !== index) {
-      this.setState({
-        activeIndex: index,
-        showingProject: true
-        // activeTrap: false
-      })
-    }
-  }
-
-  closeProject () {
-    this.setState({
-      showingProject: false
-      // activeTrap: true
-    })
-    document.getElementById(`ProjectsNavButton${this.state.activeIndex}`).focus()
-  }
-
-  renderContent () {
-    const {
-      projectData
-    } = this.props
-
-    return (
-      <Page
-        key={`page(${this.state.activeIndex})`}
-        heading={
-          <span>
-            <span className="sr">This is the project page for: </span>
-            {projectData[this.state.activeIndex].name}
-          </span>
-        }
-        title={`${projectData[this.state.activeIndex].name}: Personable Design & Development`}
-        color={projectData[this.state.activeIndex].color}
-        media={{
-          src: projectData[this.state.activeIndex].media.src,
-          img: projectData[this.state.activeIndex].media.img,
-          alt: projectData[this.state.activeIndex].media.alt
-        }}
-        items={projectData[this.state.activeIndex].items}
-        year={projectData[this.state.activeIndex].year}
-        details={projectData[this.state.activeIndex].details}
-        id={this.state.activeIndex}
-        closePage={this.closeProject}
-      />
     )
   }
 
@@ -109,16 +187,11 @@ class Projects extends Component {
     return (
       <section
         className={
-          (this.state.showingProject && !this.state.navHasFocus)
-            ? 'Projects Projects--showingProject' : 'Projects'
+          (this.state.desktopUI) ? 'Projects Projects--desktopUI' : 'Projects'
         }
       >
         <div className="ProjectsLayout">
-          <div className="ProjectsNav" aria-label="Projects Navigation">
-            <nav id="navvy">
-              {this.renderButtons()}
-            </nav>
-          </div>
+          {this.renderNavWrapper()}
           <div className="ProjectsStage">
             {this.renderContent()}
           </div>

@@ -29,7 +29,38 @@
 }
 
 .PageSecondaryInfo {
+  /* background: var(--color-frosted); */
+}
+
+.PageSecondaryInfoLayout {
   display: flex;
+}
+
+.PageSecondaryInfoYear {
+  flex: 0 0 11rem;
+  min-width: 1px;
+  background: var(--color-smoke);
+  color: var(--color-frosted);
+  font-family: var(--font-family-display);
+  font-size: 3rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0.75rem;
+}
+
+.PageSecondaryInfoList {
+  padding: 0.5rem 0.75rem;
+}
+
+.PageSecondaryInfoMain {
+  flex: 1;
+  min-width: 1px;
   background: var(--color-frosted);
 }
 

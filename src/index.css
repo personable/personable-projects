@@ -14,6 +14,8 @@
   --icon-size-medium: 3rem;
   --icon-size-large: 5rem;
   --timing: 0.3s;
+  --font-family-base: "OpenSans";
+  --font-family-display: "OpenSansCond";
   height: 100%;
   font-size: var(--root-font-size);
 }
@@ -27,7 +29,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "OpenSans", sans-serif;
+  font-family: var(--font-family-base), sans-serif;
   background: var(--color-dark);
   color: var(--color-text);
   line-height: 1.4;
@@ -48,6 +50,13 @@ body {
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
 }
 
 a {

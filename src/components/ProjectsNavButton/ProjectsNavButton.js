@@ -8,11 +8,13 @@ class ProjectsNavButton extends Component {
     active: PropTypes.bool,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
-    id: PropTypes.string
+    id: PropTypes.string,
+    desktopUI: PropTypes.bool
   }
 
   static defaultProps = {
-    color: 'blue'
+    color: 'blue',
+    desktopUI: false
   }
 
   handleClick = (e) => {
@@ -29,11 +31,26 @@ class ProjectsNavButton extends Component {
     }
   }
 
+  renderClasses () {
+    if (this.props.active) {
+      if (this.props.desktopUI) {
+        return 'ProjectsNavButton ProjectsNavButton--desktopUI ProjectsNavButton--active'
+      } else {
+        return 'ProjectsNavButton ProjectsNavButton--active'
+      }
+    } else {
+      if (this.props.desktopUI) {
+        return 'ProjectsNavButton ProjectsNavButton--desktopUI'
+      } else {
+        return 'ProjectsNavButton'
+      }
+    }
+  }
+
   render () {
     const {
       label,
       color,
-      active,
       id
     } = this.props
 
@@ -41,8 +58,7 @@ class ProjectsNavButton extends Component {
       <button
         type="button"
         style={{background: color}}
-        className={(active)
-          ? 'ProjectsNavButton ProjectsNavButton--active' : 'ProjectsNavButton'}
+        className={this.renderClasses()}
         onClick={this.handleClick}
         id={id}
       >

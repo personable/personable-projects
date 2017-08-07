@@ -1,0 +1,8 @@
+.ProjectsActionLink {
+  display: block;
+  color: var(--color-active);
+  font-family: "OpenSansCond";
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem;
+}
