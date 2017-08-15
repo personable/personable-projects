@@ -25,11 +25,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-active);
+  background: var(--color-seethru);
 }
 
 .PageSecondaryInfo {
   /* background: var(--color-frosted); */
+  background: var(--color-seethru);
 }
 
 .PageSecondaryInfoLayout {
@@ -39,8 +40,7 @@
 .PageSecondaryInfoYear {
   flex: 0 0 11rem;
   min-width: 1px;
-  background: var(--color-smoke);
-  color: var(--color-frosted);
+  color: var(--color-light);
   font-family: var(--font-family-display);
   font-size: 3rem;
   line-height: 0.9;
@@ -56,12 +56,13 @@
 
 .PageSecondaryInfoList {
   padding: 0.5rem 0.75rem;
+  margin: 0.25rem;
+  background: var(--color-frosted);
 }
 
 .PageSecondaryInfoMain {
   flex: 1;
   min-width: 1px;
-  background: var(--color-frosted);
 }
 
 .PageDetail {
@@ -101,11 +102,13 @@
   }
 
   .PagePrimary {
+    padding: 1rem;
     flex: 1;
   }
 
   .PageSecondary {
     flex: 1;
+    padding: 1rem;
     padding-top: calc(var(--app-header) * 1.25);
   }
 

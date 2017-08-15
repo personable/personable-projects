@@ -7,10 +7,11 @@ ReactDOM.render(
   <App
     projectData={[
       {
-        name: 'ClubWorx Gym Management Software',
+        name: 'ClubWorx Gym Management',
         color: '#f17310',
         year: '2014',
         items: ['Design', 'Front-end development'],
+        isCodePen: false,
         media: {
           alt: 'A picture blah blah blah',
           src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
@@ -30,6 +31,7 @@ ReactDOM.render(
         color: '#65bdcb',
         year: '2011',
         items: ['Design', 'Front-end development'],
+        isCodePen: false,
         media: {
           alt: 'A picture blah blah blah',
           src: '/video/screencast-twitcha.mp4',
@@ -45,10 +47,11 @@ ReactDOM.render(
         ]
       },
       {
-        name: 'Something with an image',
-        color: '#69be28',
+        name: 'Accessible checkbox toggle',
+        color: '#616EEF',
         year: '2013',
         items: ['Design', 'Front-end development'],
+        isCodePen: true,
         media: {
           alt: 'A picture blah blah blah',
           img: '/img/poster-twitcha.png'

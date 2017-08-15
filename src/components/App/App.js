@@ -20,7 +20,7 @@ class App extends Component {
         heading={
           <span>
             <span className="sr">About page: </span>
-            <span>I designed something once &hellip;</span>
+            <span>I designed something once&hellip;</span>
           </span>
         }
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"

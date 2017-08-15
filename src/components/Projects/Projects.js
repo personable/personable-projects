@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-// import { gradient } from '../../util/gradient'
-// import { gradientMixed } from '../../util/gradient-mixed'
 import Page from '../Page/Page'
 import ProjectsNavButton from '../ProjectsNavButton/ProjectsNavButton'
 import FocusTrap from 'focus-trap-react'
@@ -17,31 +15,21 @@ class Projects extends Component {
     this.closeProject = this.closeProject.bind(this)
     this.handleResize = this.handleResize.bind(this)
     this.returnActiveLink = this.returnActiveLink.bind(this)
-    // this.handleFocus = this.handleFocus.bind(this)
 
     this.state = {
       activeIndex: 0,
       showingNav: false
-      // navHasFocus: false
     }
   }
 
   componentDidMount () {
-    // document.addEventListener('focus', this.handleFocus.bind(this), true)
     this.handleResize()
-    window.addEventListener('resize', this.handleResize.bind(this))
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentWillUnmount () {
-    // document.removeEventListener('focus', this.handleFocus.bind(this), true)
-    window.removeEventListener('resize', this.handleResize.bind(this))
+    window.removeEventListener('resize', this.handleResize)
   }
-
-  // handleFocus = (e) => {
-  //   this.setState({
-  //     navHasFocus: document.getElementById('js_hook_projectsNav').contains(e.target)
-  //   })
-  // }
 
   handleResize () {
     const width = window.innerWidth
@@ -69,11 +57,13 @@ class Projects extends Component {
           activeIndex: index
         })
       }
+      setTimeout(() => document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
     } else {
       this.setState({
         activeIndex: index,
         showingNav: false
       })
+      setTimeout(() => document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
     }
   }
 
@@ -86,14 +76,6 @@ class Projects extends Component {
       })
     }
   }
-
-  // getColors () {
-  //   const arr = []
-  //   this.props.projectData.map((project, index) =>
-  //     arr.push(project.color)
-  //   )
-  //   return gradientMixed(arr)
-  // }
 
   renderContent () {
     const {
@@ -121,10 +103,12 @@ class Projects extends Component {
           prompt: projectData[this.state.activeIndex].action.prompt
         }}
         items={projectData[this.state.activeIndex].items}
+        isCodePen={projectData[this.state.activeIndex].isCodePen}
         year={projectData[this.state.activeIndex].year}
         details={projectData[this.state.activeIndex].details}
         id={this.state.activeIndex}
         closePage={this.closeProject}
+        desktopUI={this.state.desktopUI}
       />
     )
   }

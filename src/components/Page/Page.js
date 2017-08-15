@@ -3,6 +3,7 @@ import marked from 'marked'
 import { gradient } from '../../util/gradient'
 import Checklist from '../Checklist/Checklist'
 import ProjectsActionLink from '../ProjectsActionLink/ProjectsActionLink'
+import ProjectsHeading from '../ProjectsHeading/ProjectsHeading'
 import Spinner from '../Spinner/Spinner'
 import PageBackButton from '../PageBackButton/PageBackButton'
 
@@ -24,14 +25,17 @@ class Page extends Component {
       prompt: PropTypes.string.isRequired
     }),
     items: PropTypes.arrayOf(PropTypes.string),
+    isCodePen: PropTypes.bool,
     details: PropTypes.arrayOf(PropTypes.string),
     year: PropTypes.string,
     id: PropTypes.number,
-    closePage: PropTypes.func
+    closePage: PropTypes.func,
+    desktopUI: PropTypes.bool
   }
 
   static defaultProps = {
-    mediaType: 'image'
+    mediaType: 'image',
+    isCodePen: false
   }
 
   constructor (props) {
@@ -49,7 +53,6 @@ class Page extends Component {
   componentDidMount () {
     document.documentElement.style.setProperty('--color-active', this.props.color)
     document.title = this.props.title
-    // setTimeout(() => document.getElementById('fart').focus(), 300)
 
     if (this.props.media.src) {
       const timer = setInterval(() => {
@@ -63,6 +66,10 @@ class Page extends Component {
     if (this.props.media.src) {
       clearInterval(this.state.timer)
     }
+  }
+
+  get headingID () {
+    return `ProjectsHeading${this.props.id}`
   }
 
   renderDetails () {
@@ -162,55 +169,56 @@ class Page extends Component {
 
   render () {
     return (
-      <article
-        className="Page"
-        style={{background: gradient(this.props.color, 'radial')}}
-      >
-        <div className="PagePrimary">
-          <header className="PageHeader">
-            <h1
-              tabIndex="-1"
-              id="fart"
-              style={{margin: 0, background: gradient(this.props.color, 'linear')}}
-            >
-              {this.props.heading}
-            </h1>
-            {
-              (this.props.closePage)
-                ? <PageBackButton
-                  label="Back to projects navigation"
-                  onClick={this.props.closePage}
-                  id="closer"
-                /> : null
-            }
-          </header>
-          <div className="PageBody">
-            {(this.props.details) ? this.renderDetails() : null}
-            {this.props.children}
+      <div>
+        <article
+          className="Page"
+          style={{background: gradient(this.props.color, 'radial')}}
+        >
+          <div className="PagePrimary">
+            <ProjectsHeading
+              id={this.headingID}
+              text={this.props.heading}
+              color={this.props.color}
+              desktopUI={this.props.desktopUI}
+            />
+            <div className="PageBody">
+              {(this.props.details) ? this.renderDetails() : null}
+              {this.props.children}
+            </div>
           </div>
-        </div>
-        <div className="PageSecondary">
-          {this.renderMedia()}
-          <div className="PageSecondaryInfo">
-            <div className="PageSecondaryInfoLayout">
-              <div className="PageSecondaryInfoYear">
-                {this.props.year}
-              </div>
-              <div className="PageSecondaryInfoMain">
-                <div className="PageSecondaryInfoList">
-                  {(this.props.items) ? this.renderList() : null}
+          <div className="PageSecondary">
+            {this.renderMedia()}
+            <div className="PageSecondaryInfo">
+              <div className="PageSecondaryInfoLayout">
+                <div className="PageSecondaryInfoYear">
+                  {this.props.year}
                 </div>
-                {(this.props.action)
-                  ? <ProjectsActionLink
-                    prompt={this.props.action.prompt}
-                    src={this.props.action.src}
-                  /> : null
-                }
+                <div className="PageSecondaryInfoMain">
+                  <div className="PageSecondaryInfoList">
+                    {(this.props.items) ? this.renderList() : null}
+                  </div>
+                  {(this.props.action)
+                    ? <ProjectsActionLink
+                      prompt={this.props.action.prompt}
+                      src={this.props.action.src}
+                      variant={(this.props.isCodePen) ? 'codepen' : null}
+                      desktopUI={this.props.desktopUI}
+                    /> : null
+                  }
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+        {
+          (this.props.closePage)
+            ? <PageBackButton
+              label="Back to projects navigation"
+              onClick={this.props.closePage}
+              id="closer"
+            /> : null
+        }
+      </div>
     )
   }
 }

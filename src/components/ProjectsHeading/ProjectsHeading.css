@@ -1,0 +1,27 @@
+.ProjectsHeading {
+  text-align: center;
+  padding: 1rem;
+}
+
+.ProjectsHeading.ProjectsHeading--desktopUI {
+  /* text-align: left; */
+  padding: 0;
+}
+
+.ProjectsHeadingHeadline {
+  margin: 0;
+  color: var(--color-frosted);
+  font-family: var(--font-family-display);
+  text-transform: uppercase;
+  line-height: 0.9;
+  font-size: 4rem;
+  letter-spacing: -0.125rem;
+  font-weight: normal;
+}
+
+.ProjectsHeading.ProjectsHeading--desktopUI .ProjectsHeadingHeadline {
+  font-size: 4.25rem;
+  display: inline;
+  line-height: 1.2;
+  box-shadow: 0 0 2rem var(--color-shadow);
+}

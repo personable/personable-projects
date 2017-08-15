@@ -11,6 +11,7 @@
   line-height: 1;
   color: var(--color-light);
   outline: 0;
+  background: transparent;
 }
 
 .ProjectsNavButton:focus {

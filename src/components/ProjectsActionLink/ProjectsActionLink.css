@@ -1,8 +1,26 @@
 .ProjectsActionLink {
-  display: block;
-  color: var(--color-active);
-  font-family: "OpenSansCond";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  font-family: var(--font-family-display);
   text-transform: uppercase;
-  text-align: center;
   padding: 0.5rem;
+  background: var(--color-frosted);
+  margin: 0.25rem;
+  line-height: 1;
+
+}
+
+.ProjectsActionLink:focus {
+  text-decoration: underline;
+}
+
+.ProjectsActionLink::before {
+  display: none;
+}
+
+.ProjectsActionLinkText {
+  margin-left: 0.5rem;
+  display: inline-block;
 }

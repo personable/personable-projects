@@ -4,12 +4,14 @@
   --color-body: white;
   --color-light: white;
   --color-seethru: rgba(255, 255, 255, 0.2);
+  --color-clouds: rgba(255, 255, 255, 0.66);
   --color-frosted: rgba(255, 255, 255, 0.9);
   --color-smoke: rgba(0, 0, 0, 0.75);
   --color-shadow: rgba(0, 0, 0, 0.25);
-  --color-dark: #333;
+  --color-dark: #444;
   --color-active: rebeccapurple;
   --app-header: 4rem;
+  --icon-size-xSmall: 1rem;
   --icon-size-small: 1.5rem;
   --icon-size-medium: 3rem;
   --icon-size-large: 5rem;
@@ -64,7 +66,6 @@ a {
   position: relative;
   color: var(--color-active);
   text-decoration: none;
-  white-space: nowrap;
   outline: none;
 }
 
@@ -93,7 +94,7 @@ a::after {
 a:hover::after,
 a:focus::after {
   transform: scaleX(1);
-  opacity: 0.1;
+  opacity: 0.15;
 }
 
 a:focus::before {

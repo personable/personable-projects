@@ -54,10 +54,14 @@ class ProjectsNavButton extends Component {
       id
     } = this.props
 
+    const background = {
+      background: color
+    }
+
     return (
       <button
         type="button"
-        style={{background: color}}
+        style={(this.props.active) ? background : null}
         className={this.renderClasses()}
         onClick={this.handleClick}
         id={id}
