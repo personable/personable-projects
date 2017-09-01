@@ -11,8 +11,22 @@
 }
 
 .ProjectsNavDesktop {
-  flex: 0 0 11rem;
+  flex: 0 0 var(--desktopNavWidth);
   min-width: 1px;
+  background: var(--color-frosted);
+  position: relative;
+  overflow: auto;
+}
+
+.ProjectsNavDesktop::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.5rem;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, var(--color-shadow) 100%);
+  pointer-events: none;
 }
 
 .ProjectsNavSmallScreens {
@@ -23,5 +37,25 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: var(--color-smoke);
+  background: var(--color-frosted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProjectsNavMenuList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ProjectsNavMenuListItem {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.Projects.Projects--desktopUI .ProjectsNavMenuListItem {
+  border-bottom-color: var(--color-light);
+  border-bottom: 0.0625rem solid var(--color-light);
 }

@@ -170,10 +170,11 @@ class Page extends Component {
   render () {
     return (
       <div>
-        <article
-          className="Page"
-          style={{background: gradient(this.props.color, 'radial')}}
-        >
+        <article className="Page">
+          <span
+            style={{background: gradient(this.props.color, 'radial')}}
+            className="PageBackground">
+          </span>
           <div className="PagePrimary">
             <ProjectsHeading
               id={this.headingID}

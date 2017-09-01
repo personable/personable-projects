@@ -1,21 +1,13 @@
 import React, { Component, PropTypes } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Projects from '../Projects/Projects'
-import AppFooter from '../AppFooter/AppFooter'
-import AppHeader from '../AppHeader/AppHeader'
 import Page from '../Page/Page'
-import './App.css'
 
-class App extends Component {
+class About extends Component {
   static propTypes = {
-    projectData: PropTypes.array.isRequired
+    desktopUI: PropTypes.bool
   }
 
   render () {
-    const ProjectPage = () => (
-      <Projects projectData={this.props.projectData} />
-    )
-    const AboutPage = () => (
+    return (
       <Page
         heading={
           <span>
@@ -24,7 +16,7 @@ class App extends Component {
           </span>
         }
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
-        color="tomato"
+        color="rebeccapurple"
         media={{
           src: 'http://ui.specbee.com/sample/bird.mp4',
           img: 'http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg',
@@ -33,6 +25,7 @@ class App extends Component {
         }}
         items={['CSS expert', 'Pixel-perfect eye', 'Hufflepuff']}
         year="Vital stats"
+        desktopUI={this.props.desktopUI}
         details={[
           `__... but these days I spend my time writing CSS and presentational JavaScript
           at [Instructure](http://www.instructure.com), working on a UI development team
@@ -53,21 +46,7 @@ class App extends Component {
         ]}
       />
     )
-    return (
-      <Router>
-        <div className="App">
-          <AppHeader />
-          <main className="AppMain">
-            <Route exact path="/" component={ProjectPage} />
-            <Route path="/about" component={AboutPage} />
-          </main>
-          <AppFooter>
-            &copy;{new Date().getFullYear()} Personable Design &amp; Dev
-          </AppFooter>
-        </div>
-      </Router>
-    )
   }
 }
 
-export default App
+export default About

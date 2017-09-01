@@ -34,7 +34,7 @@ class Projects extends Component {
   handleResize () {
     const width = window.innerWidth
 
-    if (width >= 992) {
+    if (width >= 1100) {
       this.setState({
         desktopUI: true,
         showingNav: false
@@ -117,7 +117,7 @@ class Projects extends Component {
     if (this.state.desktopUI) {
       return (
         <div className="ProjectsNavDesktop" aria-label="Projects Navigation">
-          <nav className="ProjectsNavMenu">{this.renderButtons()}</nav>
+          {this.renderNavList()}
         </div>
       )
     } else {
@@ -130,9 +130,7 @@ class Projects extends Component {
                 pause: !this.state.showingNav
               }}
             >
-              <nav className="ProjectsNavMenu">
-                {this.renderButtons()}
-              </nav>
+              {this.renderNavList()}
             </FocusTrap>
           </div>
         )
@@ -140,29 +138,40 @@ class Projects extends Component {
     }
   }
 
+  renderNavList () {
+    return (
+      <nav className="ProjectsNavMenu">
+        <ul className="ProjectsNavMenuList">
+          {this.renderButtons()}
+        </ul>
+      </nav>
+    )
+  }
+
   renderButtons () {
     return (
       this.props.projectData.map((project, index) =>
-        <ProjectsNavButton
-          key={index}
-          label={
-            <span>
-              <span className="sr">
-                {
-                  (index === this.state.activeIndex)
-                  ? 'Current project: ' : 'Open project: '
-                }
+        <li className="ProjectsNavMenuListItem" key={index}>
+          <ProjectsNavButton
+            label={
+              <span>
+                <span className="sr">
+                  {
+                    (index === this.state.activeIndex)
+                    ? 'Current project: ' : 'Open project: '
+                  }
+                </span>
+                {project.name}
               </span>
-              {project.name}
-            </span>
-          }
-          color={project.color}
-          active={index === this.state.activeIndex}
-          // eslint-disable-next-line
-          onClick={() => this.renderProject(index)}
-          id={`ProjectsNavButton${index}`}
-          desktopUI={this.state.desktopUI}
-        />
+            }
+            color={project.color}
+            active={index === this.state.activeIndex}
+            // eslint-disable-next-line
+            onClick={() => this.renderProject(index)}
+            id={`ProjectsNavButton${index}`}
+            desktopUI={this.state.desktopUI}
+          />
+        </li>
       )
     )
   }

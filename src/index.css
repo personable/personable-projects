@@ -7,8 +7,7 @@
   --color-clouds: rgba(255, 255, 255, 0.66);
   --color-frosted: rgba(255, 255, 255, 0.9);
   --color-smoke: rgba(0, 0, 0, 0.75);
-  --color-shadow: rgba(0, 0, 0, 0.25);
-  --color-dark: #444;
+  --color-dark: #333;
   --color-active: rebeccapurple;
   --app-header: 4rem;
   --icon-size-xSmall: 1rem;
@@ -18,6 +17,11 @@
   --timing: 0.3s;
   --font-family-base: "OpenSans";
   --font-family-display: "OpenSansCond";
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --desktopNavWidth: 11rem;
+  --shadow-level-1: 0 0 0.25rem var(--color-shadow);
+  --shadow-level-2: 0 0 1rem var(--color-shadow);
+  --shadow-level-3: 0 0 2rem var(--color-shadow);
   height: 100%;
   font-size: var(--root-font-size);
 }
@@ -32,9 +36,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family-base), sans-serif;
-  background: var(--color-dark);
-  color: var(--color-text);
+  background: var(--color-active);
+  color: var(--color-dark);
   line-height: 1.4;
+  transition: background 0.2s;
+  transition-delay: 0.5s;
 }
 
 #root {
@@ -113,7 +119,7 @@ img {
   }
 }
 
-@media screen and (min-width: 62rem) {
+@media screen and (min-width: 1100px) {
   :root {
     --root-font-size: 100%;
     --app-header: 5rem;

@@ -61,11 +61,15 @@ class ProjectsNavButton extends Component {
     return (
       <button
         type="button"
-        style={(this.props.active) ? background : null}
         className={this.renderClasses()}
         onClick={this.handleClick}
         id={id}
       >
+        <span
+          aria-hidden="true"
+          className="ProjectsNavButtonFlag"
+          style={background}
+        ></span>
         {label}
       </button>
     )

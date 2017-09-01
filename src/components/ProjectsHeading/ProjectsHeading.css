@@ -1,11 +1,6 @@
 .ProjectsHeading {
   text-align: center;
-  padding: 1rem;
-}
-
-.ProjectsHeading.ProjectsHeading--desktopUI {
-  /* text-align: left; */
-  padding: 0;
+  margin-bottom: 1rem;
 }
 
 .ProjectsHeadingHeadline {
@@ -14,14 +9,48 @@
   font-family: var(--font-family-display);
   text-transform: uppercase;
   line-height: 0.9;
-  font-size: 4rem;
-  letter-spacing: -0.125rem;
+  font-size: 3rem;
+  letter-spacing: -0.0625rem;
   font-weight: normal;
+  box-shadow: var(--shadow-level-2);
+  padding: 1rem;
+  outline: none;
 }
 
-.ProjectsHeading.ProjectsHeading--desktopUI .ProjectsHeadingHeadline {
-  font-size: 4.25rem;
-  display: inline;
-  line-height: 1.2;
-  box-shadow: 0 0 2rem var(--color-shadow);
+@keyframes projectsHeading {
+  to {
+    transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, 45deg);
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ProjectsHeadingHeadline {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .ProjectsHeading {
+    perspective: 60rem;
+  }
+
+  .ProjectsHeadingLayout {
+    opacity: 0;
+    transform: translateX(-20%) scale(0.5) rotate3d(0, 1, 0, 90deg);
+    animation: projectsHeading;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 1s;
+  }
+
+  .ProjectsHeadingHeadline {
+    padding: 0;
+    font-size: 4.5rem;
+    display: inline;
+    line-height: 1.2;
+    box-shadow:
+      -0.25rem 0.25rem 1.5rem rgba(0,0,0,0.2);
+  }
 }

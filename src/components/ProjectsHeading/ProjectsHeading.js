@@ -12,7 +12,7 @@ class ProjectsHeading extends Component {
 
   render () {
     const background = {
-      background: gradient(this.props.color, 'radial-alpha')
+      background: gradient(this.props.color, 'linear-alpha')
     }
 
     return (
@@ -20,14 +20,16 @@ class ProjectsHeading extends Component {
         className={(this.props.desktopUI)
           ? 'ProjectsHeading ProjectsHeading--desktopUI' : 'ProjectsHeading'}
       >
-        <h1
-          className="ProjectsHeadingHeadline"
-          tabIndex="-1"
-          id={this.props.id}
-          style={background}
-        >
-          {this.props.text}
-        </h1>
+        <div className="ProjectsHeadingLayout">
+          <h1
+            className="ProjectsHeadingHeadline"
+            tabIndex="-1"
+            id={this.props.id}
+            style={background}
+          >
+            {this.props.text}
+          </h1>
+        </div>
       </header>
     )
   }
