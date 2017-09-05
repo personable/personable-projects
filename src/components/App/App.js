@@ -11,6 +11,21 @@ class App extends Component {
     projectData: PropTypes.array.isRequired
   }
 
+  renderBackground () {
+    const colors = [
+      '#fc345c',
+      '#6d42c7',
+      'tomato',
+      '#69be28',
+      '#1a8b9d',
+      '#fc624d',
+      '#616eef'
+    ]
+    const len = colors.length
+    const activeColor = Math.floor(Math.random() * len) + 1
+    return colors[activeColor - 1]
+  }
+
   render () {
     const ProjectPage = () => (
       <Projects projectData={this.props.projectData} />
@@ -24,7 +39,7 @@ class App extends Component {
           </span>
         }
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
-        color="tomato"
+        color={this.renderBackground()}
         media={{
           src: 'http://ui.specbee.com/sample/bird.mp4',
           img: 'http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg',
@@ -34,9 +49,9 @@ class App extends Component {
         items={['CSS expert', 'Pixel-perfect eye', 'Hufflepuff']}
         year="Vital stats"
         details={[
-          `__... but these days I spend my time writing CSS and presentational JavaScript
+          `But these days I spend my time writing CSS and presentational JavaScript
           at [Instructure](http://www.instructure.com), working on a UI development team
-          that bridges product and engineering.__`,
+          that bridges product and engineering.`,
           `On any given workday, you might find me bringing a design mockup to life in
           the browser, helping a project team get its CSS off to a good start, contributing
           to Instructure's [growing library](http://instructure.github.io/instructure-ui)

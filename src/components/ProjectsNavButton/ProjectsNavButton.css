@@ -34,7 +34,8 @@
   width: 0.75rem;
   height: 100%;
   box-sizing: border-box;
-  transition: all 0.3s;
+  transition: all 0.5s;
+  transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
   transform: scale(.66);
   transform-origin: left center;
 }

@@ -32,17 +32,17 @@
 
 @media screen and (min-width: 1100px) {
   .ProjectsHeading {
-    perspective: 60rem;
+    perspective: var(--perspective);
   }
 
   .ProjectsHeadingLayout {
     opacity: 0;
-    transform: translateX(-20%) scale(0.5) rotate3d(0, 1, 0, 90deg);
+    transform: translateX(-50%) scale(0.5) rotate3d(0, 1, 0, 180deg);
     animation: projectsHeading;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
   }
 
   .ProjectsHeadingHeadline {

@@ -35,7 +35,8 @@ class Page extends Component {
 
   static defaultProps = {
     mediaType: 'image',
-    isCodePen: false
+    isCodePen: false,
+    color: 'rebeccapurple'
   }
 
   constructor (props) {
