@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import marked from 'marked'
 import './Checklist.css'
 import Icon from '../Icon/Icon'
 
@@ -15,7 +16,15 @@ class Checklist extends Component {
       <ul className="Checklist">
         {
           items.map(function (item, index) {
-            return <li className="Checklist__Item" key={index}>{check} {item}</li>
+            return (
+              <li className="ChecklistItem" key={index}>
+                {check}
+                <span
+                  className="ChecklistText"
+                  dangerouslySetInnerHTML={{__html: marked(item)}}
+                ></span>
+              </li>
+            )
           })
         }
       </ul>

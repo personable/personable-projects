@@ -1,5 +1,4 @@
 .Spinner {
-  background: black;
   width: 16rem;
   text-align: center;
   display: inline-block;
@@ -19,25 +18,45 @@
   color: var(--color-dark);
 }
 
+@keyframes spinner {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+  25% {
+    transform: translate3d(50%, 0, 0) scale(0.75);
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  75% {
+    transform: translate3d(-50%, 0, 0) scale(0.75);
+  }
+}
+
 .SpinnerAnimation {
   display: block;
-  background: var(--color-dark);
   height: var(--icon-size-large);
   position: relative;
 }
 
-.SpinnerAnimation svg {
+.SpinnerAnimation > * {
   position: absolute;
   top: 0;
   left: 50%;
   margin-left: calc(-1 * var(--icon-size-large) / 2);
+  transform: translate3d(0, 0, 0) scale(0.5);
+  animation-name: spinner;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: normal;
 }
 
 .SpinnerMessage {
   display: block;
-  background: red;
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 0.0625rem;
   line-height: 1.1;
+  box-sizing: border-box;
+  margin-top: 1rem;
 }

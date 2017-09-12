@@ -4,7 +4,7 @@ import './Icon.css'
 class Icon extends Component {
   static propTypes = {
     label: PropTypes.string,
-    name: PropTypes.oneOf(['CodePen', 'GitHub', 'X', 'Check', 'ExternalLink']),
+    name: PropTypes.oneOf(['CodePen', 'GitHub', 'X', 'Check', 'Mail', 'ExternalLink']),
     size: PropTypes.oneOf(['xSmall', 'small', 'medium', 'large']),
     color: PropTypes.oneOf(['dark', 'light', 'active'])
   }
@@ -50,9 +50,13 @@ class Icon extends Component {
       case 'ExternalLink':
         return (
           <g>
-            <polygon points="20.3 20.3 3.7 20.3 3.7 3.7 10.3 3.7 8.8 2 2 2 2 22 22 22 22 15.3 20.3 13.7 " />
-            <polygon points="22 2 12.1 2 15.8 5.8 9.2 12.4 11.6 14.8 18.2 8.2 22 11.9 " />
+            <polygon points="20.3 20.3 3.7 20.3 3.7 3.7 10.3 3.7 8.8 2 2 2 2 22 22 22 22 15.3 20.3 13.7" />
+            <polygon points="22 2 12.1 2 15.8 5.8 9.2 12.4 11.6 14.8 18.2 8.2 22 11.9" />
           </g>
+        )
+      case 'Mail':
+        return (
+          <path d="M2 4v1 1 12 1 1h20v-1 -1V6 5 4H2zM18.6 6L12 11.8 5.4 6H18.6zM3.9 18V7.3l8.1 7.1 8.1-7.1V18H3.9z" />
         )
       default:
         return (

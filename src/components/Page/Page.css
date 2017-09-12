@@ -1,3 +1,8 @@
+.Page {
+  padding: 0.25rem;
+  position: relative;
+}
+
 .PageBackground {
   display: block;
   position: fixed;
@@ -10,11 +15,19 @@
 }
 
 .PageVideoContainer {
+  background: var(--color-shadow);
   position: relative;
+}
+
+.PagePrimary,
+.PageSecondary {
+  max-width: 49rem;
+  margin: 0 auto;
 }
 
 .PageVideo {
   width: 100%;
+  display: block;
   height: auto;
   opacity: 0;
   transition: opacity 1s;
@@ -36,12 +49,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-seethru);
 }
 
-.PageSecondaryInfo {
-  /* background: var(--color-frosted); */
+.PageSecondaryContent {
   background: var(--color-seethru);
+  box-shadow: var(--shadow-level-1);
+}
+
+.PageSecondaryMedia {
+  padding: 0.25rem 0.25rem 0;
 }
 
 .PageSecondaryInfoLayout {
@@ -51,9 +67,9 @@
 .PageSecondaryInfoYear {
   flex: 0 0 11rem;
   min-width: 1px;
-  color: var(--color-light);
+  color: var(--color-frosted);
   font-family: var(--font-family-display);
-  font-size: 3rem;
+  font-size: 3.75rem;
   line-height: 0.9;
   text-transform: uppercase;
   letter-spacing: -0.125rem;
@@ -66,14 +82,19 @@
 }
 
 .PageSecondaryInfoList {
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem;
   margin: 0.25rem;
   background: var(--color-frosted);
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .PageSecondaryInfoMain {
   flex: 1;
   min-width: 1px;
+  display: flex;
+  flex-direction: column;
 }
 
 .PageBody {
@@ -81,12 +102,13 @@
   box-sizing: border-box;
   box-shadow: var(--shadow-level-1);
   padding: 0 1rem;
+  margin: 0 0 1.5rem;
 }
 
 .PageDetail {
   padding: 1rem 0;
   border-bottom: 0.125rem solid var(--color-light);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .PageDetail:first-of-type {
@@ -115,20 +137,38 @@
   font-size: 1.5rem;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1024px) {
+  .Page {
+    padding: 0;
+  }
+
+  .PagePrimary,
+  .PageSecondary {
+    max-width: none;
+    margin: 0;
+  }
+
+  .PageSecondaryContent {
+    position: sticky;
+  }
+
+  .PageBody {
+    margin: 0;
+  }
+
   .PageVideoContainer {
-    height: 300px;
-    overflow: hidden;
+    /*height: 400px;
+    overflow: hidden;*/
   }
 
   .PageVideo {
-    object-fit: cover;
+    /*object-fit: cover;
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;*/
   }
 
   .Page {
@@ -137,34 +177,23 @@
   }
 
   .PagePrimary {
-    padding: 1rem 0.5rem 1rem 1rem;
+    padding: 1rem 0.5rem 1rem 0;
     flex: 1;
   }
 
   .PageSecondary {
     flex: 1;
-    padding: 1rem 1rem 1rem 0.5rem;
+    padding: 1rem 0 1rem 0.5rem;
     padding-top: calc(var(--app-header) * 1.25);
-  }
-
-  .PageVideoContainer {
-    height: 400px;
-    /* perspective: 38rem; */
-  }
-
-  .PageVideo {
-    /* transform: rotate3d(0, 1, 0, -15deg); */
   }
 }
 
 @media screen and (min-width: 1300px) {
   .PagePrimary {
-    padding-left: 1.5rem;
     padding-right: 1rem;
   }
 
   .PageSecondary {
-    padding-right: 1.5rem;
     padding-left: 1rem;
   }
 

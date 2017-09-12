@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import marked from 'marked'
 import { gradient } from '../../util/gradient'
 import Checklist from '../Checklist/Checklist'
+import Image from '../Image/Image'
 import ProjectsActionLink from '../ProjectsActionLink/ProjectsActionLink'
 import ProjectsHeading from '../ProjectsHeading/ProjectsHeading'
 import Spinner from '../Spinner/Spinner'
@@ -22,7 +23,8 @@ class Page extends Component {
     }),
     action: PropTypes.shape({
       src: PropTypes.string.isRequired,
-      prompt: PropTypes.string.isRequired
+      prompt: PropTypes.string.isRequired,
+      variant: PropTypes.string
     }),
     items: PropTypes.arrayOf(PropTypes.string),
     isCodePen: PropTypes.bool,
@@ -52,7 +54,6 @@ class Page extends Component {
   }
 
   componentDidMount () {
-    document.documentElement.style.setProperty('--color-active', this.props.color)
     document.title = this.props.title
 
     if (this.props.media.src) {
@@ -111,9 +112,13 @@ class Page extends Component {
       )
     } else {
       return (
-        <img src={this.props.media.img} alt={this.props.media.alt} />
+        <Image src={this.props.media.img} alt={this.props.media.alt} />
       )
     }
+  }
+
+  handleImage () {
+
   }
 
   handleVideo (timer) {
@@ -126,7 +131,7 @@ class Page extends Component {
       })
       clearInterval(timer)
     // If the video is in the DOM but not loaded yet...
-    } else if (video && this.state.videoAttempts < 11) {
+    } else if (video && this.state.videoAttempts < 15) {
       this.setState({
         videoAttempts: this.state.videoAttempts + 1
       })
@@ -157,18 +162,17 @@ class Page extends Component {
   renderOverlayMessage () {
     if (!this.state.videoLoaded && !this.state.videoFailed) {
       return (
-        <span>Loading video &hellip;</span>
+        <span>Loading video&hellip;</span>
       )
     } else {
       return (
-        <span>
-          Hmmm. Looks like I screwed up. <span className="PageEmoji">😰</span>
-        </span>
+        <span>Hmmm. Looks like I screwed up.</span>
       )
     }
   }
 
   render () {
+    document.documentElement.style.setProperty('--color-active', this.props.color)
     return (
       <div>
         <article className="Page">
@@ -189,24 +193,28 @@ class Page extends Component {
             </div>
           </div>
           <div className="PageSecondary">
-            {this.renderMedia()}
-            <div className="PageSecondaryInfo">
-              <div className="PageSecondaryInfoLayout">
-                <div className="PageSecondaryInfoYear">
-                  {this.props.year}
-                </div>
-                <div className="PageSecondaryInfoMain">
-                  <div className="PageSecondaryInfoList">
-                    {(this.props.items) ? this.renderList() : null}
+            <div className="PageSecondaryContent">
+              <div className="PageSecondaryMedia">
+                {this.renderMedia()}
+              </div>
+              <div className="PageSecondaryInfo">
+                <div className="PageSecondaryInfoLayout">
+                  <div className="PageSecondaryInfoYear">
+                    {this.props.year}
                   </div>
-                  {(this.props.action)
-                    ? <ProjectsActionLink
-                      prompt={this.props.action.prompt}
-                      src={this.props.action.src}
-                      variant={(this.props.isCodePen) ? 'codepen' : null}
-                      desktopUI={this.props.desktopUI}
-                    /> : null
-                  }
+                  <div className="PageSecondaryInfoMain">
+                    <div className="PageSecondaryInfoList">
+                      {(this.props.items) ? this.renderList() : null}
+                    </div>
+                    {(this.props.action)
+                      ? <ProjectsActionLink
+                        prompt={this.props.action.prompt}
+                        src={this.props.action.src}
+                        variant={this.props.action.variant}
+                        desktopUI={this.props.desktopUI}
+                      /> : null
+                    }
+                  </div>
                 </div>
               </div>
             </div>

@@ -6,20 +6,12 @@ class ProjectsActionLink extends Component {
   static propTypes = {
     src: PropTypes.string.isRequired,
     prompt: PropTypes.string.isRequired,
-    variant: PropTypes.oneOf(['external', 'codepen']),
+    variant: PropTypes.oneOf(['ExternalLink', 'CodePen', 'Mail']),
     desktopUI: PropTypes.bool
   }
 
   static defaultProps = {
-    variant: 'external'
-  }
-
-  renderIcon () {
-    if (this.props.variant === 'codepen') {
-      return 'CodePen'
-    } else {
-      return 'ExternalLink'
-    }
+    variant: 'ExternalLink'
   }
 
   render () {
@@ -30,7 +22,7 @@ class ProjectsActionLink extends Component {
           ? 'ProjectsActionLink ProjectsActionLink--desktopUI' : 'ProjectsActionLink'
         }
       >
-        <Icon name={this.renderIcon()} color="active" size="small" />
+        <Icon name={this.props.variant} color="active" size="small" />
         <span className="ProjectsActionLinkText">{this.props.prompt}</span>
       </a>
     )

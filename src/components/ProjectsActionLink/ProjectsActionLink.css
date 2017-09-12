@@ -1,15 +1,14 @@
 .ProjectsActionLink {
   display: flex;
   align-items: center;
-  justify-content: center;
   color: var(--color-dark);
   font-family: var(--font-family-display);
   text-transform: uppercase;
-  padding: 0.5rem;
+  padding: 0.75rem;
   background: var(--color-frosted);
   margin: 0.25rem;
   line-height: 1;
-
+  white-space: normal;
 }
 
 .ProjectsActionLink:focus {
@@ -22,5 +21,9 @@
 
 .ProjectsActionLinkText {
   margin-left: 0.5rem;
-  display: inline-block;
+}
+
+/* override top margin if used with infolist :( */
+.PageSecondaryInfoList + .ProjectsActionLink {
+  margin-top: 0;
 }

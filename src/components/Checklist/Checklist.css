@@ -4,7 +4,26 @@
   padding: 0;
 }
 
-.Checklist__Item {
+.ChecklistItem {
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 0.125rem;
+  line-height: 1.25;
+}
+
+.ChecklistItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.ChecklistText {
+  margin-left: 0.5rem;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  transform: translateY(0.125rem);
+}
+
+.ChecklistText > p {
+  margin: 0;
 }

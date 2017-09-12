@@ -16,7 +16,7 @@ class App extends Component {
       '#fc345c',
       '#6d42c7',
       'tomato',
-      '#69be28',
+      '#59a222',
       '#1a8b9d',
       '#fc624d',
       '#616eef'
@@ -41,13 +41,26 @@ class App extends Component {
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
         color={this.renderBackground()}
         media={{
-          src: 'http://ui.specbee.com/sample/bird.mp4',
+          src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
           img: 'http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg',
           alt: 'A picture of me',
           type: 'video'
         }}
-        items={['CSS expert', 'Pixel-perfect eye', 'Hufflepuff']}
-        year="Vital stats"
+        action={{
+          variant: 'Mail',
+          src: 'mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d',
+          prompt: '\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d'
+        }}
+        items={[
+          'Expert __CSS developer__ with a pixel-perfect eye',
+          'Experience building user interfaces in __React__, __Angular__, __Backbone__, and __Rails__',
+          '__Web accessibility__ enthusiast',
+          'Meyers-Briggs: __INFP__',
+          'Hogwarts: __Hufflepuff__'
+        ]}
+        year="411"
+        id={8171975}
+        desktopUI
         details={[
           `But these days I spend my time writing CSS and presentational JavaScript
           at [Instructure](http://www.instructure.com), working on a UI development team

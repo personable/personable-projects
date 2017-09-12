@@ -34,7 +34,7 @@ class Projects extends Component {
   handleResize () {
     const width = window.innerWidth
 
-    if (width >= 1100) {
+    if (width >= 1024) {
       this.setState({
         desktopUI: true,
         showingNav: false
@@ -82,6 +82,8 @@ class Projects extends Component {
       projectData
     } = this.props
 
+    const isCodePen = projectData[this.state.activeIndex].isCodePen
+
     return (
       <Page
         key={`page(${this.state.activeIndex})`}
@@ -100,10 +102,11 @@ class Projects extends Component {
         }}
         action={{
           src: projectData[this.state.activeIndex].action.src,
-          prompt: projectData[this.state.activeIndex].action.prompt
+          prompt: projectData[this.state.activeIndex].action.prompt,
+          variant: (isCodePen) ? 'CodePen' : 'ExternalLink'
         }}
         items={projectData[this.state.activeIndex].items}
-        isCodePen={projectData[this.state.activeIndex].isCodePen}
+        isCodePen={isCodePen}
         year={projectData[this.state.activeIndex].year}
         details={projectData[this.state.activeIndex].details}
         id={this.state.activeIndex}

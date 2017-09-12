@@ -50,11 +50,11 @@ ReactDOM.render(
         name: 'Accessible checkbox toggle',
         color: '#616EEF',
         year: '2013',
-        items: ['Design', 'Front-end development'],
+        items: ['Design', 'Front-end development lets see what happens when this gets a bit longer my friend'],
         isCodePen: true,
         media: {
           alt: 'A picture blah blah blah',
-          img: '/img/poster-twitcha.png'
+          img: 'https://static.pexels.com/photos/132037/pexels-photo-132037.jpeg'
         },
         action: {
           src: 'http://www.google.com',

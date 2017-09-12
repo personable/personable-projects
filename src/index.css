@@ -18,7 +18,7 @@
   --font-family-base: "OpenSans";
   --font-family-display: "OpenSansCond";
   --color-shadow: rgba(0, 0, 0, 0.25);
-  --desktopNavWidth: 11rem;
+  --desktopNavWidth: 10rem;
   --shadow-level-1: 0 0 0.25rem var(--color-shadow);
   --shadow-level-2: 0 0 1rem var(--color-shadow);
   --shadow-level-3: 0 0 2rem var(--color-shadow);
@@ -72,6 +72,7 @@ a {
   color: var(--color-active);
   text-decoration: none;
   outline: none;
+  white-space: nowrap;
 }
 
 a::before,
@@ -106,19 +107,13 @@ a:focus::before {
   transform: scaleY(3);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 @media screen and (min-width: 48rem) {
   :root {
     --root-font-size: 95%;
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1024px) {
   :root {
     --root-font-size: 100%;
     --app-header: 5rem;
@@ -129,7 +124,20 @@ img {
   }
 }
 
-@media screen and (min-width: 75rem) {
+@media screen and (min-width: 1024px) {
   :root {
+    --desktopNavWidth: 11rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  :root {
+    --desktopNavWidth: 14rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    --desktopNavWidth: 17rem;
   }
 }

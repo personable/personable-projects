@@ -22,7 +22,7 @@
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1024px) {
   .AppHeader {
     position: fixed;
     top: 0;

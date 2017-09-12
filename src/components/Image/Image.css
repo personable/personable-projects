@@ -1,0 +1,25 @@
+.Image {
+  display: block;
+}
+
+.Image:not(.Image--loaded) {
+  background: var(--color-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 20rem;
+}
+
+.ImageSrc {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.Image:not(.Image--loaded) .ImageSrc {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

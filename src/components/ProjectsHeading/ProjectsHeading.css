@@ -1,6 +1,5 @@
 .ProjectsHeading {
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 .ProjectsHeadingHeadline {
@@ -12,8 +11,7 @@
   font-size: 3rem;
   letter-spacing: -0.0625rem;
   font-weight: normal;
-  box-shadow: var(--shadow-level-2);
-  padding: 1rem;
+  padding: 1.5rem 0.5rem;
   outline: none;
 }
 
@@ -30,9 +28,10 @@
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1024px) {
   .ProjectsHeading {
     perspective: var(--perspective);
+    margin-bottom: 0.5rem;
   }
 
   .ProjectsHeadingLayout {
@@ -47,10 +46,15 @@
 
   .ProjectsHeadingHeadline {
     padding: 0;
-    font-size: 4.5rem;
     display: inline;
     line-height: 1.2;
     box-shadow:
       -0.25rem 0.25rem 1.5rem rgba(0,0,0,0.2);
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .ProjectsHeadingHeadline {
+    font-size: 4.5rem;
   }
 }
