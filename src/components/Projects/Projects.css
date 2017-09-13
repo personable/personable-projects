@@ -1,4 +1,5 @@
 .Projects {
+  position: relative;
 }
 
 .Projects.Projects--desktopUI .ProjectsLayout {
@@ -37,7 +38,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: var(--color-frosted);
+  background: var(--color-smoke);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,6 +57,5 @@
 }
 
 .Projects.Projects--desktopUI .ProjectsNavMenuListItem {
-  border-bottom-color: var(--color-light);
-  border-bottom: 0.0625rem solid var(--color-light);
+  border-bottom: 0.125rem solid var(--color-light);
 }

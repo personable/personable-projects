@@ -1,18 +1,78 @@
 .PageBackButton {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: none;
-  background: var(--color-dark);
-  color: var(--color-light);
+  background: var(--color-smoke);
+  color: var(--color-frosted);
   display: block;
   width: 100%;
   font-family: var(--font-family-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   text-transform: uppercase;
   position: absolute;
   top: 0;
   left: 0;
+  outline: none;
 }
 
-.PageBackButton:focus {
-  background: lime;
+.PageBackButton:focus .PageBackButtonText {
+  text-decoration: underline;
+}
+
+.PageBackButton:hover .PageBackButtonPatty {
+  opacity: 1;
+}
+
+.PageBackButtonText {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.PageBackButtonBurger {
+  /* rem-based heights not working with inline-block, maybe? */
+  height: 20px;
+  width: 1.5rem;
+  margin-right: 0.75rem;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  transform: translateY(-0.0625rem);
+}
+
+.PageBackButtonPatty {
+  display: block;
+  /* rem-based heights not working with inline-block, maybe? */
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all var(--timing);
+  opacity: 1;
+}
+
+.PageBackButtonPatty:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.PageBackButtonPatty:nth-child(3) {
+  top: auto;
+  bottom: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .PageBackButton {
+    top: auto;
+    bottom: 0;
+    left: 100%;
+    position: fixed;
+    width: auto;
+    z-index: -1;
+  }
+
+  .PageBackButton:focus {
+    left: auto;
+    right: 0;
+  }
 }

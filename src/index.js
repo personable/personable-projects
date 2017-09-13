@@ -48,7 +48,7 @@ ReactDOM.render(
       },
       {
         name: 'Accessible checkbox toggle',
-        color: '#616EEF',
+        color: '#69be28',
         year: '2013',
         items: ['Design', 'Front-end development lets see what happens when this gets a bit longer my friend'],
         isCodePen: true,

@@ -22,7 +22,7 @@ export function gradient (color, direction) {
   if (direction === 'radial') {
     return (
       `
-        radial-gradient(circle at 93.33% 79.49%, ${analogousColors[1]}, ${transparentColors[1]} 55%),
+        radial-gradient(circle at 93.33% 10%, ${analogousColors[2]}, ${transparentColors[2]} 55%),
         radial-gradient(circle at 31.02% 27.95%, ${analogousColors[4]}, ${transparentColors[4]} 76%),
         radial-gradient(circle at 14.53% 78.46%, ${analogousColors[1]}, ${transparentColors[1]} 54%),
         radial-gradient(circle at 44.00% 56.03%, ${analogousColors[2]}, ${transparentColors[2]} 71%),

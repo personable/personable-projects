@@ -6,7 +6,6 @@ import Image from '../Image/Image'
 import ProjectsActionLink from '../ProjectsActionLink/ProjectsActionLink'
 import ProjectsHeading from '../ProjectsHeading/ProjectsHeading'
 import Spinner from '../Spinner/Spinner'
-import PageBackButton from '../PageBackButton/PageBackButton'
 
 import './Page.css'
 
@@ -31,7 +30,6 @@ class Page extends Component {
     details: PropTypes.arrayOf(PropTypes.string),
     year: PropTypes.string,
     id: PropTypes.number,
-    closePage: PropTypes.func,
     desktopUI: PropTypes.bool
   }
 
@@ -172,7 +170,9 @@ class Page extends Component {
   }
 
   render () {
+    // Update the active color CSS var based on the page content
     document.documentElement.style.setProperty('--color-active', this.props.color)
+
     return (
       <div>
         <article className="Page">
@@ -220,14 +220,6 @@ class Page extends Component {
             </div>
           </div>
         </article>
-        {
-          (this.props.closePage)
-            ? <PageBackButton
-              label="Back to projects navigation"
-              onClick={this.props.closePage}
-              id="closer"
-            /> : null
-        }
       </div>
     )
   }

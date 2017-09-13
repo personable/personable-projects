@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Page from '../Page/Page'
 import ProjectsNavButton from '../ProjectsNavButton/ProjectsNavButton'
+import PageBackButton from '../PageBackButton/PageBackButton'
 import FocusTrap from 'focus-trap-react'
 import './Projects.css'
 
@@ -50,6 +51,11 @@ class Projects extends Component {
     return document.getElementById(`ProjectsNavButton${this.state.activeIndex}`)
   }
 
+  focusOnProjectHeading () {
+    setTimeout(() =>
+      document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
+  }
+
   renderProject (index) {
     if (this.state.desktopUI) {
       if (index !== this.state.activeIndex) {
@@ -57,13 +63,13 @@ class Projects extends Component {
           activeIndex: index
         })
       }
-      setTimeout(() => document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
+      this.focusOnProjectHeading()
     } else {
       this.setState({
         activeIndex: index,
         showingNav: false
       })
-      setTimeout(() => document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
+      this.focusOnProjectHeading()
     }
   }
 
@@ -151,31 +157,37 @@ class Projects extends Component {
     )
   }
 
+  renderColors () {
+    const arr = []
+    this.props.projectData.map((project) =>
+      arr.push(project.color)
+    )
+    return arr
+  }
+
   renderButtons () {
-    return (
-      this.props.projectData.map((project, index) =>
-        <li className="ProjectsNavMenuListItem" key={index}>
-          <ProjectsNavButton
-            label={
-              <span>
-                <span className="sr">
-                  {
-                    (index === this.state.activeIndex)
-                    ? 'Current project: ' : 'Open project: '
-                  }
-                </span>
-                {project.name}
+    return this.props.projectData.map((project, index) =>
+      <li className="ProjectsNavMenuListItem" key={index}>
+        <ProjectsNavButton
+          label={
+            <span>
+              <span className="sr">
+                {
+                  (index === this.state.activeIndex)
+                  ? 'Current project: ' : 'Open project: '
+                }
               </span>
-            }
-            color={project.color}
-            active={index === this.state.activeIndex}
-            // eslint-disable-next-line
-            onClick={() => this.renderProject(index)}
-            id={`ProjectsNavButton${index}`}
-            desktopUI={this.state.desktopUI}
-          />
-        </li>
-      )
+              {project.name}
+            </span>
+          }
+          color={project.color}
+          active={index === this.state.activeIndex}
+          // eslint-disable-next-line
+          onClick={() => this.renderProject(index)}
+          id={`ProjectsNavButton${index}`}
+          desktopUI={this.state.desktopUI}
+        />
+      </li>
     )
   }
 
@@ -192,6 +204,15 @@ class Projects extends Component {
             {this.renderContent()}
           </div>
         </div>
+        <PageBackButton
+          text={(this.state.desktopUI) ? 'Skip to Projects menu' : 'Projects menu'}
+          screenreaderText="Go back to Projects navigation"
+          onClick={this.closeProject}
+          id="closer"
+          colors={this.renderColors()}
+          desktopUI={this.state.desktopUI}
+          activeIndex={this.state.activeIndex}
+        />
       </section>
     )
   }

@@ -3,13 +3,13 @@ import './PageBackButton.css'
 
 class PageBackButton extends Component {
   static propTypes = {
-    label: PropTypes.string.isRequired,
+    text: PropTypes.node.isRequired,
+    colors: PropTypes.array.isRequired,
+    activeIndex: PropTypes.number.isRequired,
+    screenreaderText: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     id: PropTypes.string
-  }
-
-  static defaultProps = {
   }
 
   handleClick = (e) => {
@@ -26,10 +26,23 @@ class PageBackButton extends Component {
     }
   }
 
+  checkColor (val) {
+    const white = window.getComputedStyle(document.body).getPropertyValue('--color-clouds')
+
+    if (val == null) {
+      return white
+    } else {
+      return val
+    }
+  }
+
   render () {
     const {
-      label,
-      id
+      text,
+      screenreaderText,
+      id,
+      colors,
+      activeIndex
     } = this.props
 
     return (
@@ -39,7 +52,35 @@ class PageBackButton extends Component {
         onClick={this.handleClick}
         id={id}
       >
-        {label}
+        <span className="PageBackButtonBurger" aria-hidden="true" role="presentation">
+          <span
+            className="PageBackButtonPatty"
+            style={{
+              backgroundColor: this.checkColor(colors[activeIndex - 1])
+            }}
+          >
+          </span>
+          <span
+            className="PageBackButtonPatty"
+            style={{backgroundColor: colors[activeIndex]}}
+          >
+          </span>
+          <span
+            className="PageBackButtonPatty"
+            style={{
+              backgroundColor: this.checkColor(colors[activeIndex + 1])
+            }}
+          >
+          </span>
+        </span>
+        <span
+          className="PageBackButtonText"
+          aria-hidden={(screenreaderText) ? 'true' : 'false'}
+          role={(screenreaderText) ? 'presentation' : ''}
+        >
+          {text}
+        </span>
+        <span className="sr">{screenreaderText}</span>
       </button>
     )
   }

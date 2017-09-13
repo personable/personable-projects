@@ -4,12 +4,11 @@
   margin: 0;
   padding: 1rem 1rem 1rem 1.75rem;
   font-size: 1.5rem;
-  box-sizing: border-box;
   border: none;
   font-family: var(--font-family-display);
   text-transform: uppercase;
   line-height: 1;
-  color: var(--color-dark);
+  color: var(--color-frosted);
   outline: 0;
   background: transparent;
   position: relative;
@@ -24,6 +23,7 @@
 .ProjectsNavButton.ProjectsNavButton--desktopUI {
   font-size: 1rem;
   text-align: left;
+  color: var(--color-dark);
 }
 
 .ProjectsNavButtonFlag {
@@ -41,12 +41,16 @@
 }
 
 .ProjectsNavButton:not(.ProjectsNavButton--desktopUI) .ProjectsNavButtonFlag {
-  opacity: 0;
+  /*opacity: 0;*/
 }
 
 .ProjectsNavButton:not(.ProjectsNavButton--desktopUI):hover .ProjectsNavButtonFlag,
 .ProjectsNavButton:not(.ProjectsNavButton--desktopUI).ProjectsNavButton--active .ProjectsNavButtonFlag {
-  opacity: 1;
+  /*opacity: 1;*/
+}
+
+.ProjectsNavButton:not(.ProjectsNavButton--desktopUI):not(.ProjectsNavButton--active) .ProjectsNavButtonFlag {
+  opacity: 0.5;
 }
 
 .ProjectsNavButton--active.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {
