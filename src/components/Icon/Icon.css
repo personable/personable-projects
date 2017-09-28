@@ -26,6 +26,10 @@
   font-size: var(--icon-size-large);
 }
 
+.Icon--huge {
+  font-size: var(--icon-size-huge);
+}
+
 .Icon--light {
   color: var(--color-light);
 }

@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Projects from '../Projects/Projects'
 import AppFooter from '../AppFooter/AppFooter'
 import AppHeader from '../AppHeader/AppHeader'
+import Billboard from '../Billboard/Billboard'
 import Page from '../Page/Page'
 import './App.css'
 
@@ -14,12 +15,20 @@ class App extends Component {
   renderBackground () {
     const colors = [
       '#fc345c',
-      '#6d42c7',
+      '#FE523F',
       'tomato',
-      '#59a222',
-      '#1a8b9d',
-      '#fc624d',
-      '#616eef'
+      '#9C28DA',
+      '#19CF4D',
+      '#5856E4',
+      '#F92536',
+      '#384FFC',
+      '#488DF5',
+      '#E54D0C',
+      '#5748FE',
+      '#FF3431',
+      '#EA4848',
+      '#05D4A0',
+      '#610FF8'
     ]
     const len = colors.length
     const activeColor = Math.floor(Math.random() * len) + 1
@@ -27,9 +36,16 @@ class App extends Component {
   }
 
   render () {
+    const PageNotFound = () => (
+      <Billboard headline="Page not found" variant="badNews">
+        <p>Sorry! I only made two pages for this site, and I'm afraid this isn't one of them.</p>
+      </Billboard>
+    )
+
     const ProjectPage = () => (
       <Projects projectData={this.props.projectData} />
     )
+
     const AboutPage = () => (
       <Page
         heading={
@@ -60,7 +76,6 @@ class App extends Component {
         ]}
         year="411"
         id={8171975}
-        desktopUI
         details={[
           `But these days I spend my time writing CSS and presentational JavaScript
           at [Instructure](http://www.instructure.com), working on a UI development team
@@ -86,8 +101,11 @@ class App extends Component {
         <div className="App">
           <AppHeader />
           <main className="AppMain">
-            <Route exact path="/" component={ProjectPage} />
-            <Route path="/about" component={AboutPage} />
+            <Switch>
+              <Route exact path="/" component={ProjectPage} />
+              <Route path="/about" component={AboutPage} />
+              <Route component={PageNotFound} />
+            </Switch>
           </main>
           <AppFooter>
             &copy;{new Date().getFullYear()} Personable Design &amp; Dev

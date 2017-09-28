@@ -1,0 +1,35 @@
+.Billboard {
+  color: var(--color-light);
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.BillboardHeadline {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: -0.125rem;
+  line-height: 1;
+  min-width: 1px;
+}
+
+@media screen and (min-width: 1024px) {
+  .Billboard {
+    padding-top: calc(var(--app-header-height) * 1.25);
+  }
+
+  .BillboardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .BillboardHeadline {
+    flex: 0 0 50%;
+    text-align: left;
+  }
+}

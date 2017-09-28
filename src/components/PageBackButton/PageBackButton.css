@@ -1,30 +1,11 @@
 .PageBackButton {
-  padding: 0.75rem;
-  border: none;
-  background: var(--color-smoke);
-  color: var(--color-frosted);
-  display: block;
-  width: 100%;
-  font-family: var(--font-family-display);
-  font-size: 1.125rem;
-  text-transform: uppercase;
   position: absolute;
   top: 0;
   left: 0;
-  outline: none;
-}
-
-.PageBackButton:focus .PageBackButtonText {
-  text-decoration: underline;
-}
-
-.PageBackButton:hover .PageBackButtonPatty {
-  opacity: 1;
-}
-
-.PageBackButtonText {
-  display: inline-block;
-  vertical-align: middle;
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .PageBackButtonBurger {
@@ -63,16 +44,20 @@
 
 @media screen and (min-width: 1024px) {
   .PageBackButton {
-    top: auto;
-    bottom: 0;
+    width: auto;
+    margin: 0;
+  }
+
+  .PageBackButton > .Button {
+    bottom: 0.5rem;
     left: 100%;
     position: fixed;
     width: auto;
-    z-index: -1;
+    z-index: 1;
   }
 
-  .PageBackButton:focus {
+  .PageBackButton > .Button:focus {
     left: auto;
-    right: 0;
+    right: 0.5rem;
   }
 }

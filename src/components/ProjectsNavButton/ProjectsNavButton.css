@@ -1,9 +1,9 @@
 .ProjectsNavButton {
   display: block;
   width: 100%;
-  margin: 0;
-  padding: 1rem 1rem 1rem 1.75rem;
-  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  font-size: 1.25rem;
   border: none;
   font-family: var(--font-family-display);
   text-transform: uppercase;
@@ -12,7 +12,7 @@
   outline: 0;
   background: transparent;
   position: relative;
-  text-align: left;
+  text-align: right;
   overflow: hidden;
 }
 
@@ -24,6 +24,14 @@
   font-size: 1rem;
   text-align: left;
   color: var(--color-dark);
+  min-height: 4rem;
+  padding-left: 1.75rem;
+  margin: 0;
+}
+
+.ProjectsNavButtonText {
+  position: relative;
+  z-index: 1;
 }
 
 .ProjectsNavButtonFlag {
@@ -31,26 +39,34 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 0.75rem;
+  width: 100%;
   height: 100%;
   box-sizing: border-box;
-  transition: all 0.5s;
-  transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-  transform: scale(.66);
+  transition: all var(--timing);
+  transition-timing-function: ease-out;
   transform-origin: left center;
+  -webkit-backface-visibility: hidden;
 }
 
-.ProjectsNavButton:not(.ProjectsNavButton--desktopUI) .ProjectsNavButtonFlag {
-  /*opacity: 0;*/
+.ProjectsNavButton.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {
+  transform: scale(.66);
+  width: 0.75rem;
 }
 
-.ProjectsNavButton:not(.ProjectsNavButton--desktopUI):hover .ProjectsNavButtonFlag,
-.ProjectsNavButton:not(.ProjectsNavButton--desktopUI).ProjectsNavButton--active .ProjectsNavButtonFlag {
-  /*opacity: 1;*/
+.ProjectsNavButton:not(.ProjectsNavButton--active) .ProjectsNavButtonFlag {
+  opacity: 0.5;
+}
+
+.ProjectsNavButton:hover .ProjectsNavButtonFlag {
+  opacity: 1;
 }
 
 .ProjectsNavButton:not(.ProjectsNavButton--desktopUI):not(.ProjectsNavButton--active) .ProjectsNavButtonFlag {
-  opacity: 0.5;
+  transform: scaleX(0.05);
+}
+
+.ProjectsNavButton:not(.ProjectsNavButton--desktopUI):hover .ProjectsNavButtonFlag {
+  transform: scaleX(1);
 }
 
 .ProjectsNavButton--active.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {

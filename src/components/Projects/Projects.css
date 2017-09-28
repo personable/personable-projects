@@ -30,6 +30,13 @@
   pointer-events: none;
 }
 
+@keyframes navEnter {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .ProjectsNavSmallScreens {
   position: fixed;
   top: 0;
@@ -38,16 +45,36 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: var(--color-smoke);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--color-frosted);
+  opacity: 0;
+  transform: translate3d(-25%, 0, 0);
+  transform-origin: left center;
+  animation-name: navEnter;
+  animation-duration: var(--timing);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  overflow: auto;
+}
+
+.ProjectsNavTrap {
+  flex: 1;
+}
+
+.ProjectsNavClose {
+  display: block;
+  padding: 1rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .ProjectsNavMenuList {
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
   list-style-type: none;
+}
+
+.Projects.Projects--desktopUI .ProjectsNavMenuList {
+  padding: 0;
 }
 
 .ProjectsNavMenuListItem {

@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import Button from '../Button/Button'
+import Icon from '../Icon/Icon'
 import Page from '../Page/Page'
 import ProjectsNavButton from '../ProjectsNavButton/ProjectsNavButton'
 import PageBackButton from '../PageBackButton/PageBackButton'
@@ -16,6 +18,7 @@ class Projects extends Component {
     this.closeProject = this.closeProject.bind(this)
     this.handleResize = this.handleResize.bind(this)
     this.returnActiveLink = this.returnActiveLink.bind(this)
+    this.teardownNav = this.teardownNav.bind(this)
 
     this.state = {
       activeIndex: 0,
@@ -56,6 +59,13 @@ class Projects extends Component {
       document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
   }
 
+  teardownNav () {
+    this.setState({
+      showingNav: false
+    })
+    this.focusOnProjectHeading()
+  }
+
   renderProject (index) {
     if (this.state.desktopUI) {
       if (index !== this.state.activeIndex) {
@@ -66,10 +76,9 @@ class Projects extends Component {
       this.focusOnProjectHeading()
     } else {
       this.setState({
-        activeIndex: index,
-        showingNav: false
+        activeIndex: index
       })
-      this.focusOnProjectHeading()
+      this.teardownNav()
     }
   }
 
@@ -113,6 +122,7 @@ class Projects extends Component {
         }}
         items={projectData[this.state.activeIndex].items}
         isCodePen={isCodePen}
+        isProject
         year={projectData[this.state.activeIndex].year}
         details={projectData[this.state.activeIndex].details}
         id={this.state.activeIndex}
@@ -136,9 +146,18 @@ class Projects extends Component {
             <FocusTrap
               focusTrapOptions={{
                 initialFocus: this.returnActiveLink,
-                pause: !this.state.showingNav
+                pause: !this.state.showingNav,
+                onDeactivate: this.teardownNav
               }}
+              className="ProjectsNavTrap"
             >
+              <span className="ProjectsNavClose">
+                <Button variant="dark" onClick={this.teardownNav}>
+                  <Icon color="light" name="X" size="medium" />
+                  Close
+                  <span className="sr"> projects navigation</span>
+                </Button>
+              </span>
               {this.renderNavList()}
             </FocusTrap>
           </div>
@@ -169,16 +188,10 @@ class Projects extends Component {
     return this.props.projectData.map((project, index) =>
       <li className="ProjectsNavMenuListItem" key={index}>
         <ProjectsNavButton
-          label={
-            <span>
-              <span className="sr">
-                {
-                  (index === this.state.activeIndex)
-                  ? 'Current project: ' : 'Open project: '
-                }
-              </span>
-              {project.name}
-            </span>
+          text={project.name}
+          screenreaderText={
+            (index === this.state.activeIndex)
+            ? 'Current project: ' : 'Open project: '
           }
           color={project.color}
           active={index === this.state.activeIndex}

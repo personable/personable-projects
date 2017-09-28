@@ -11,7 +11,7 @@
   font-size: 3rem;
   letter-spacing: -0.0625rem;
   font-weight: normal;
-  padding: 1.5rem 0.5rem;
+  padding: 3rem 0.5rem;
   outline: none;
 }
 
@@ -25,6 +25,13 @@
 @media screen and (min-width: 768px) {
   .ProjectsHeadingHeadline {
     font-size: 3.5rem;
+  }
+}
+
+/* Horrible hack: TODO: Make App component determine the desktopUI bool */
+@media screen and (max-width: 1024px) {
+  .ProjectsHeadingHeadline {
+    background: transparent !important;
   }
 }
 

@@ -25,7 +25,7 @@ class ProjectsHeading extends Component {
             className="ProjectsHeadingHeadline"
             tabIndex="-1"
             id={this.props.id}
-            style={(this.props.desktopUI) ? background : null}
+            style={background}
           >
             {this.props.text}
           </h1>

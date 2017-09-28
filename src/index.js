@@ -64,6 +64,44 @@ ReactDOM.render(
           'This only has an image.',
           'I wonder what it looks like ?!'
         ]
+      },
+      {
+        name: 'Some awesome CodePen',
+        color: '#6C5070',
+        year: '2016',
+        items: ['Design', 'Front-end development'],
+        isCodePen: true,
+        media: {
+          alt: 'A picture blah blah blah',
+          img: 'https://cdn.pixabay.com/photo/2015/07/31/15/01/guitar-869217_1280.jpg'
+        },
+        action: {
+          src: 'http://www.google.com',
+          prompt: 'Check out the CodePen'
+        },
+        details: [
+          'This only has an image.',
+          'I wonder what it looks like ?!'
+        ]
+      },
+      {
+        name: 'Instructure UI library',
+        color: '#008EE2',
+        year: '2016',
+        items: ['Front-end development'],
+        media: {
+          alt: 'A picture blah blah blah',
+          src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
+          img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
+        },
+        action: {
+          src: 'http://instructure.github.io/instructure-ui/',
+          prompt: 'Instructure-UI'
+        },
+        details: [
+          'This only has an image.',
+          'I wonder what it looks like ?!'
+        ]
       }
     ]}
   />,

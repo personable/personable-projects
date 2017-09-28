@@ -3,7 +3,9 @@ import './ProjectsNavButton.css'
 
 class ProjectsNavButton extends Component {
   static propTypes = {
-    label: PropTypes.node.isRequired,
+    text: PropTypes.node.isRequired,
+    screenreaderText: PropTypes.string,
+    label: PropTypes.node,
     color: PropTypes.string,
     active: PropTypes.bool,
     onClick: PropTypes.func,
@@ -49,7 +51,8 @@ class ProjectsNavButton extends Component {
 
   render () {
     const {
-      label,
+      text,
+      screenreaderText,
       color,
       id
     } = this.props
@@ -70,7 +73,13 @@ class ProjectsNavButton extends Component {
           className="ProjectsNavButtonFlag"
           style={background}
         ></span>
-        {label}
+        {
+          (screenreaderText)
+          ? <span className="sr">{screenreaderText}</span> : null
+        }
+        <span className="ProjectsNavButtonText">
+          {text}
+        </span>
       </button>
     )
   }

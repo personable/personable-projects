@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import marked from 'marked'
 import { gradient } from '../../util/gradient'
+import Background from '../Background/Background'
 import Checklist from '../Checklist/Checklist'
 import Image from '../Image/Image'
 import ProjectsActionLink from '../ProjectsActionLink/ProjectsActionLink'
@@ -27,6 +28,7 @@ class Page extends Component {
     }),
     items: PropTypes.arrayOf(PropTypes.string),
     isCodePen: PropTypes.bool,
+    isProject: PropTypes.bool,
     details: PropTypes.arrayOf(PropTypes.string),
     year: PropTypes.string,
     id: PropTypes.number,
@@ -36,6 +38,7 @@ class Page extends Component {
   static defaultProps = {
     mediaType: 'image',
     isCodePen: false,
+    isProject: false,
     color: 'rebeccapurple'
   }
 
@@ -115,10 +118,6 @@ class Page extends Component {
     }
   }
 
-  handleImage () {
-
-  }
-
   handleVideo (timer) {
     const video = document.getElementById(`video${this.props.id}`)
 
@@ -133,7 +132,7 @@ class Page extends Component {
       this.setState({
         videoAttempts: this.state.videoAttempts + 1
       })
-    // If the video is either not there or taking over 10 seconds...
+    // If the video is either not there or taking over 15 seconds...
     } else {
       clearInterval(timer)
       this.setState({
@@ -175,11 +174,8 @@ class Page extends Component {
 
     return (
       <div>
-        <article className="Page">
-          <span
-            style={{background: gradient(this.props.color, 'radial')}}
-            className="PageBackground">
-          </span>
+        <article className={(this.props.isProject) ? 'Page Page--isProject' : 'Page'}>
+          <Background color={this.props.color} desktopUI={this.props.desktopUI} />
           <div className="PagePrimary">
             <ProjectsHeading
               id={this.headingID}

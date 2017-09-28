@@ -5,7 +5,7 @@ class Icon extends Component {
   static propTypes = {
     label: PropTypes.string,
     name: PropTypes.oneOf(['CodePen', 'GitHub', 'X', 'Check', 'Mail', 'ExternalLink']),
-    size: PropTypes.oneOf(['xSmall', 'small', 'medium', 'large']),
+    size: PropTypes.oneOf(['xSmall', 'small', 'medium', 'large', 'huge']),
     color: PropTypes.oneOf(['dark', 'light', 'active'])
   }
 

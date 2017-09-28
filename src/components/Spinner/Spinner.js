@@ -16,7 +16,7 @@ class Spinner extends Component {
     return (
       <div className={`Spinner Spinner--${this.props.color}`}>
         <span className="SpinnerAnimation">
-          <Icon size="large" color="light" />
+          <Icon size="large" color={this.props.color} />
         </span>
         <span className="SpinnerMessage">{this.props.message}</span>
       </div>

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Button from '../Button/Button'
 import './PageBackButton.css'
 
 class PageBackButton extends Component {
@@ -27,7 +28,7 @@ class PageBackButton extends Component {
   }
 
   checkColor (val) {
-    const white = window.getComputedStyle(document.body).getPropertyValue('--color-clouds')
+    const white = window.getComputedStyle(document.body).getPropertyValue('--color-shadow')
 
     if (val == null) {
       return white
@@ -46,42 +47,42 @@ class PageBackButton extends Component {
     } = this.props
 
     return (
-      <button
-        type="button"
-        className="PageBackButton"
-        onClick={this.handleClick}
-        id={id}
-      >
-        <span className="PageBackButtonBurger" aria-hidden="true" role="presentation">
-          <span
-            className="PageBackButtonPatty"
-            style={{
-              backgroundColor: this.checkColor(colors[activeIndex - 1])
-            }}
-          >
-          </span>
-          <span
-            className="PageBackButtonPatty"
-            style={{backgroundColor: colors[activeIndex]}}
-          >
-          </span>
-          <span
-            className="PageBackButtonPatty"
-            style={{
-              backgroundColor: this.checkColor(colors[activeIndex + 1])
-            }}
-          >
-          </span>
-        </span>
-        <span
-          className="PageBackButtonText"
-          aria-hidden={(screenreaderText) ? 'true' : 'false'}
-          role={(screenreaderText) ? 'presentation' : ''}
+      <span className="PageBackButton">
+        <Button
+          onClick={this.handleClick}
+          id={id}
         >
-          {text}
-        </span>
-        <span className="sr">{screenreaderText}</span>
-      </button>
+          <span className="PageBackButtonBurger" aria-hidden="true" role="presentation">
+            <span
+              className="PageBackButtonPatty"
+              style={{
+                backgroundColor: this.checkColor(colors[activeIndex - 1])
+              }}
+            >
+            </span>
+            <span
+              className="PageBackButtonPatty"
+              style={{backgroundColor: colors[activeIndex]}}
+            >
+            </span>
+            <span
+              className="PageBackButtonPatty"
+              style={{
+                backgroundColor: this.checkColor(colors[activeIndex + 1])
+              }}
+            >
+            </span>
+          </span>
+          <span
+            className="PageBackButtonText"
+            aria-hidden={(screenreaderText) ? 'true' : 'false'}
+            role={(screenreaderText) ? 'presentation' : ''}
+          >
+            {text}
+          </span>
+          <span className="sr">{screenreaderText}</span>
+        </Button>
+      </span>
     )
   }
 }

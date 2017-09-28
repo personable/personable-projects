@@ -24,7 +24,7 @@
   margin: 0 auto;
 }
 
-.PagePrimary {
+.Page--isProject .PagePrimary {
   padding-top: 3rem;
 }
 
@@ -139,12 +139,6 @@
   font-size: 1.5rem;
 }
 
-@media screen and (min-width: 768px) {
-  .PagePrimary {
-    padding-top: 4rem;
-  }
-}
-
 @media screen and (min-width: 1024px) {
   .Page {
     padding: 0;
@@ -156,6 +150,21 @@
     margin: 0;
   }
 
+  .PagePrimary {
+    padding: 1rem 0.5rem 1rem 0;
+    flex: 1;
+  }
+
+  .Page--isProject .PagePrimary {
+    padding-top: 1rem;
+  }
+
+  .PageSecondary {
+    flex: 1;
+    padding: 1rem 0 1rem 0.5rem;
+    padding-top: calc(var(--app-header-height) + 1.75rem);
+  }
+
   .PageSecondaryContent {
     position: sticky;
   }
@@ -164,35 +173,9 @@
     margin: 0;
   }
 
-  .PageVideoContainer {
-    /*height: 400px;
-    overflow: hidden;*/
-  }
-
-  .PageVideo {
-    /*object-fit: cover;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;*/
-  }
-
   .Page {
     display: flex;
     min-height: 100vh;
-  }
-
-  .PagePrimary {
-    padding: 1rem 0.5rem 1rem 0;
-    flex: 1;
-  }
-
-  .PageSecondary {
-    flex: 1;
-    padding: 1rem 0 1rem 0.5rem;
-    padding-top: calc(var(--app-header) * 1.25);
   }
 }
 

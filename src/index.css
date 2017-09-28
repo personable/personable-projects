@@ -7,18 +7,24 @@
   --color-clouds: rgba(255, 255, 255, 0.66);
   --color-frosted: rgba(255, 255, 255, 0.95);
   --color-smoke: rgba(0, 0, 0, 0.75);
+  --color-dirty-oven: rgba(0, 0, 0, 0.9);
   --color-dark: #333;
   --color-active: rebeccapurple;
-  --app-header: 4rem;
+  --color-info: #2382f8;
+  --color-bad-news: #fa3f40;
+  --color-good-news: #59d66f;
+  --app-header-height: 4rem;
   --icon-size-xSmall: 1rem;
   --icon-size-small: 1.5rem;
-  --icon-size-medium: 3rem;
+  --icon-size-medium: 2rem;
   --icon-size-large: 5rem;
+  --icon-size-huge: 12rem;
   --timing: 0.3s;
   --font-family-base: "OpenSans";
   --font-family-display: "OpenSansCond";
   --color-shadow: rgba(0, 0, 0, 0.25);
   --desktopNavWidth: 10rem;
+  --shadow-level-0: inset 0 0.0625rem 0.25rem var(--color-shadow);
   --shadow-level-1: 0 0 0.25rem var(--color-shadow);
   --shadow-level-2: 0 0 1rem var(--color-shadow);
   --shadow-level-3: 0 0 2rem var(--color-shadow);
@@ -65,6 +71,8 @@ button {
   user-select: none;
   touch-action: manipulation;
   box-sizing: border-box;
+  margin: 0;
+  -webkit-backface-visibility: hidden;
 }
 
 a {
@@ -117,7 +125,7 @@ a:focus::before {
 @media screen and (min-width: 1024px) {
   :root {
     --root-font-size: 100%;
-    --app-header: 5rem;
+    --app-header-height: 5rem;
   }
 
   body {
