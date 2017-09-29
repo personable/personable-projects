@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import marked from 'marked'
-import { gradient } from '../../util/gradient'
 import Background from '../Background/Background'
 import Checklist from '../Checklist/Checklist'
 import Image from '../Image/Image'
@@ -120,6 +119,7 @@ class Page extends Component {
 
   handleVideo (timer) {
     const video = document.getElementById(`video${this.props.id}`)
+    video.removeAttribute('autoPlay')
 
     // If the video is in the DOM, and ready to play...
     if (video && video.readyState > 3) {

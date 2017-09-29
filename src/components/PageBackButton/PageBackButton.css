@@ -16,7 +16,7 @@
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  transform: translateY(-0.0625rem);
+  transform: translateY(-0.125rem);
 }
 
 .PageBackButtonPatty {

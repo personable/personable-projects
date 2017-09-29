@@ -1,14 +1,14 @@
 .ProjectsNavButton {
   display: block;
   width: 100%;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  font-size: 1.25rem;
+  padding: 1rem 0 1rem 1.75rem;
+  font-size: 1.125rem;
+  min-height: 4rem;
   border: none;
   font-family: var(--font-family-display);
   text-transform: uppercase;
   line-height: 1;
-  color: var(--color-frosted);
+  color: var(--color-dark);
   outline: 0;
   background: transparent;
   position: relative;
@@ -23,10 +23,7 @@
 .ProjectsNavButton.ProjectsNavButton--desktopUI {
   font-size: 1rem;
   text-align: left;
-  color: var(--color-dark);
-  min-height: 4rem;
-  padding-left: 1.75rem;
-  margin: 0;
+  padding-right: 1rem;
 }
 
 .ProjectsNavButtonText {
@@ -48,7 +45,7 @@
   -webkit-backface-visibility: hidden;
 }
 
-.ProjectsNavButton.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {
+.ProjectsNavButton .ProjectsNavButtonFlag {
   transform: scale(.66);
   width: 0.75rem;
 }
@@ -61,18 +58,11 @@
   opacity: 1;
 }
 
-.ProjectsNavButton:not(.ProjectsNavButton--desktopUI):not(.ProjectsNavButton--active) .ProjectsNavButtonFlag {
-  transform: scaleX(0.05);
-}
-
-.ProjectsNavButton:not(.ProjectsNavButton--desktopUI):hover .ProjectsNavButtonFlag {
-  transform: scaleX(1);
-}
-
 .ProjectsNavButton--active.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {
   transform: translate3d(calc(var(--desktopNavWidth) - 0.75rem), 0, 0);
 }
 
-.ProjectsNavButton.ProjectsNavButton--desktopUI:not(.ProjectsNavButton--active):hover .ProjectsNavButtonFlag {
+.ProjectsNavButton:not(.ProjectsNavButton--active):hover .ProjectsNavButtonFlag,
+.ProjectsNavButton--active .ProjectsNavButtonFlag {
   transform: scale(1);
 }

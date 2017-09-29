@@ -91,7 +91,7 @@ ReactDOM.render(
         items: ['Front-end development'],
         media: {
           alt: 'A picture blah blah blah',
-          src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
+          src: 'https://www.w3schools.com/tags/movie.mp4',
           img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
         },
         action: {

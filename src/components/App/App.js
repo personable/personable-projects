@@ -36,6 +36,9 @@ class App extends Component {
   }
 
   render () {
+    const browserIsIE =
+      navigator.userAgent.indexOf('Edge') !== -1 || navigator.userAgent.indexOf('MSIE') !== -1
+
     const PageNotFound = () => (
       <Billboard headline="Page not found" variant="badNews">
         <p>Sorry! I only made two pages for this site, and I'm afraid this isn't one of them.</p>
@@ -96,23 +99,34 @@ class App extends Component {
         ]}
       />
     )
-    return (
-      <Router>
-        <div className="App">
-          <AppHeader />
-          <main className="AppMain">
-            <Switch>
-              <Route exact path="/" component={ProjectPage} />
-              <Route path="/about" component={AboutPage} />
-              <Route component={PageNotFound} />
-            </Switch>
-          </main>
-          <AppFooter>
-            &copy;{new Date().getFullYear()} Personable Design &amp; Dev
-          </AppFooter>
-        </div>
-      </Router>
-    )
+    if (!browserIsIE) {
+      return (
+        <Router>
+          <div className="App">
+            <AppHeader />
+            <main className="AppMain">
+              <Switch>
+                <Route exact path="/" component={ProjectPage} />
+                <Route path="/about" component={AboutPage} />
+                <Route component={PageNotFound} />
+              </Switch>
+            </main>
+            <AppFooter>
+              &copy;{new Date().getFullYear()} Personable Design &amp; Dev
+            </AppFooter>
+          </div>
+        </Router>
+      )
+    } else {
+      return (
+        <Billboard headline="Dear Internet Explorer & Edge">
+          <p>I spend a <strong>lot</strong> of time at my job working
+          around your various limitations, and I wanted my personal site to be a fun escape
+          from all that.</p>
+          <p>Keep up the good work, though, and once you're up to speed, it's on!</p>
+        </Billboard>
+      )
+    }
   }
 }
 
