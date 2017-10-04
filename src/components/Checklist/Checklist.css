@@ -9,8 +9,11 @@
   padding: 0;
   display: flex;
   align-items: flex-start;
-  margin: 0 0 0.125rem;
-  line-height: 1.25;
+  margin: 0 0 0.25rem;
+}
+
+.ChecklistItem > .Icon {
+  margin-top: -0.125rem;
 }
 
 .ChecklistItem:last-of-type {
@@ -20,8 +23,6 @@
 .ChecklistText {
   margin-left: 0.5rem;
   font-size: 0.9375rem;
-  text-transform: uppercase;
-  transform: translateY(0.125rem);
 }
 
 .ChecklistText > p {

@@ -3,7 +3,7 @@
 }
 
 .Image:not(.Image--loaded) {
-  background: var(--color-shadow);
+  background: var(--color-smoke);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Background from '../Background/Background'
 import Icon from '../Icon/Icon'
 import './Billboard.css'
@@ -27,12 +28,15 @@ class Billboard extends Component {
   }
 
   render () {
+    // make content at least readable for old browsers
+    const browserSupportsCSSVars = window.CSS && window.CSS.supports && window.CSS.supports('--hi-mom', 0)
+
     const color = window.getComputedStyle(document.body).getPropertyValue(`--color-${this.translateColor()}`)
     document.documentElement.style.setProperty('--color-active', color)
 
     return (
       <section className={`Billboard Billboard--${this.props.variant}`}>
-        <Background color={color} />
+        { browserSupportsCSSVars ? <Background color={color} /> : null}
         <header className="BillboardHeader">
           <Icon size="huge" color="light" name={this.props.icon} />
           <h1 className="BillboardHeadline">{this.props.headline}</h1>

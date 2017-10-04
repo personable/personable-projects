@@ -66,21 +66,21 @@ ReactDOM.render(
         ]
       },
       {
-        name: 'Some awesome CodePen',
-        color: '#6C5070',
+        name: 'SVG Spin Cycle',
+        color: '#5f5ffe',
         year: '2016',
         items: ['Design', 'Front-end development'],
         isCodePen: true,
         media: {
           alt: 'A picture blah blah blah',
-          img: 'https://cdn.pixabay.com/photo/2015/07/31/15/01/guitar-869217_1280.jpg'
+          img: '/img/poster-spin-cycle.png'
         },
         action: {
-          src: 'http://www.google.com',
+          src: 'https://codepen.io/personable/pen/jPMXPv',
           prompt: 'Check out the CodePen'
         },
         details: [
-          'This only has an image.',
+          'CodePen is great for vetting long-shot ideas. Most of the time, these vision quests are quietly deleted before anyone can stumble upon the embarrassing wreckage of what, in my head, was going to be amazing. Once in a while, though, things work out. Spin Cycle is my favorite CodePen by a long shot.',
           'I wonder what it looks like ?!'
         ]
       },

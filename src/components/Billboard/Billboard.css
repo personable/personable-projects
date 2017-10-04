@@ -1,6 +1,6 @@
 .Billboard {
   color: var(--color-light);
-  max-width: 36rem;
+  max-width: 32rem;
   margin: 0 auto;
   padding: 2rem 1rem;
   text-align: center;
@@ -9,12 +9,25 @@
 
 .BillboardHeadline {
   margin: 0;
+  font-family: "OpenSansCond", sans-serif;
   font-family: var(--font-family-display);
   font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: -0.125rem;
   line-height: 1;
   min-width: 1px;
+}
+
+.BillboardHeadline--info {
+  background: var(--color-info);
+}
+
+.BillboardHeadline--badNews {
+  background: var(--color-bad-news);
+}
+
+.BillboardHeadline--goodNews {
+  background: var(--color-good-news);
 }
 
 @media screen and (min-width: 1024px) {

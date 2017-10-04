@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import marked from 'marked'
 import Background from '../Background/Background'
 import Checklist from '../Checklist/Checklist'

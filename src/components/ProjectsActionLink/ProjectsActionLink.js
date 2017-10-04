@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './ProjectsActionLink.css'
 import Icon from '../Icon/Icon'
 
@@ -21,6 +22,7 @@ class ProjectsActionLink extends Component {
         className={(this.props.desktopUI)
           ? 'ProjectsActionLink ProjectsActionLink--desktopUI' : 'ProjectsActionLink'
         }
+        target="_blank"
       >
         <Icon name={this.props.variant} color="active" size="small" />
         <span className="ProjectsActionLinkText">{this.props.prompt}</span>

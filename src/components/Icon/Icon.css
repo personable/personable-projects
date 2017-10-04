@@ -11,23 +11,46 @@
 }
 
 .Icon--xSmall {
-  font-size: var(--icon-size-xSmall);
+  font-size: 1rem;
 }
 
 .Icon--small {
-  font-size: var(--icon-size-small);
+  font-size: 1.5rem;
 }
 
 .Icon--medium {
-  font-size: var(--icon-size-medium);
+  font-size: 2rem;
 }
 
 .Icon--large {
-  font-size: var(--icon-size-large);
+  font-size: 5rem;
 }
 
 .Icon--huge {
-  font-size: var(--icon-size-huge);
+  font-size: 12rem;
+}
+
+/* IE will at least get the right icon size when we tell it to go away */
+@supports (--foo: hi-mom) {
+  .Icon--xSmall {
+    font-size: var(--icon-size-xSmall);
+  }
+
+  .Icon--small {
+    font-size: var(--icon-size-small);
+  }
+
+  .Icon--medium {
+    font-size: var(--icon-size-medium);
+  }
+
+  .Icon--large {
+    font-size: var(--icon-size-large);
+  }
+
+  .Icon--huge {
+    font-size: var(--icon-size-huge);
+  }
 }
 
 .Icon--light {

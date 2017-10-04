@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Projects from '../Projects/Projects'
 import AppFooter from '../AppFooter/AppFooter'
@@ -12,33 +13,7 @@ class App extends Component {
     projectData: PropTypes.array.isRequired
   }
 
-  renderBackground () {
-    const colors = [
-      '#fc345c',
-      '#FE523F',
-      'tomato',
-      '#9C28DA',
-      '#19CF4D',
-      '#5856E4',
-      '#F92536',
-      '#384FFC',
-      '#488DF5',
-      '#E54D0C',
-      '#5748FE',
-      '#FF3431',
-      '#EA4848',
-      '#05D4A0',
-      '#610FF8'
-    ]
-    const len = colors.length
-    const activeColor = Math.floor(Math.random() * len) + 1
-    return colors[activeColor - 1]
-  }
-
   render () {
-    const browserIsIE =
-      navigator.userAgent.indexOf('Edge') !== -1 || navigator.userAgent.indexOf('MSIE') !== -1
-
     const PageNotFound = () => (
       <Billboard headline="Page not found" variant="badNews">
         <p>Sorry! I only made two pages for this site, and I'm afraid this isn't one of them.</p>
@@ -58,7 +33,7 @@ class App extends Component {
           </span>
         }
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
-        color={this.renderBackground()}
+        color="#EA4848"
         media={{
           src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
           img: 'http://www.airfields-freeman.com/TX/GreaterSW_TX_field_02.jpg',
@@ -80,26 +55,20 @@ class App extends Component {
         year="411"
         id={8171975}
         details={[
-          `But these days I spend my time writing CSS and presentational JavaScript
-          at [Instructure](http://www.instructure.com), working on a UI development team
-          that bridges product and engineering.`,
-          `On any given workday, you might find me bringing a design mockup to life in
-          the browser, helping a project team get its CSS off to a good start, contributing
-          to Instructure's [growing library](http://instructure.github.io/instructure-ui)
-          of accessible UI components, or simply figuring out why [blank] is broken in IE.
-          I think what I do is called
-          [UI developer](https://stackoverflow.com/questions/9700286/whats-the-difference-between-a-frontend-vs-ui-developer),
-          [front-end designer](http://bradfrost.com/blog/post/frontend-design), or
-          [design technologist](https://medium.com/interactive-mind/the-rise-of-the-design-technologist-e9516aa821a0)
-          these days? Whatever it is, the combination of creativity and code fits me perfectly,
-          and I love it!`,
-          `Let's see -- what else? I live with my wife and daughter in Portland, Maine, self-identify
-          as a Hufflepuff, and [play music](http://firstinmaths.bandcamp.com), just like every other
-          annoying web guy.`
+          `__But these days I focus on CSS and javascript as a UI Developer at [Instructure](http://www.instructure.com), helping bridge the gap between product design and engineering.__ I think what I do is also called a [front-end designer](http://bradfrost.com/blog/post/frontend-design) or [design technologist](https://medium.com/interactive-mind/the-rise-of-the-design-technologist-e9516aa821a0)? Whatever it is, the combination of code and creativity fits me perfectly, and I love it!`,
+          `__I did, however, begin my career as a visual designer__, so I’m probably more surprised than anyone that I ended up tapping around inside a text editor for a living. However, once I discovered CSS (I think I managed to change a background color), it was a done deal: I was hooked, obsessed! Futzing around with Photoshop layers to create a static mockup instantly paled in comparison to wiring up a living, breathing design, *right in the browser*.`,
+          `Following that epiphany, I set about gobbling up as much CSS knowledge as I could, working slowly through the frustrations of layout and positioning, and relentlessly chasing down obscure hacks for Internet Explorer. __I’ve been writing CSS professionally for almost 10 years now__, and it’s still my favorite thing. Over the past few years, however, as front-end development has evolved, I’ve been forced to make some room in my heart for javascript, which currently feels as exciting and frustrating (and slightly addictive) as CSS did when I was first picking it up.`,
+          `__Web accessibility is another area I've grown into professionally.__ I used to think I was a hero for remembering to put \`alt\` attributes on images and \`:focus\` states on buttons. When I arrived at Instructure, however, it was a shock to discover that everything I shipped now had to be usable by keyboard-only navigation and three different screen readers. Fortunately, I have been able to level up under the tutelage of some of the most knowledgeable and patient developers and QA engineers in the business. I still find myself Googling ARIA attributes on a regular basis, but I’ve come a long way from my days of willful ignorance about accessibility. While we’re on the subject, __this site should be navigable by keyboard or screenreader__: Please let me know if you find that’s not true.`,
+          `Let’s see, what else? __I live in Portland, Maine, with my family.__ I’m a proud dad and a somewhat sheepish [dad rocker](http://firstinmaths.bandcamp.com). I eat a lot of cereal. I’ve had this domain name for almost 10 years now — dating back to the start of my career as a print and web graphic designer. I chose personable because . Even though my path has led away from design since then, I try hard to make sure the personable part`
         ]}
       />
     )
-    if (!browserIsIE) {
+
+    // First, hide content from Edge and other old browsers
+    const browserSupportsCSSVars = window.CSS && window.CSS.supports && window.CSS.supports('--hi-mom', 0)
+    const browserIsEdge = navigator.userAgent.indexOf('Edge') !== -1
+
+    if (browserSupportsCSSVars && !browserIsEdge) {
       return (
         <Router>
           <div className="App">

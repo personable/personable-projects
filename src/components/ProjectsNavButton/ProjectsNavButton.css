@@ -1,7 +1,7 @@
 .ProjectsNavButton {
   display: block;
   width: 100%;
-  padding: 1rem 0 1rem 1.75rem;
+  padding: 1rem 1rem 1rem 1.75rem;
   font-size: 1.125rem;
   min-height: 4rem;
   border: none;
@@ -56,6 +56,11 @@
 
 .ProjectsNavButton:hover .ProjectsNavButtonFlag {
   opacity: 1;
+}
+
+.ProjectsNavButton--active,
+.ProjectsNavButton:hover {
+  background: var(--color-dust);
 }
 
 .ProjectsNavButton--active.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {
