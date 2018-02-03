@@ -21,7 +21,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
-    "marked": "0.3.6",
+    "marked": "0.3.9",
     "react-scripts": "1.0.13"
   },
   "scripts": {
