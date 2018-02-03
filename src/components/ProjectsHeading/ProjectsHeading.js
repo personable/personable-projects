@@ -17,10 +17,7 @@ class ProjectsHeading extends Component {
     }
 
     return (
-      <header
-        className={(this.props.desktopUI)
-          ? 'ProjectsHeading ProjectsHeading--desktopUI' : 'ProjectsHeading'}
-      >
+      <header className="ProjectsHeading">
         <div className="ProjectsHeadingLayout">
           <h1
             className="ProjectsHeadingHeadline"

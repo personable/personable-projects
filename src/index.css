@@ -1,5 +1,6 @@
 :root {
   --root-font-size: 90%;
+
   --color-text: #222;
   --color-body: white;
   --color-light: white;
@@ -15,22 +16,27 @@
   --color-info: #2382f8;
   --color-bad-news: #fa3f40;
   --color-good-news: #59d66f;
+
   --app-header-height: 4rem;
+
   --icon-size-xSmall: 1rem;
   --icon-size-small: 1.5rem;
   --icon-size-medium: 2rem;
   --icon-size-large: 5rem;
   --icon-size-huge: 12rem;
-  --timing: 0.3s;
+
   --font-family-base: "OpenSans";
   --font-family-display: "OpenSansCond";
+
   --desktopNavWidth: 10rem;
   --shadow-level-0: inset 0 0.0625rem 0.25rem var(--color-smoke);
   --shadow-level-1: 0 0 0.25rem var(--color-shadow);
   --shadow-level-2: 0 0 1rem var(--color-shadow);
   --shadow-level-3: 0 0 2rem var(--color-shadow);
+
   --perspective: 60rem;
-  height: 100%;
+  --timing: 0.3s;
+
   font-size: var(--root-font-size);
 }
 
@@ -40,7 +46,6 @@
 }
 
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -50,6 +55,8 @@ body {
   line-height: 1.4;
 }
 
+:root,
+body,
 #root {
   height: 100%;
 }
@@ -136,7 +143,7 @@ code {
   font-family: "Monaco", "Consolas", monospace;
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 768px) {
   :root {
     --root-font-size: 95%;
   }
@@ -146,16 +153,11 @@ code {
   :root {
     --root-font-size: 100%;
     --app-header-height: 5rem;
+    --desktopNavWidth: 11rem;
   }
 
   body {
     --color-body: #333;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  :root {
-    --desktopNavWidth: 11rem;
   }
 }
 

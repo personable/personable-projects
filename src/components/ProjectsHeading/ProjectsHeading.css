@@ -39,16 +39,18 @@
   .ProjectsHeading {
     perspective: var(--perspective);
     margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .ProjectsHeadingLayout {
     opacity: 0;
     transform: translateX(-50%) scale(0.5) rotate3d(0, 1, 0, 180deg);
     animation: projectsHeading;
-    animation-duration: 0.3s;
+    animation-duration: var(--timing);
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
-    animation-delay: 0.5s;
+    animation-delay: calc(var(--timing) * 2);
   }
 
   .ProjectsHeadingHeadline {

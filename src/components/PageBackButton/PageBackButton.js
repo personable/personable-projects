@@ -62,7 +62,7 @@ class PageBackButton extends Component {
             >
             </span>
             <span
-              className="PageBackButtonPatty"
+              className="PageBackButtonPatty PageBackButtonPatty--active"
               style={{backgroundColor: colors[activeIndex]}}
             >
             </span>

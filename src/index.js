@@ -13,8 +13,8 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         isCodePen: false,
         media: {
-          alt: 'A picture blah blah blah',
-          src: 'https://www.w3schools.com/html/mov_bbb.mp4?fart=0',
+          alt: 'Selected examples from the Clubworx design comp and front-end implementation',
+          src: '/video/screencast-clubworx.mp4?dl=0',
           img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
         },
         action: {
