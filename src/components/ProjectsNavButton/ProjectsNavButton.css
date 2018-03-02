@@ -40,7 +40,7 @@
   height: 100%;
   box-sizing: border-box;
   transition: all var(--timing);
-  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.465, 0.930, 0.560, 1.265);
   transform-origin: left center;
   -webkit-backface-visibility: hidden;
 }

@@ -65,8 +65,10 @@ class App extends Component {
     )
 
     // First, hide content from Edge and other old browsers
-    const browserSupportsCSSVars = window.CSS && window.CSS.supports && window.CSS.supports('--hi-mom', 0)
+    const browserSupportsCSSVars = window.CSS && window.CSS.supports
     const browserIsEdge = navigator.userAgent.indexOf('Edge') !== -1
+
+    console.log(window.CSS.supports('--fakevar', 0))
 
     if (browserSupportsCSSVars && !browserIsEdge) {
       return (

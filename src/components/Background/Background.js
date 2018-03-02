@@ -13,9 +13,14 @@ class Background extends Component {
     return (
       <span
         className={(this.props.desktopUI) ? 'Background Background--desktopUI' : 'Background'}
-        style={{background: gradient(this.props.color, 'radial')}}
+        style={{background: this.props.color}}
         aria-hidden="true"
-      ></span>
+      >
+        <span
+          className="BackgroundInner"
+          style={{background: gradient(this.props.color, 'radial')}}
+        />
+      </span>
     )
   }
 }

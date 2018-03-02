@@ -107,6 +107,7 @@
 
 .PageDetail:first-of-type {
   font-size: 1.125rem;
+  font-weight: bold;
 }
 
 .PageDetail:first-of-type::first-letter {
@@ -131,7 +132,16 @@
   font-size: 1.5rem;
 }
 
+.PageImageLink {
+  white-space: normal;
+}
+
 @media screen and (min-width: 768px) {
+  .PageBody {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .PageSecondaryInfoLayout {
     display: flex;
   }
@@ -177,7 +187,7 @@
   .PageSecondary {
     flex: 1;
     padding: 1rem 0 1rem 0.5rem;
-    padding-top: calc(var(--app-header-height) + 1.75rem);
+    padding-top: var(--app-header-offset);
   }
 
   .PageSecondaryContent,
@@ -192,15 +202,17 @@
   .PageSecondaryContent {
     position: sticky;
     top: calc(var(--app-header-height) + 1.75rem);
-    transform: translate3d(0, 3rem, 0);
-    animation-delay: calc(var(--timing) * 1.5);
+    transform: translate3d(-3rem, 0, 0);
+    animation-delay: calc(var(--timing) * 3.5);
   }
 
   .PageBody {
     margin: 0;
     opacity: 0;
-    transform: translate3d(0, 3rem, 0);
-    animation-delay: var(--timing);
+    transform: translate3d(3rem, 0, 0);
+    animation-delay: calc(var(--timing) * 3.5);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .Page {

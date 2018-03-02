@@ -113,7 +113,13 @@ class Page extends Component {
       )
     } else {
       return (
-        <Image src={this.props.media.img} alt={this.props.media.alt} />
+        <a
+          href={this.props.action.src}
+          title={this.props.action.prompt}
+          className="PageImageLink"
+        >
+          <Image src={this.props.media.img} alt={this.props.media.alt} />
+        </a>
       )
     }
   }
