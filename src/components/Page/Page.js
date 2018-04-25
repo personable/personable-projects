@@ -55,18 +55,27 @@ class Page extends Component {
   }
 
   componentDidMount () {
+    // there are 3 animations using the --timing var fired BEFORE we want the video to play
+    const timing = window.getComputedStyle(document.documentElement).getPropertyValue('--timing')
+    const timingNum = Number(timing.slice(0, -1))
+    const videoWaitTime = Math.round((timingNum * 3) * 100) * 10
+
     document.title = this.props.title
 
     if (this.props.media.src) {
-      const timer = setInterval(() => {
-        this.handleVideo(timer)
-      }, 1000)
-      this.setState({timer: timer})
+      const timeout = setTimeout(() => {
+        const timer = setInterval(() => {
+          this.handleVideo(timer)
+        }, 1000)
+        this.setState({timer: timer})
+      }, videoWaitTime)
+      this.setState({timeout: timeout})
     }
   }
 
   componentWillUnmount () {
     if (this.props.media.src) {
+      clearTimeout(this.state.timeout)
       clearInterval(this.state.timer)
     }
   }

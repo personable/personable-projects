@@ -219,10 +219,6 @@
     display: flex;
     min-height: 100vh;
   }
-
-  .PageDetail:last-of-type {
-    padding-bottom: 2.5rem;
-  }
 }
 
 @media screen and (min-width: 1300px) {
