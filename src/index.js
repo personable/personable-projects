@@ -126,8 +126,22 @@ ReactDOM.render(
           prompt: 'Check out the CodePen'
         },
         details: [
-          'CodePen is great for vetting long-shot ideas. Most of the time, these vision quests are quietly deleted before anyone can stumble upon the embarrassing wreckage of what, in my head, was going to be amazing. Once in a while, though, things work out. Spin Cycle is my favorite CodePen by a long shot.',
-          'I wonder what it looks like ?!'
+          `CodePen is great for trying out random/long-shot ideas. Most of the time,
+          I quietly delete these vision quests before anyone can stumble upon the
+          embarrassing wreckage of what, in my head, was going to be amazing.
+          Once in a while, though, things work out, and the Pen gets saved.`,
+          `This Pen came about because I wanted to see if I could create a
+          classic spinner by animating SVG paths with CSS. Not the most original
+          idea, but it was fun to figure out. Once that was done, it occurred to me
+          that it would be cool to be able to turn _any_ simple SVG into a spinner
+          by applying a CSS class to it &#151; so you could do things like serve up a
+          unique spinner for each section of an app by just updating the icon.`,
+          `Then my occasional need to abstract everything to the point where only
+          I can understand it kicked in, and a couple of pretty impenetrable Sass
+          mixins later, I had a finished product. The end result looks pretty good &#151;
+          although looking back at it now, all that Sass would have been a lot more
+          digestible inside a component, with the animation parameters passed in
+          as properties.`
         ]
       },
       {
