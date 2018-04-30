@@ -18,7 +18,7 @@ class App extends Component {
   render () {
     const PageNotFound = () => (
       <Billboard headline="Page not found" variant="badNews">
-        <p>Sorry! I only made two pages for this site, and I'm afraid this isn't one of them.</p>
+        <p>Sorry! I only made three pages for this site, and I'm afraid this isn't one of them.</p>
       </Billboard>
     )
 
@@ -81,8 +81,8 @@ class App extends Component {
             <AppHeader />
             <main className="AppMain">
               <Switch>
-                <Route exact path="/" component={ProjectPage} />
-                <Route path="/about" component={AboutPage} />
+                <Route exact path="/" component={AboutPage} />
+                <Route path="/project" component={ProjectPage} />
                 <Route path="/resume" component={ResumePage} />
                 <Route component={PageNotFound} />
               </Switch>

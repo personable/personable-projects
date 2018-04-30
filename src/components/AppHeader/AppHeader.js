@@ -17,20 +17,20 @@ class AppHeader extends Component {
               <NavLink
                 exact
                 to="/"
-                title="Projects"
+                title="About"
                 className="AppNav__Link"
                 activeClassName="AppNav__Link--Active">
-                  Projects
+                  About
               </NavLink>
             </li>
             <li className="AppNav__ListItem">
               <NavLink
                 exact
-                to="/about"
-                title="About"
+                to="/project"
+                title="Projects"
                 className="AppNav__Link"
                 activeClassName="AppNav__Link--Active">
-                  About
+                  Projects
               </NavLink>
             </li>
             <li className="AppNav__ListItem AppNav__ListItem--Icon">
