@@ -32,3 +32,9 @@
   transform: translate3d(0, 0, 0);
   transform-origin: left center;
 }
+
+@media print {
+  .Background {
+    display: none;
+  }
+}

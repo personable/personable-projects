@@ -5,6 +5,68 @@ import './index.css'
 
 ReactDOM.render(
   <App
+    resumeData={[
+      {
+        employer: 'Instructure',
+        employerDetail: 'Acquired 12 Spokes in 2014',
+        title: 'Senior UX Developer',
+        term: '2014 - present',
+        logo: {
+          src: '/img/logo-instructure.png',
+          type: 'rect'
+        },
+        duties: [
+          `Write javascript and CSS for new components in Instructure's React UI library.`,
+          `Add features to — and fix bugs in — existing components.`,
+          `Work with product design to identify requirements for new components`,
+          `Mediate conflicts between design and engineering related to UI implementation.`,
+          `Help maintain legacy Rails/Sass codebase.`,
+          `Serve as go-to CSS resource/Internet Explorer whisperer.`
+        ]
+      },
+      {
+        employer: '12 Spokes',
+        title: 'Front-end designer',
+        term: '2011 - 2014',
+        logo: {
+          src: '/img/logo-12spokes.png',
+          type: 'square'
+        },
+        duties: [
+          `Served as designer and CSS developer for web applications built on one
+          or more of the following technologies: Rails, Backbone, Angular and Ember.`,
+          'Created javascript prototypes and paired with developers to implement them in production-ready code.',
+          'Participated in code reviews, project estimations, and managed client budget and expectations as part of project team.'
+        ]
+      },
+      {
+        employer: 'Cuddledown',
+        title: 'Web designer',
+        term: '2009 - 2011',
+        logo: {
+          src: '/img/logo-cuddledown.gif',
+          type: 'rect'
+        },
+        duties: [
+          'Created and coded page displays for cuddledown.com on the MarketLive eCommerce Platform.',
+          'Designed and coded weekly HTML emails/newsletters.',
+          'Created custom Wordpress theme for company blog.'
+        ]
+      },
+      {
+        employer: 'British Telecom',
+        title: 'Graphic/web designer',
+        term: '2005 - 2009',
+        logo: {
+          src: '/img/logo-bt.png',
+          type: 'square'
+        },
+        duties: [
+          'Created user guides, posters, web graphics, Flash demos and banners, HTML emails, and site page designs.',
+          'Collaborated with developers in both marketing and IT to provide interface design, CSS, and copy for large-scale web projects.'
+        ]
+      }
+    ]}
     projectData={[
       {
         name: 'ClubWorx Gym Management',
@@ -15,7 +77,7 @@ ReactDOM.render(
         media: {
           alt: 'Selected examples from the Clubworx design comp and front-end implementation',
           src: '/video/screencast-clubworx.mp4?dl=0',
-          img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
+          img: '/img/poster-clubworx.png'
         },
         action: {
           src: 'http://clubworx.com',

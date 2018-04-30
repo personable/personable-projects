@@ -1,9 +1,9 @@
 :root {
   --root-font-size: 90%;
 
-  --color-text: #222;
-  --color-body: white;
   --color-light: white;
+  --color-medium: #666;
+  --color-dark: #333;
   --color-seethru: rgba(255, 255, 255, 0.2);
   --color-clouds: rgba(255, 255, 255, 0.66);
   --color-frosted: rgba(255, 255, 255, 0.95);
@@ -11,7 +11,6 @@
   --color-shadow: rgba(0, 0, 0, 0.2);
   --color-smoke: rgba(0, 0, 0, 0.75);
   --color-dirty-oven: rgba(0, 0, 0, 0.9);
-  --color-dark: #333;
   --color-active: rebeccapurple;
   --color-info: #2382f8;
   --color-bad-news: #fa3f40;
@@ -49,7 +48,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   font-family: var(--font-family-base), sans-serif;
   background: var(--color-dark);
   color: var(--color-dark);
@@ -130,6 +128,21 @@ a:focus::before {
   transform: scaleY(3);
 }
 
+h2 {
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: normal;
+  margin: 1.5rem 0;
+  line-height: 1.2;
+}
+
+h3 {
+  font-family: var(--font-family-display), sans-serif;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
 code {
   display: inline-block;
   white-space: nowrap;
@@ -144,6 +157,12 @@ code {
   font-family: "Monaco", "Consolas", monospace;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media screen and (min-width: 768px) {
   :root {
     --root-font-size: 95%;
@@ -156,10 +175,6 @@ code {
     --app-header-height: 5rem;
     --desktopNavWidth: 11rem;
   }
-
-  body {
-    --color-body: #333;
-  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -171,5 +186,15 @@ code {
 @media screen and (min-width: 1500px) {
   :root {
     --desktopNavWidth: 17rem;
+  }
+}
+
+@media print {
+  :root {
+    --color-dark: black;
+  }
+
+  body {
+    background: transparent;
   }
 }

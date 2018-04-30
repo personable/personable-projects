@@ -6,11 +6,13 @@ import AppFooter from '../AppFooter/AppFooter'
 import AppHeader from '../AppHeader/AppHeader'
 import Billboard from '../Billboard/Billboard'
 import Page from '../Page/Page'
+import Resume from '../Resume/Resume'
 import './App.css'
 
 class App extends Component {
   static propTypes = {
-    projectData: PropTypes.array.isRequired
+    projectData: PropTypes.array.isRequired,
+    resumeData: PropTypes.array.isRequired
   }
 
   render () {
@@ -64,6 +66,10 @@ class App extends Component {
       />
     )
 
+    const ResumePage = () => (
+      <Resume resumeData={this.props.resumeData} />
+    )
+
     // First, hide content from Edge and other old browsers
     const browserSupportsCSSVars = window.CSS && window.CSS.supports
     const browserIsEdge = navigator.userAgent.indexOf('Edge') !== -1
@@ -77,6 +83,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={ProjectPage} />
                 <Route path="/about" component={AboutPage} />
+                <Route path="/resume" component={ResumePage} />
                 <Route component={PageNotFound} />
               </Switch>
             </main>

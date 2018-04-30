@@ -234,3 +234,32 @@
     padding: 0 1.5rem;
   }
 }
+
+@media print {
+  .PageBody {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .PageDetail {
+    padding: 1rem 0;
+    border-bottom: none;
+  }
+
+  .PageDetail:first-of-type::first-letter,
+  .PageSecondaryInfoYear {
+    color: var(--color-dark);
+  }
+
+  .PageSecondaryContent {
+    box-shadow: none;
+  }
+
+  .PageSecondaryMedia {
+    padding: 0;
+  }
+
+  .PageSecondaryInfoYear {
+    display: block;
+  }
+}

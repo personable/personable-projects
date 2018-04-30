@@ -15,6 +15,6 @@
     bottom: 0;
     background: var(--color-frosted);
     box-shadow: var(--shadow-level-3);
-    color: var(--color-text);
+    color: var(--color-dark);
   }
 }

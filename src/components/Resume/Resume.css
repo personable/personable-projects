@@ -1,0 +1,97 @@
+.Resume {
+  padding: 1.5rem 0;
+}
+
+.Resume > *:first-child {
+  margin-top: 0;
+}
+
+.Resume > *:last-child {
+  margin-bottom: 0;
+}
+
+.ResumeHeading {
+  text-align: center;
+  margin: 3rem 0 1rem;
+}
+
+.ResumeList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ResumeListItem {
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  border-top: 0.125rem solid var(--color-active);
+}
+
+.ResumeListHeadingDetail {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: small;
+  font-weight: normal;
+  color: var(--color-medium);
+}
+
+.ResumeListImage {
+  margin-bottom: 1rem;
+  background: white;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-level-1);
+}
+
+.ResumeListImage--rect {
+  width: 10rem;
+}
+
+.ResumeListImage--square {
+  width: 7rem;
+}
+
+html[dir="ltr"] .ResumeListImage {
+  float: right;
+  margin-left: 1rem;
+}
+
+html[dir="rtl"] .ResumeListImage {
+  float: left;
+  margin-right: 1rem;
+}
+
+.ResumeListHeading {
+  margin: 0 0 0.5rem;
+}
+
+.ResumeListSubHeading {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.ResumeSubList {
+  list-style-type: disc;
+  margin-top: 0.5rem;
+}
+
+.ResumeSubListItem {
+  margin: 0 0 0.25rem;
+}
+
+.ResumeListTime {
+  grid-column: 4 / span 2;
+  font-style: italic;
+  text-align: end;
+}
+
+@media print {
+  .ResumeHeading {
+    text-align: start;
+  }
+
+  .ResumeListImage {
+    box-shadow: none;
+    padding: 0;
+  }
+}

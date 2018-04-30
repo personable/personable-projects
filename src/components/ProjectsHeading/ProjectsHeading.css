@@ -67,3 +67,16 @@
     font-size: 4.5rem;
   }
 }
+
+@media print {
+  .ProjectsHeadingHeadline {
+    background: transparent !important;
+    color: var(--color-dark);
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .ProjectsHeading {
+    text-align: start;
+  }
+}

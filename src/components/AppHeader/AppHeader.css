@@ -75,3 +75,9 @@
 .AppNav__Link:focus::before {
   opacity: 1;
 }
+
+@media print {
+  .AppHeader {
+    display: none;
+  }
+}

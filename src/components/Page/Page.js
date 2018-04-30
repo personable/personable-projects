@@ -29,7 +29,10 @@ class Page extends Component {
     items: PropTypes.arrayOf(PropTypes.string),
     isCodePen: PropTypes.bool,
     isProject: PropTypes.bool,
-    details: PropTypes.arrayOf(PropTypes.string),
+    details: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.node
+    ]),
     year: PropTypes.string,
     id: PropTypes.number,
     desktopUI: PropTypes.bool
@@ -189,50 +192,50 @@ class Page extends Component {
     document.documentElement.style.setProperty('--color-active', this.props.color)
 
     return (
-      <div>
-        <article className={(this.props.isProject) ? 'Page Page--isProject' : 'Page'}>
-          <Background color={this.props.color} desktopUI={this.props.desktopUI} />
-          <div className="PagePrimary">
-            <ProjectsHeading
-              id={this.headingID}
-              text={this.props.heading}
-              color={this.props.color}
-              desktopUI={this.props.desktopUI}
-            />
-            <div className="PageBody">
-              {(this.props.details) ? this.renderDetails() : null}
-              {this.props.children}
-            </div>
+      <article className={(this.props.isProject) ? 'Page Page--isProject' : 'Page'}>
+        <Background color={this.props.color} desktopUI={this.props.desktopUI} />
+        <div className="PagePrimary">
+          <ProjectsHeading
+            id={this.headingID}
+            text={this.props.heading}
+            color={this.props.color}
+            desktopUI={this.props.desktopUI}
+          />
+          <div className="PageBody">
+            {(this.props.details) ? this.renderDetails() : null}
+            {this.props.children}
           </div>
-          <div className="PageSecondary">
-            <div className="PageSecondaryContent">
-              <div className="PageSecondaryMedia">
-                {this.renderMedia()}
-              </div>
-              <div className="PageSecondaryInfo">
-                <div className="PageSecondaryInfoLayout">
-                  <div className="PageSecondaryInfoYear">
-                    {this.props.year}
+        </div>
+        <div className="PageSecondary">
+          <div className="PageSecondaryContent">
+            <div className="PageSecondaryMedia">
+              {this.renderMedia()}
+            </div>
+            <div className="PageSecondaryInfo">
+              <div className="PageSecondaryInfoLayout">
+                {
+                  (this.props.year)
+                    ? <div className="PageSecondaryInfoYear">{this.props.year}</div>
+                    : null
+                }
+                <div className="PageSecondaryInfoMain">
+                  <div className="PageSecondaryInfoList">
+                    {(this.props.items) ? this.renderList() : null}
                   </div>
-                  <div className="PageSecondaryInfoMain">
-                    <div className="PageSecondaryInfoList">
-                      {(this.props.items) ? this.renderList() : null}
-                    </div>
-                    {(this.props.action)
-                      ? <ProjectsActionLink
-                        prompt={this.props.action.prompt}
-                        src={this.props.action.src}
-                        variant={this.props.action.variant}
-                        desktopUI={this.props.desktopUI}
-                      /> : null
-                    }
-                  </div>
+                  {(this.props.action)
+                    ? <ProjectsActionLink
+                      prompt={this.props.action.prompt}
+                      src={this.props.action.src}
+                      variant={this.props.action.variant}
+                      desktopUI={this.props.desktopUI}
+                    /> : null
+                  }
                 </div>
               </div>
             </div>
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
     )
   }
 }

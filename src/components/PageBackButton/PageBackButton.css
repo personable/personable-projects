@@ -58,3 +58,9 @@
     right: 0.5rem;
   }
 }
+
+@media print {
+  .PageBackButton {
+    display: none;
+  }
+}

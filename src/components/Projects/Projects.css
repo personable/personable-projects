@@ -94,3 +94,10 @@
   display: block;
   border-bottom: 0.125rem solid var(--color-light);
 }
+
+@media print {
+  .ProjectsNavDesktop,
+  .ProjectsNavSmallScreens {
+    display: none;
+  }
+}
