@@ -82,7 +82,7 @@ class App extends Component {
             <main className="AppMain">
               <Switch>
                 <Route exact path="/" component={AboutPage} />
-                <Route path="/project" component={ProjectPage} />
+                <Route path="/projects" component={ProjectPage} />
                 <Route path="/resume" component={ResumePage} />
                 <Route component={PageNotFound} />
               </Switch>
