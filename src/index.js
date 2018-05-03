@@ -16,9 +16,9 @@ ReactDOM.render(
           type: 'rect'
         },
         duties: [
-          `Write javascript and CSS for new components in Instructure's React UI library.`,
+          `Write CSS and javascript for new components in Instructure's React UI library.`,
           `Add features to — and fix bugs in — existing components.`,
-          `Work with product design to identify requirements for new components`,
+          `Work with product design to identify requirements for new components.`,
           `Mediate conflicts between design and engineering related to UI implementation.`,
           `Help maintain legacy Rails/Sass codebase.`,
           `Serve as go-to CSS resource/Internet Explorer whisperer.`
@@ -36,7 +36,8 @@ ReactDOM.render(
           `Served as designer and CSS developer for web applications built on one
           or more of the following technologies: Rails, Backbone, Angular and Ember.`,
           'Created javascript prototypes and paired with developers to implement them in production-ready code.',
-          'Participated in code reviews, project estimations, and managed client budget and expectations as part of project team.'
+          'Participated in code reviews and project estimations.',
+          'Managed client budget and expectations as part of project team.'
         ]
       },
       {
@@ -76,7 +77,7 @@ ReactDOM.render(
         isCodePen: false,
         media: {
           alt: 'Selected examples from the Clubworx design comp and front-end implementation',
-          src: '/video/screencast-clubworx.mp4?dl=0',
+          src: '/video/screencast-clubworx.mp4',
           img: '/img/poster-clubworx.png'
         },
         action: {
@@ -93,7 +94,7 @@ ReactDOM.render(
           for this MVP, I settled on using the Sass build of Bootstrap as the basis for the
           style guide, and added custom checkboxes, toggles, and radio buttons to make the many
           form-heavy views more attractive.`,
-          `Shortly after I'd finished the styleguide and &#151; working in tandem
+          `Shortly after I'd finished the style guide and &#151; working in tandem
           with an Angular developer &#151; a couple of initial features, 12 Spokes was acquired,
           and I was off the project and on to new things at Instructure. I'm still proud of the
           design and style guide development work, and wish I could have seen the whole thing through.`
@@ -132,7 +133,7 @@ ReactDOM.render(
         media: {
           alt: 'A picture blah blah blah',
           src: '/video/screencast-twitcha.mp4',
-          img: '/img/poster-twitcha.png'
+          img: '/img/poster-twitcha.jpg'
         },
         action: {
           src: 'http://twitcha.personabledesign.com',
@@ -213,7 +214,7 @@ ReactDOM.render(
         items: ['Front-end development'],
         media: {
           alt: 'A picture blah blah blah',
-          src: 'https://www.w3schools.com/tags/movie.mp4',
+          src: '/video/screencast-instui.mp4',
           img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
         },
         action: {
@@ -228,8 +229,8 @@ ReactDOM.render(
           language support. The educational institutions Instructure serves quite rightly have
           stringent accessibility requirements: All components need to work in the three most
           popular screen readers, meet WCAG color contrast requirements, and be usable by
-          keyboard-only users. In short, I can’t overstate how much I’ve learned about web development by being part
-          of the talented team that puts Instructure UI together.`,
+          keyboard-only users. I can’t overstate how much I’ve learned about web development by being part
+          of the talented team that puts Instructure UI together!`,
           `My main contributions to Instructure UI have been design- and CSS-heavy components like
           [Progress](http://instructure.github.io/instructure-ui/#Progress),
           [Badge](http://instructure.github.io/instructure-ui/#Badge),

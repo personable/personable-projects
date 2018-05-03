@@ -108,18 +108,22 @@ class Page extends Component {
 
   renderMedia () {
     if (this.props.media.src) {
+      // If video won't load, just serve Image instead
+      const giveUpOnVideo = !this.state.videoLoaded && this.state.videoFailed
       return (
         <div className="PageVideoContainer">
-          <video
-            id={`video${this.props.id}`}
-            loop
-            muted
-            autoPlay
-            poster={this.props.media.img}
-            className={(this.state.videoLoaded) ? 'PageVideo PageVideo--loaded' : 'PageVideo'}
-          >
-            <source src={this.props.media.src} type="video/mp4" />
-          </video>
+          { (!giveUpOnVideo)
+            ? <video
+              id={`video${this.props.id}`}
+              loop
+              muted
+              autoPlay
+              poster={this.props.media.img}
+              className={(this.state.videoLoaded) ? 'PageVideo PageVideo--loaded' : 'PageVideo'}
+            >
+              <source src={this.props.media.src} type="video/mp4" />
+            </video> : null
+          }
           {this.renderVideoOverlay()}
         </div>
       )
@@ -138,7 +142,6 @@ class Page extends Component {
 
   handleVideo (timer) {
     const video = document.getElementById(`video${this.props.id}`)
-    video.removeAttribute('autoPlay')
 
     // If the video is in the DOM, and ready to play...
     if (video && video.readyState > 3) {
@@ -161,28 +164,30 @@ class Page extends Component {
   }
 
   renderVideoOverlay () {
-    if (!this.state.videoLoaded || this.state.videoFailed) {
+    if (!this.state.videoLoaded && !this.state.videoFailed) {
       return (
-        <span className="PageVideoOverlay">
+        <span className="PageVideoOverlay" aria-live="polite">
           <Spinner
             message={this.renderOverlayMessage()}
             color="light"
           />
         </span>
       )
+    } else if (!this.state.videoLoaded && this.state.videoFailed) {
+      return <Image src={this.props.media.img} alt={this.props.media.alt} />
     } else {
       return null
     }
   }
 
   renderOverlayMessage () {
-    if (!this.state.videoLoaded && !this.state.videoFailed) {
+    if (this.state.videoAttempts < 12) {
       return (
         <span>Loading video&hellip;</span>
       )
     } else {
       return (
-        <span>Hmmm. Looks like I screwed up.</span>
+        <span>Sorry! The video's not loading.</span>
       )
     }
   }

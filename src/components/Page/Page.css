@@ -169,12 +169,6 @@
     padding: 0;
   }
 
-  .PagePrimary,
-  .PageSecondary {
-    max-width: none;
-    margin: 0;
-  }
-
   .PagePrimary {
     padding: 1rem 0.5rem 1rem 0;
     flex: 1;
