@@ -20,7 +20,7 @@ ReactDOM.render(
           `Add features to — and fix bugs in — existing components.`,
           `Work with product design to identify requirements for new components.`,
           `Mediate conflicts between design and engineering related to UI implementation.`,
-          `Help maintain legacy Rails/Sass codebase.`,
+          `Maintain and update legacy Rails/Sass code.`,
           `Serve as go-to CSS resource/Internet Explorer whisperer.`
         ]
       },
@@ -107,8 +107,8 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         isCodePen: false,
         media: {
-          alt: 'Minimal METRO home page',
-          src: 'http://personabledesign.com/assets/video/projects-metro.mp4',
+          alt: 'Minimal METRO home page screenshot',
+          src: '/video/screencast-metro.mp4',
           img: '/img/poster-metro.png'
         },
         action: {
@@ -131,7 +131,7 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         isCodePen: false,
         media: {
-          alt: 'A picture blah blah blah',
+          alt: 'Screenshot of Twitcha',
           src: '/video/screencast-twitcha.mp4',
           img: '/img/poster-twitcha.jpg'
         },
@@ -154,7 +154,7 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         isCodePen: true,
         media: {
-          alt: 'Sreenshot of Accessible Checkbox Toggle CodePen',
+          alt: 'Screenshot of Accessible Checkbox Toggle CodePen',
           img: '/img/poster-toggles.png'
         },
         action: {
@@ -181,7 +181,7 @@ ReactDOM.render(
         items: ['Design', 'Front-end development'],
         isCodePen: true,
         media: {
-          alt: 'A picture blah blah blah',
+          alt: 'Screenshot of Spin Cycle CodePen',
           img: '/img/poster-spin-cycle2.png'
         },
         action: {
@@ -213,9 +213,9 @@ ReactDOM.render(
         year: '2016',
         items: ['Front-end development'],
         media: {
-          alt: 'A picture blah blah blah',
+          alt: 'Instructure UI',
           src: '/video/screencast-instui.mp4',
-          img: 'https://www.watfordfc.com/sites/default/files/social-hero-deeney_0.jpg'
+          img: '/img/poster-instui.jpg'
         },
         action: {
           src: 'http://instructure.github.io/instructure-ui/',
