@@ -1,6 +1,6 @@
 {
   "name": "personable-projects",
-  "version": "0.1.0",
+  "version": "1.0",
   "private": true,
   "dependencies": {
     "eslint": "^3.19.0",
