@@ -77,7 +77,7 @@ ReactDOM.render(
         isCodePen: false,
         media: {
           alt: 'Selected examples from the Clubworx design comp and front-end implementation',
-          src: '/video/screencast-clubworx.mp4',
+          src: '/video/screencast-clubworx-low.mp4',
           img: '/img/poster-clubworx.png'
         },
         action: {
@@ -108,7 +108,7 @@ ReactDOM.render(
         isCodePen: false,
         media: {
           alt: 'Minimal METRO home page screenshot',
-          src: '/video/screencast-metro.mp4',
+          src: '/video/screencast-metro-low.mp4',
           img: '/img/poster-metro.png'
         },
         action: {
@@ -132,7 +132,7 @@ ReactDOM.render(
         isCodePen: false,
         media: {
           alt: 'Screenshot of Twitcha',
-          src: '/video/screencast-twitcha.mp4',
+          src: '/video/screencast-twitcha-low.mp4',
           img: '/img/poster-twitcha.jpg'
         },
         action: {
@@ -214,7 +214,7 @@ ReactDOM.render(
         items: ['Front-end development'],
         media: {
           alt: 'Instructure UI',
-          src: '/video/screencast-instui.mp4',
+          src: '/video/screencast-instui-low.mp4',
           img: '/img/poster-instui.jpg'
         },
         action: {

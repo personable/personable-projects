@@ -115,9 +115,10 @@ class Page extends Component {
           { (!giveUpOnVideo)
             ? <video
               id={`video${this.props.id}`}
-              loop
-              muted
               autoPlay
+              muted
+              loop
+              playsInline
               poster={this.props.media.img}
               className={(this.state.videoLoaded) ? 'PageVideo PageVideo--loaded' : 'PageVideo'}
             >
@@ -181,7 +182,7 @@ class Page extends Component {
   }
 
   renderOverlayMessage () {
-    if (this.state.videoAttempts < 12) {
+    if (this.state.videoAttempts < 14) {
       return (
         <span>Loading video&hellip;</span>
       )
