@@ -27,3 +27,10 @@
 .PageSecondaryInfoList + .ProjectsActionLink {
   margin-top: 0;
 }
+
+@media screen and (min-width: 1024px) {
+  .ProjectsActionLink {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+}

@@ -179,13 +179,22 @@ img {
 
 @media screen and (min-width: 1300px) {
   :root {
+    --root-font-size: 105%;
     --desktopNavWidth: 14rem;
   }
 }
 
 @media screen and (min-width: 1500px) {
   :root {
+    --root-font-size: 110%;
     --desktopNavWidth: 17rem;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  :root {
+    --root-font-size: 115%;
+    --desktopNavWidth: 19rem;
   }
 }
 
