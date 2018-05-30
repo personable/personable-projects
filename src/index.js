@@ -16,7 +16,7 @@ ReactDOM.render(
           type: 'rect'
         },
         duties: [
-          `Write CSS and javascript for new components in Instructure's React UI library.`,
+          `Write CSS and JavaScript for new components in Instructure's React UI library.`,
           `Add features to — and fix bugs in — existing components.`,
           `Work with product design to identify requirements for new components.`,
           `Mediate conflicts between design and engineering related to UI implementation.`,

@@ -55,7 +55,7 @@ class Resume extends Component {
           prompt: '\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d'
         }}
         items={[
-          'Expert __CSS developer__ with a design background',
+          'Expert __CSS developer__ with a design background and solid JavaScript skills',
           'Experience building user interfaces in __React__, __Angular__, __Backbone__, and __Rails__',
           'Skilled at __Illustrator__ and __Photoshop__',
           'Meyers-Briggs: __INFP__',
