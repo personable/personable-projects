@@ -148,6 +148,34 @@ ReactDOM.render(
         ]
       },
       {
+        name: 'Hart DataWorks',
+        color: '#834496',
+        year: '2018',
+        items: ['Design'],
+        isCodePen: false,
+        media: {
+          alt: 'Selected examples from the Clubworx design comp and front-end implementation',
+          src: '/video/screencast-hart-low.mp4',
+          img: '/img/poster-hart.png'
+        },
+        action: {
+          src: 'https://www.hartdataworks.com',
+          prompt: 'hartdataworks.com'
+        },
+        details: [
+          `My sister, Vicki, is really smart. She quit her mechanical engineering job to get a doctorate
+          in epidemiology and biostatistics. After she finished her PhD, she started Hart DataWorks, and asked
+          me if I'd create the logo.`,
+          `Hart DataWorks helps its clients by distilling their mountains of data into something
+          approachable, actionable, and even enjoyable. I tried to convey Vicki's
+          fresh, personal approach to statistical interpretation with bright, friendly colors not
+          usually associated with data analytics companies.`,
+          `I balanced the fun colors and playful recessed pie chart mark with a
+          buttoned-up type treatment (using the timeless Proxima Nova) appropriate for a consultancy
+          whose reputation hinges on rigorous analysis and accurate results.`
+        ]
+      },
+      {
         name: 'Accessible checkbox toggle',
         color: '#00ac19',
         year: '2013',
