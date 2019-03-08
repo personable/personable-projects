@@ -58,21 +58,15 @@ class PageBackButton extends Component {
               className="PageBackButtonPatty"
               style={{
                 backgroundColor: this.checkColor(colors[activeIndex - 1])
-              }}
-            >
-            </span>
+              }} />
             <span
               className="PageBackButtonPatty PageBackButtonPatty--active"
-              style={{backgroundColor: colors[activeIndex]}}
-            >
-            </span>
+              style={{backgroundColor: colors[activeIndex]}} />
             <span
               className="PageBackButtonPatty"
               style={{
                 backgroundColor: this.checkColor(colors[activeIndex + 1])
-              }}
-            >
-            </span>
+              }} />
           </span>
           <span
             className="PageBackButtonText"

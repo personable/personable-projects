@@ -68,21 +68,23 @@ class App extends Component {
       <Resume resumeData={this.props.resumeData} />
     )
 
-    // First, hide content from Edge and other old browsers
+    // First, hide content from old browsers
     const browserSupportsCSSVars = window.CSS && window.CSS.supports
-    const browserIsEdge = navigator.userAgent.indexOf('Edge') !== -1
+    // const browserIsEdge = navigator.userAgent.indexOf('Edge') !== -1
 
-    if (browserSupportsCSSVars && !browserIsEdge) {
+    if (browserSupportsCSSVars) {
       return (
         <Router>
           <div className="App">
             <AppHeader />
             <main className="AppMain">
               <Switch>
+                { /* eslint-disable react/jsx-no-bind */ }
                 <Route exact path="/" component={AboutPage} />
                 <Route path="/projects" component={ProjectPage} />
                 <Route path="/resume" component={ResumePage} />
                 <Route component={PageNotFound} />
+                { /* eslint-enable react/jsx-no-bind */ }
               </Switch>
             </main>
             <AppFooter>
@@ -93,11 +95,11 @@ class App extends Component {
       )
     } else {
       return (
-        <Billboard headline="Dear Internet Explorer & Edge">
+        <Billboard headline="Dear Internet Explorer">
           <p>I spend a <strong>lot</strong> of time at my job working
           around your various limitations, and I wanted my personal site to be a fun escape
           from all that.</p>
-          <p>Keep up the good work, though, and once you're up to speed, it's on!</p>
+          <p>Rust in peace, my friend. love, Chris</p>
         </Billboard>
       )
     }

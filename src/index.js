@@ -125,6 +125,31 @@ ReactDOM.render(
         ]
       },
       {
+        name: 'Weather range slider',
+        color: '#59566d',
+        year: '2019',
+        items: ['Design', 'Front-end development'],
+        isCodePen: false,
+        media: {
+          alt: 'Weather range slider',
+          src: '/video/screencast-weather-low_2.mp4',
+          img: '/img/poster-weather.png'
+        },
+        action: {
+          src: 'https://codesandbox.io/s/ly1z1737rq',
+          prompt: 'See it on CodeSandbox'
+        },
+        details: [
+          `Just a fun experiment with React, inline SVG and HSL colors. I built a controlled range input
+          in CodeSandbox to help me understand how controlled inputs work. Then, of course, I started styling it,
+          and one thing led to another.`,
+          `Holy h$%&, though: If I'd remembered how hard it is to style a range input cross-browser, I'd have
+          chosen another input type. This
+          [wonderfully titled article](https://css-tricks.com/sliding-nightmare-understanding-range-input/)
+          pretty much sums the experience up.`
+        ]
+      },
+      {
         name: 'Twitcha: The Twitta Switcha',
         color: '#51b0c0',
         year: '2011',
@@ -154,7 +179,7 @@ ReactDOM.render(
         items: ['Design'],
         isCodePen: false,
         media: {
-          alt: 'Selected examples from the Clubworx design comp and front-end implementation',
+          alt: 'Hart DataWorks logo treatments',
           src: '/video/screencast-hart-low.mp4',
           img: '/img/poster-hart.png'
         },

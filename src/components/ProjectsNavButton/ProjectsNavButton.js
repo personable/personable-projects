@@ -72,11 +72,9 @@ class ProjectsNavButton extends Component {
         <span
           aria-hidden="true"
           className="ProjectsNavButtonFlag"
-          style={background}
-        ></span>
+          style={background} />
         {
-          (screenreaderText)
-          ? <span className="sr">{screenreaderText}</span> : null
+          (screenreaderText) ? <span className="sr">{screenreaderText}</span> : null
         }
         <span className="ProjectsNavButtonText">
           {text}
