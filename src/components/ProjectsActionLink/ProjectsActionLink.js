@@ -23,6 +23,7 @@ class ProjectsActionLink extends Component {
           ? 'ProjectsActionLink ProjectsActionLink--desktopUI' : 'ProjectsActionLink'
         }
         target="_blank"
+        rel="noopener noreferrer"
       >
         <Icon name={this.props.variant} color="active" size="small" />
         <span className="ProjectsActionLinkText">{this.props.prompt}</span>
