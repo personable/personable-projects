@@ -10,6 +10,9 @@
     <meta property="og:image" content="%PUBLIC_URL%/img/og-image.jpg">
     <meta property="og:description" content="The personal site and portfolio of Christopher Hart, a web/UI developer from Portland, Maine">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="preload" href="%PUBLIC_URL%/fonts/OpenSans-Regular.woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="%PUBLIC_URL%/fonts/OpenSans-Bold.woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="%PUBLIC_URL%/fonts/OpenSans-CondBold.woff2" as="font" crossorigin="anonymous" />
     <style>
       @font-face {
         font-family: "OpenSans";
@@ -38,19 +41,21 @@
   </head>
   <body>
     <div id="root">
-      <h1>I designed something once...
-      <p>But these days I focus on CSS and JavaScript as a UI Developer at Instructure, helping bridge the gap between the design and engineering teams. I think what I do is also called a front-end designer or design technologist. Whatever it is, the combination of code and creativity fits me perfectly, and I love it!
-      <p>I began my career as a visual designer. However, once I discovered CSS (I think I managed to change a background color), it was a done deal: I was hooked, obsessed. Futzing around with Photoshop layers to create a static mockup suddenly paled in comparison to wiring up a living, breathing design right in the browser.
-      <p>I set about gobbling up as much CSS knowledge as I could, working through the frustrations of layout and positioning, and relentlessly chasing down obscure hacks for Internet Explorer. I've been writing CSS professionally for almost 10 years now, and it's still my favorite thing. Over the past few years, however, I've made a lot of room in my heart for JavaScript - particularly React, which feels as exciting and addictive as CSS did when I was first picking it up.
-      <p>Web accessibility is another area I've grown into professionally. I used to think I was a hero for remembering to put alt attributes on images and :focus states on buttons. When I arrived at Instructure, it was a shock to discover that everything I shipped now had to be usable by keyboard-only navigation and three different screen readers. I've been lucky to be able to level up under the tutelage of some of the most knowledgeable and patient developers and QA engineers in the business. While we're on the subject, this site should be navigable by keyboard or screenreader: Please let me know if you find that’s not true.
-      <p>Let's see, what else? I live in Portland, Maine, with my family. I'm a proud dad and very occasional musician. I eat a lot of cereal. I've had this domain name for almost 10 years now. I chose personable because it's a word that's followed me from performance review to performance review since I joined the working world: I pride myself on being easy to work with, receptive to feedback, and positive and reasonable when obstacles come up. So even though my path has led away from "design" since I began my career and registered this domain, I'm trying hard to make sure the "personable" part remains true.
-      <ul>
-        <li>Expert CSS developer with a design background and solid JavaScript skills
-        <li>Experience building user interfaces in React, Angular, Backbone, and Rails
-        <li>Skilled at Illustrator and Photoshop
-        <li>Meyers-Briggs: INFP
-        <li>Hogwarts: Hufflepuff
-      </ul>
+      <div style="color: white; font-size: 9px;">
+        <h1>Christopher Hart, CSS and JavaScript UI developer from Portland, Maine
+        <p>I focus on CSS and JavaScript as a UI Developer at Instructure, helping bridge the gap between the design and engineering teams. I think what I do is also called a front-end designer or design technologist. Whatever it is, the combination of code and creativity fits me perfectly, and I love it!
+        <p>I began my career as a visual designer. However, once I discovered CSS (I think I managed to change a background color), it was a done deal: I was hooked, obsessed. Futzing around with Photoshop layers to create a static mockup suddenly paled in comparison to wiring up a living, breathing design right in the browser.
+        <p>I set about gobbling up as much CSS knowledge as I could, working through the frustrations of layout and positioning, and relentlessly chasing down obscure hacks for Internet Explorer. I've been writing CSS professionally for almost 10 years now, and it's still my favorite thing. Over the past few years, however, I've made a lot of room in my heart for JavaScript - particularly React, which feels as exciting and addictive as CSS did when I was first picking it up.
+        <p>Web accessibility is another area I've grown into professionally. I used to think I was a hero for remembering to put alt attributes on images and :focus states on buttons. When I arrived at Instructure, it was a shock to discover that everything I shipped now had to be usable by keyboard-only navigation and three different screen readers. I've been lucky to be able to level up under the tutelage of some of the most knowledgeable and patient developers and QA engineers in the business. While we're on the subject, this site should be navigable by keyboard or screenreader: Please let me know if you find that’s not true.
+        <p>Let's see, what else? I live in Portland, Maine, with my family. I'm a proud dad and very occasional musician. I eat a lot of cereal. I've had this domain name for almost 10 years now. I chose personable because it's a word that's followed me from performance review to performance review since I joined the working world: I pride myself on being easy to work with, receptive to feedback, and positive and reasonable when obstacles come up. So even though my path has led away from "design" since I began my career and registered this domain, I'm trying hard to make sure the "personable" part remains true.
+        <ul>
+          <li>Expert CSS developer with a design background and solid JavaScript skills
+          <li>Experience building user interfaces in React, Angular, Backbone, and Rails
+          <li>Skilled at Illustrator and Photoshop
+          <li>Meyers-Briggs: INFP
+          <li>Hogwarts: Hufflepuff
+        </ul>
+      </div>
     </div>
   </body>
 </html>

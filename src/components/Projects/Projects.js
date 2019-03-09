@@ -191,8 +191,7 @@ class Projects extends Component {
         <ProjectsNavButton
           text={project.name}
           screenreaderText={
-            (index === this.state.activeIndex)
-            ? 'Current project: ' : 'Open project: '
+            (index === this.state.activeIndex) ? 'Current project: ' : 'Open project: '
           }
           color={project.color}
           active={index === this.state.activeIndex}
