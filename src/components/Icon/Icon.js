@@ -82,6 +82,11 @@ class Icon extends Component {
   }
 
   render () {
+    const rand1 = (Math.floor(Math.random() * 1000) + 1).toString()
+    const rand2 = (Math.floor(Math.random() * 1000) + 1).toString()
+    const rand = `${rand1}${rand2}`
+    const id = `Icon${this.props.name}${rand}`
+
     return (
       <span className={`Icon Icon--${this.props.size} Icon--${this.props.color}`}>
         <svg
@@ -90,9 +95,9 @@ class Icon extends Component {
           y="0"
           role="img"
           focusable="false"
-          aria-labelledby={`IconLabelFor${this.props.name}`}
+          aria-labelledby={id}
           viewBox="0 0 24 24">
-          <title id={`IconLabelFor${this.props.name}`}>
+          <title id={id}>
             {this.props.label}
           </title>
           <g role="presentation">
