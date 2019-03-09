@@ -195,8 +195,7 @@ class Projects extends Component {
           }
           color={project.color}
           active={index === this.state.activeIndex}
-          // eslint-disable-next-line
-          onClick={() => this.renderProject(index)}
+          onClick={() => this.renderProject(index)} // eslint-disable-line
           id={`ProjectsNavButton${index}`}
           desktopUI={this.state.desktopUI}
         />
