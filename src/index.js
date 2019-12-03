@@ -4,79 +4,19 @@ import App from './components/App/App'
 import './index.css'
 
 ReactDOM.render(
+  /* eslint-disable max-len */
   <App
-    resumeData={[
-      {
-        employer: 'Instructure',
-        employerDetail: 'Acquired 12 Spokes in 2014',
-        title: 'Senior UX Developer',
-        term: '2014 - present',
-        logo: {
-          src: '/img/logo-instructure.png',
-          type: 'rect'
-        },
-        duties: [
-          `Write CSS and JavaScript for new components in Instructure's React UI library.`,
-          `Add features to — and fix bugs in — existing components.`,
-          `Work with product design to identify requirements for new components.`,
-          `Mediate conflicts between design and engineering related to UI implementation.`,
-          `Maintain and update legacy Rails/Sass code.`,
-          `Serve as go-to CSS resource/Internet Explorer whisperer.`
-        ]
-      },
-      {
-        employer: '12 Spokes',
-        title: 'Front-end designer',
-        term: '2011 - 2014',
-        logo: {
-          src: '/img/logo-12spokes.png',
-          type: 'square'
-        },
-        duties: [
-          `Served as designer and CSS developer for web applications built on one
-          or more of the following technologies: Rails, Backbone, Angular and Ember.`,
-          'Created javascript prototypes and paired with developers to implement them in production-ready code.',
-          'Participated in code reviews and project estimations.',
-          'Managed client budget and expectations as part of project team.'
-        ]
-      },
-      {
-        employer: 'Cuddledown',
-        title: 'Web designer',
-        term: '2009 - 2011',
-        logo: {
-          src: '/img/logo-cuddledown.gif',
-          type: 'rect'
-        },
-        duties: [
-          'Created and coded page displays for cuddledown.com on the MarketLive eCommerce Platform.',
-          'Designed and coded weekly HTML emails/newsletters.',
-          'Created custom Wordpress theme for company blog.'
-        ]
-      },
-      {
-        employer: 'British Telecom',
-        title: 'Graphic/web designer',
-        term: '2005 - 2009',
-        logo: {
-          src: '/img/logo-bt.png',
-          type: 'square'
-        },
-        duties: [
-          'Created user guides, posters, web graphics, Flash demos and banners, HTML emails, and site page designs.',
-          'Collaborated with developers in both marketing and IT to provide interface design, CSS, and copy for large-scale web projects.'
-        ]
-      }
-    ]}
     projectData={[
       {
         name: 'ClubWorx Gym Management',
         color: '#f17310',
+        backgroundColor: '#f48f40',
         year: '2014',
         items: ['Design', 'Front-end development'],
         isCodePen: false,
         media: {
-          alt: 'Selected examples from the Clubworx design comp and front-end implementation',
+          alt:
+            'Selected examples from the Clubworx design comp and front-end implementation',
           src: '/video/screencast-clubworx-low.mp4',
           img: '/img/poster-clubworx.png'
         },
@@ -103,6 +43,7 @@ ReactDOM.render(
       {
         name: 'Minimal METRO',
         color: '#3886f4',
+        backgroundColor: '#68a3f7',
         year: '2018',
         items: ['Design', 'Front-end development'],
         isCodePen: false,
@@ -119,39 +60,46 @@ ReactDOM.render(
           `A couple of years ago, Portland, Maine's METRO transit system implemented bus tracking and made the API public. At the time METRO launched their API, the only options for tracking my bus I could find were sending a text or tapping around on an interactive map that didn't work on phones.`,
           `Texting in 10 degrees is no fun, so __I decided to see if I could build an app that would tell me when my bus is coming in the morning with a single tap__. The BusTime API didn't accept client-side requests, so I had to learn a bit of PHP to get the data on the page. Once I got the PHP done, I set about the more exciting work of branding the app. I landed on a look I was pleased with: minimal and clean, but also approachable and playful through the use of vibrant color backgrounds.`,
           'Winter 2016/2017 went on, and I was getting excited about this little side project. Maybe it could grow into something that would help my fellow Portlanders adopt public transit? I built out the CSS. I added functionality for the app to serve the right bus stop based on the time of day.',
-          '__And then I learned about Transit App.__ My band was playing a benefit show for a cat shelter at Flask Lounge. It was snowing. We didn\'t expect much of a turnout, and I was surprised when a friend of mine walked in. I asked if he drove downtown in the snow. He said he took the bus, and pulled out his iPhone to show me the app he used to catch the bus. Transit provided the same real-time bus information my app did, but with slick map/GPS functionality. It was nicely designed and completely free. I was so mad I couldn\'t form words for a couple of minutes.',
-          'Lesson learned. __Always do market research before you build a product.__ I downloaded Transit from the App Store and moved on. Soon it was warm enough to bike to work again, and I forgot about the whole until the following winter, when I went back to the bus stop. Once I started using Transit regularly I couldn\'t escape the feeling I was drinking from the firehose: For a simple weekday commute, it was presenting *too much* information. I didn\'t need to know when the ferry was leaving to Peaks Island. I didn\'t want to see buses that were scheduled but not actually coming. I thought wistfully of Minimal METRO...',
+          "__And then I learned about Transit App.__ My band was playing a benefit show for a cat shelter at Flask Lounge. It was snowing. We didn't expect much of a turnout, and I was surprised when a friend of mine walked in. I asked if he drove downtown in the snow. He said he took the bus, and pulled out his iPhone to show me the app he used to catch the bus. Transit provided the same real-time bus information my app did, but with slick map/GPS functionality. It was nicely designed and completely free. I was so mad I couldn't form words for a couple of minutes.",
+          "Lesson learned. __Always do market research before you build a product.__ I downloaded Transit from the App Store and moved on. Soon it was warm enough to bike to work again, and I forgot about the whole until the following winter, when I went back to the bus stop. Once I started using Transit regularly I couldn't escape the feeling I was drinking from the firehose: For a simple weekday commute, it was presenting *too much* information. I didn't need to know when the ferry was leaving to Peaks Island. I didn't want to see buses that were scheduled but not actually coming. I thought wistfully of Minimal METRO...",
           `So I finished it. It's never going to be as full-featured as Transit (which I still have on my phone). But if you're looking for uncluttered, one-click access to your daily bus commute in Portland, Maine, you could do a whole lot worse.`
         ]
       },
       {
-        name: 'Weather range slider',
-        color: '#59566d',
+        name: 'PAYSA EZ-Sub',
+        color: '#333',
+        backgroundColor: '#9efcca',
         year: '2019',
         items: ['Design', 'Front-end development'],
         isCodePen: false,
         media: {
-          alt: 'Weather range slider',
-          src: '/video/screencast-weather-low_2.mp4',
-          img: '/img/poster-weather.png'
+          alt: 'EZ Sub screenshot',
+          src: '/video/screencast-ezsub-low.mp4',
+          img: '/img/poster-ez-sub.png'
         },
         action: {
-          src: 'https://codesandbox.io/s/ly1z1737rq',
-          prompt: 'See it on CodeSandbox'
+          src: 'https://paysa-ez-sub.netlify.com',
+          prompt: 'EZ Sub'
         },
         details: [
-          `Just a fun experiment with React, inline SVG and HSL colors. I built a controlled range input
-          in CodeSandbox to help me understand how controlled inputs work. Then, of course, I started styling it,
-          and one thing led to another.`,
-          `Holy h$%&, though: If I'd remembered how hard it is to style a range input cross-browser, I'd have
-          chosen another input type. This
-          [wonderfully titled article](https://css-tricks.com/sliding-nightmare-understanding-range-input/)
-          pretty much sums the experience up.`
+          `Know what's surprisingly hard? Managing substitutions on a rec soccer team.`,
+          `You've got to make sure that every kid gets to play a roughly equal number of minutes
+          and in a variety of different positions. And you do this surrounded by a
+          horde of clamoring nine-year-olds, all asking when they're going back into the game
+          and reminding you it’s _definitely not_ their turn to play defense.`,
+          `**Technology to the rescue!** After a pretty disastrous first couple of games,
+          I created this little React app to help me keep track of who was lined up to replace who,
+          and how many minutes each player has played. One interesting finding from the
+          (literal) field testing was that it's really hard to see fine details on an
+          iPad in the blazing late September sun. **A high-contrast, black-and-white UI
+          was much easier to see**; but yeah, I couldn't resist adding a little minty green
+          for the field :)`
         ]
       },
       {
         name: 'Twitcha: The Twitta Switcha',
         color: '#51b0c0',
+        backgroundColor: '#83c7d2',
         year: '2011',
         items: ['Design', 'Front-end development'],
         isCodePen: false,
@@ -175,6 +123,7 @@ ReactDOM.render(
       {
         name: 'Hart DataWorks',
         color: '#834496',
+        backgroundColor: '#ac71be',
         year: '2018',
         items: ['Design'],
         isCodePen: false,
@@ -201,8 +150,35 @@ ReactDOM.render(
         ]
       },
       {
+        name: 'Weather range slider',
+        color: '#423e4f',
+        backgroundColor: '#9e99af',
+        year: '2019',
+        items: ['Design', 'Front-end development'],
+        isCodePen: false,
+        media: {
+          alt: 'Weather range slider',
+          src: '/video/screencast-weather-low_2.mp4',
+          img: '/img/poster-weather.png'
+        },
+        action: {
+          src: 'https://codesandbox.io/s/ly1z1737rq',
+          prompt: 'See it on CodeSandbox'
+        },
+        details: [
+          `Just a fun experiment with React, inline SVG and HSL colors. I built a controlled range input
+          in CodeSandbox to help me understand how controlled inputs work. Then, of course, I started styling it,
+          and one thing led to another.`,
+          `Holy h$%&, though: If I'd remembered how hard it is to style a range input cross-browser, I'd have
+          chosen another input type. This
+          [wonderfully titled article](https://css-tricks.com/sliding-nightmare-understanding-range-input/)
+          pretty much sums the experience up.`
+        ]
+      },
+      {
         name: 'Accessible checkbox toggle',
         color: '#00ac19',
+        backgroundColor: '#00ce1e',
         year: '2013',
         items: ['Design', 'Front-end development'],
         isCodePen: true,
@@ -230,6 +206,7 @@ ReactDOM.render(
       {
         name: 'SVG Spin Cycle',
         color: '#5f5ffe',
+        backgroundColor: '#8181fe',
         year: '2016',
         items: ['Design', 'Front-end development'],
         isCodePen: true,
@@ -263,6 +240,7 @@ ReactDOM.render(
       {
         name: 'Instructure UI',
         color: '#008EE2',
+        backgroundColor: '#38b5ff',
         year: '2016',
         items: ['Front-end development'],
         media: {
@@ -296,4 +274,5 @@ ReactDOM.render(
     ]}
   />,
   document.getElementById('root')
+  /* eslint-enable max-len */
 )

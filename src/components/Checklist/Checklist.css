@@ -12,10 +12,6 @@
   margin: 0 0 0.25rem;
 }
 
-.ChecklistItem > .Icon {
-  margin-top: -0.125rem;
-}
-
 .ChecklistItem:last-of-type {
   margin-bottom: 0;
 }

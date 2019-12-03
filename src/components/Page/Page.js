@@ -16,6 +16,7 @@ class Page extends Component {
     title: PropTypes.string.isRequired,
     children: PropTypes.node,
     color: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string,
     media: PropTypes.shape({
       src: PropTypes.string,
       img: PropTypes.string.isRequired,
@@ -36,14 +37,14 @@ class Page extends Component {
     year: PropTypes.string,
     id: PropTypes.number,
     desktopUI: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     mediaType: 'image',
     isCodePen: false,
     isProject: false,
     color: 'rebeccapurple'
-  }
+  };
 
   constructor (props) {
     super(props)
@@ -59,9 +60,11 @@ class Page extends Component {
 
   componentDidMount () {
     // there are 3 animations using the --timing var fired BEFORE we want the video to play
-    const timing = window.getComputedStyle(document.documentElement).getPropertyValue('--timing')
+    const timing = window
+      .getComputedStyle(document.documentElement)
+      .getPropertyValue('--timing')
     const timingNum = Number(timing.slice(0, -1))
-    const videoWaitTime = Math.round((timingNum * 3) * 100) * 10
+    const videoWaitTime = Math.round(timingNum * 3 * 100) * 10
 
     document.title = this.props.title
 
@@ -70,9 +73,9 @@ class Page extends Component {
         const timer = setInterval(() => {
           this.handleVideo(timer)
         }, 1000)
-        this.setState({timer: timer})
+        this.setState({ timer: timer })
       }, videoWaitTime)
-      this.setState({timeout: timeout})
+      this.setState({ timeout: timeout })
     }
   }
 
@@ -93,7 +96,7 @@ class Page extends Component {
       return (
         <div
           key={index}
-          dangerouslySetInnerHTML={{__html: marked(detail)}}
+          dangerouslySetInnerHTML={{ __html: marked(detail) }}
           className="PageDetail"
         />
       )
@@ -101,9 +104,7 @@ class Page extends Component {
   }
 
   renderList () {
-    return (
-      <Checklist items={this.props.items} />
-    )
+    return <Checklist items={this.props.items} />
   }
 
   renderMedia () {
@@ -112,19 +113,23 @@ class Page extends Component {
       const giveUpOnVideo = !this.state.videoLoaded && this.state.videoFailed
       return (
         <div className="PageVideoContainer">
-          { (!giveUpOnVideo)
-            ? <video
+          {!giveUpOnVideo ? (
+            <video
               id={`video${this.props.id}`}
               autoPlay
               muted
               loop
               playsInline
               poster={this.props.media.img}
-              className={(this.state.videoLoaded) ? 'PageVideo PageVideo--loaded' : 'PageVideo'}
+              className={
+                this.state.videoLoaded
+                  ? 'PageVideo PageVideo--loaded'
+                  : 'PageVideo'
+              }
             >
               <source src={this.props.media.src} type="video/mp4" />
-            </video> : null
-          }
+            </video>
+          ) : null}
           {this.renderVideoOverlay()}
         </div>
       )
@@ -150,12 +155,12 @@ class Page extends Component {
         videoLoaded: true
       })
       clearInterval(timer)
-    // If the video is in the DOM but not loaded yet...
+      // If the video is in the DOM but not loaded yet...
     } else if (video && this.state.videoAttempts < 15) {
       this.setState({
         videoAttempts: this.state.videoAttempts + 1
       })
-    // If the video is either not there or taking over 15 seconds...
+      // If the video is either not there or taking over 15 seconds...
     } else {
       clearInterval(timer)
       this.setState({
@@ -168,10 +173,7 @@ class Page extends Component {
     if (!this.state.videoLoaded && !this.state.videoFailed) {
       return (
         <span className="PageVideoOverlay" aria-live="polite">
-          <Spinner
-            message={this.renderOverlayMessage()}
-            color="light"
-          />
+          <Spinner message={this.renderOverlayMessage()} color="light" />
         </span>
       )
     } else if (!this.state.videoLoaded && this.state.videoFailed) {
@@ -183,59 +185,60 @@ class Page extends Component {
 
   renderOverlayMessage () {
     if (this.state.videoAttempts < 14) {
-      return (
-        <span>Loading video&hellip;</span>
-      )
+      return <span>Loading video&hellip;</span>
     } else {
-      return (
-        <span>Sorry! The video's not loading.</span>
-      )
+      return <span>Sorry! The video's not loading.</span>
     }
   }
 
   render () {
     // Update the active color CSS var based on the page content
-    document.documentElement.style.setProperty('--color-active', this.props.color)
+    document.documentElement.style.setProperty(
+      '--color-active',
+      this.props.color
+    )
 
     return (
-      <article className={(this.props.isProject) ? 'Page Page--isProject' : 'Page'}>
-        <Background color={this.props.color} desktopUI={this.props.desktopUI} />
+      <article
+        className={this.props.isProject ? 'Page Page--isProject' : 'Page'}
+      >
+        <Background
+          color={this.props.backgroundColor || this.props.color}
+          desktopUI={this.props.desktopUI}
+        />
         <div className="PagePrimary">
           <ProjectsHeading
             id={this.headingID}
             text={this.props.heading}
-            color={this.props.color}
+            color={this.props.backgroundColor || this.props.color}
+            lightUI
             desktopUI={this.props.desktopUI}
           />
           <div className="PageBody">
-            {(this.props.details) ? this.renderDetails() : null}
+            {this.props.details ? this.renderDetails() : null}
             {this.props.children}
           </div>
         </div>
         <div className="PageSecondary">
           <div className="PageSecondaryContent">
-            <div className="PageSecondaryMedia">
-              {this.renderMedia()}
-            </div>
+            <div className="PageSecondaryMedia">{this.renderMedia()}</div>
             <div className="PageSecondaryInfo">
               <div className="PageSecondaryInfoLayout">
-                {
-                  (this.props.year)
-                    ? <div className="PageSecondaryInfoYear">{this.props.year}</div>
-                    : null
-                }
+                {this.props.year ? (
+                  <div className="PageSecondaryInfoYear">{this.props.year}</div>
+                ) : null}
                 <div className="PageSecondaryInfoMain">
                   <div className="PageSecondaryInfoList">
-                    {(this.props.items) ? this.renderList() : null}
+                    {this.props.items ? this.renderList() : null}
                   </div>
-                  {(this.props.action)
-                    ? <ProjectsActionLink
+                  {this.props.action ? (
+                    <ProjectsActionLink
                       prompt={this.props.action.prompt}
                       src={this.props.action.src}
                       variant={this.props.action.variant}
                       desktopUI={this.props.desktopUI}
-                    /> : null
-                  }
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>

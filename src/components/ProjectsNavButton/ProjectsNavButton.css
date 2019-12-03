@@ -8,7 +8,7 @@
   font-family: var(--font-family-display);
   text-transform: uppercase;
   line-height: 1;
-  color: var(--color-dark);
+  color: var(--color-clouds);
   outline: 0;
   background: transparent;
   position: relative;
@@ -40,27 +40,20 @@
   height: 100%;
   box-sizing: border-box;
   transition: all var(--timing);
-  transition-timing-function: cubic-bezier(0.465, 0.930, 0.560, 1.265);
+  transition-timing-function: ease-out;
   transform-origin: left center;
   -webkit-backface-visibility: hidden;
 }
 
 .ProjectsNavButton .ProjectsNavButtonFlag {
-  transform: scale(.66);
+  transform: scale(0.5);
   width: 0.75rem;
-}
-
-.ProjectsNavButton:not(.ProjectsNavButton--active) .ProjectsNavButtonFlag {
-  opacity: 0.5;
-}
-
-.ProjectsNavButton:hover .ProjectsNavButtonFlag {
-  opacity: 1;
 }
 
 .ProjectsNavButton--active,
 .ProjectsNavButton:hover {
   background: var(--color-dust);
+  color: var(--color-frosted);
 }
 
 .ProjectsNavButton--active.ProjectsNavButton--desktopUI .ProjectsNavButtonFlag {

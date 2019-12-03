@@ -6,26 +6,26 @@ import AppFooter from '../AppFooter/AppFooter'
 import AppHeader from '../AppHeader/AppHeader'
 import Billboard from '../Billboard/Billboard'
 import Page from '../Page/Page'
-import Resume from '../Resume/Resume'
 import './App.css'
 
 class App extends Component {
   static propTypes = {
-    projectData: PropTypes.array.isRequired,
-    resumeData: PropTypes.array.isRequired
-  }
+    projectData: PropTypes.array.isRequired
+  };
 
   render () {
     const PageNotFound = () => (
       <Billboard headline="Page not found" variant="badNews">
-        <p>Sorry! I only made three pages for this site, and I'm afraid this isn't one of them.</p>
+        <p>
+          Sorry! I only made three pages for this site, and I'm afraid this
+          isn't one of them.
+        </p>
       </Billboard>
     )
 
-    const ProjectPage = () => (
-      <Projects projectData={this.props.projectData} />
-    )
+    const ProjectPage = () => <Projects projectData={this.props.projectData} />
 
+    /* eslint-disable max-len */
     const AboutPage = () => (
       <Page
         heading={
@@ -36,19 +36,23 @@ class App extends Component {
         }
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
         color="#EA4848"
+        backgroundColor="#ed6666"
         media={{
           img: '/img/me4.jpg',
           alt: 'A picture of me'
         }}
         action={{
           variant: 'Mail',
-          src: 'mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d',
-          prompt: '\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d'
+          src:
+            'mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d',
+          prompt:
+            '\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d'
         }}
         items={[
-          'Expert __CSS developer__ with a design background and solid JavaScript skills',
-          'Experience building user interfaces in __React__, __Angular__, __Backbone__, and __Rails__',
-          'Skilled at __Illustrator__ and __Photoshop__',
+          'Expert __CSS developer__ and __visual designer__',
+          'Solid javascript skills, especially __React__',
+          'Experience building out user interfaces in __React__, __Angular__, __Backbone__, and __Rails__',
+          'Skilled at __Figma__, __Illustrator__, and __Photoshop__',
           'Meyers-Briggs: __INFP__',
           'Hogwarts: __Hufflepuff__'
         ]}
@@ -63,10 +67,7 @@ class App extends Component {
         ]}
       />
     )
-
-    const ResumePage = () => (
-      <Resume resumeData={this.props.resumeData} />
-    )
+    /* eslint-enable max-len */
 
     // First, hide content from old browsers
     const browserSupportsCSSVars = window.CSS && window.CSS.supports
@@ -79,12 +80,11 @@ class App extends Component {
             <AppHeader />
             <main className="AppMain">
               <Switch>
-                { /* eslint-disable react/jsx-no-bind */ }
+                {/* eslint-disable react/jsx-no-bind */}
                 <Route exact path="/" component={AboutPage} />
                 <Route path="/projects" component={ProjectPage} />
-                <Route path="/resume" component={ResumePage} />
                 <Route component={PageNotFound} />
-                { /* eslint-enable react/jsx-no-bind */ }
+                {/* eslint-enable react/jsx-no-bind */}
               </Switch>
             </main>
             <AppFooter>
@@ -96,9 +96,11 @@ class App extends Component {
     } else {
       return (
         <Billboard headline="Dear Internet Explorer">
-          <p>I spend a <strong>lot</strong> of time at my job working
-          around your various limitations, and I wanted my personal site to be a fun escape
-          from all that.</p>
+          <p>
+            I spend a <strong>lot</strong> of time at my job working around your
+            various limitations, and I wanted my personal site to be a fun
+            escape from all that.
+          </p>
           <p>Rust in peace, my friend. love, Chris</p>
         </Billboard>
       )

@@ -11,7 +11,7 @@ import './Projects.css'
 class Projects extends Component {
   static propTypes = {
     projectData: PropTypes.array.isRequired
-  }
+  };
 
   constructor (props) {
     super(props)
@@ -52,12 +52,19 @@ class Projects extends Component {
   }
 
   returnActiveLink () {
-    return document.getElementById(`ProjectsNavButton${this.state.activeIndex}`)
+    return document.getElementById(
+      `ProjectsNavButton${this.state.activeIndex}`
+    )
   }
 
   focusOnProjectHeading () {
-    setTimeout(() =>
-      document.getElementById(`ProjectsHeading${this.state.activeIndex}`).focus(), 100)
+    setTimeout(
+      () =>
+        document
+          .getElementById(`ProjectsHeading${this.state.activeIndex}`)
+          .focus(),
+      100
+    )
   }
 
   teardownNav () {
@@ -94,9 +101,7 @@ class Projects extends Component {
   }
 
   renderContent () {
-    const {
-      projectData
-    } = this.props
+    const { projectData } = this.props
 
     const isCodePen = projectData[this.state.activeIndex].isCodePen
 
@@ -111,6 +116,7 @@ class Projects extends Component {
         }
         title={`${projectData[this.state.activeIndex].name}: Personable Design & Development`}
         color={projectData[this.state.activeIndex].color}
+        backgroundColor={projectData[this.state.activeIndex].backgroundColor}
         media={{
           src: projectData[this.state.activeIndex].media.src,
           img: projectData[this.state.activeIndex].media.img,
@@ -119,7 +125,7 @@ class Projects extends Component {
         action={{
           src: projectData[this.state.activeIndex].action.src,
           prompt: projectData[this.state.activeIndex].action.prompt,
-          variant: (isCodePen) ? 'CodePen' : 'ExternalLink'
+          variant: isCodePen ? 'CodePen' : 'ExternalLink'
         }}
         items={projectData[this.state.activeIndex].items}
         isCodePen={isCodePen}
@@ -143,7 +149,10 @@ class Projects extends Component {
     } else {
       if (this.state.showingNav) {
         return (
-          <div className="ProjectsNavSmallScreens" aria-label="Projects Navigation">
+          <div
+            className="ProjectsNavSmallScreens"
+            aria-label="Projects Navigation"
+          >
             <FocusTrap
               focusTrapOptions={{
                 initialFocus: this.returnActiveLink,
@@ -153,8 +162,8 @@ class Projects extends Component {
               className="ProjectsNavTrap"
             >
               <span className="ProjectsNavClose">
-                <Button variant="dark" onClick={this.teardownNav}>
-                  <Icon color="light" name="X" size="medium" />
+                <Button onClick={this.teardownNav}>
+                  <Icon name="X" size="medium" />
                   Close
                   <span className="sr"> projects navigation</span>
                 </Button>
@@ -170,54 +179,52 @@ class Projects extends Component {
   renderNavList () {
     return (
       <nav className="ProjectsNavMenu">
-        <ul className="ProjectsNavMenuList">
-          {this.renderButtons()}
-        </ul>
+        <ul className="ProjectsNavMenuList">{this.renderButtons()}</ul>
       </nav>
     )
   }
 
   renderColors () {
     const arr = []
-    this.props.projectData.map((project) =>
-      arr.push(project.color)
-    )
+    this.props.projectData.map(project => arr.push(project.color))
     return arr
   }
 
   renderButtons () {
-    return this.props.projectData.map((project, index) =>
+    return this.props.projectData.map((project, index) => (
       <li className="ProjectsNavMenuListItem" key={index}>
         <ProjectsNavButton
           text={project.name}
           screenreaderText={
-            (index === this.state.activeIndex) ? 'Current project: ' : 'Open project: '
+            index === this.state.activeIndex
+              ? 'Current project: '
+              : 'Open project: '
           }
-          color={project.color}
+          color={project.backgroundColor || project.color}
           active={index === this.state.activeIndex}
           onClick={() => this.renderProject(index)} // eslint-disable-line
           id={`ProjectsNavButton${index}`}
           desktopUI={this.state.desktopUI}
         />
       </li>
-    )
+    ))
   }
 
   render () {
     return (
       <section
         className={
-          (this.state.desktopUI) ? 'Projects Projects--desktopUI' : 'Projects'
+          this.state.desktopUI ? 'Projects Projects--desktopUI' : 'Projects'
         }
       >
         <div className="ProjectsLayout">
           {this.renderNavWrapper()}
-          <div className="ProjectsStage">
-            {this.renderContent()}
-          </div>
+          <div className="ProjectsStage">{this.renderContent()}</div>
         </div>
         <PageBackButton
-          text={(this.state.desktopUI) ? 'Skip to Projects menu' : 'Projects menu'}
+          text={
+            this.state.desktopUI ? 'Skip to Projects menu' : 'Projects menu'
+          }
           screenreaderText="Go back to Projects navigation"
           onClick={this.closeProject}
           id="closer"

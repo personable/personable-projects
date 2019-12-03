@@ -14,7 +14,7 @@
 .ProjectsNavDesktop {
   flex: 0 0 var(--desktopNavWidth);
   min-width: 1px;
-  background: var(--color-frosted);
+  background: var(--color-dark);
   position: relative;
 }
 
@@ -37,7 +37,11 @@
   right: 0;
   width: 0.5rem;
   height: 100%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, var(--color-shadow) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    var(--color-shadow) 100%
+  );
   pointer-events: none;
 }
 
@@ -55,7 +59,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: var(--color-frosted);
+  background: var(--color-dark);
   opacity: 0;
   animation-name: navEnter;
   animation-duration: var(--timing);
@@ -73,8 +77,7 @@
 
 .ProjectsNavMenuList {
   margin: 0 auto;
-  max-width: 32rem;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   list-style-type: none;
 }
 
@@ -92,7 +95,7 @@
   margin: 0;
   padding: 0;
   display: block;
-  border-bottom: 0.125rem solid var(--color-light);
+  border-bottom: 0.125rem solid var(--color-shadow);
 }
 
 @media print {
