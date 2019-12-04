@@ -1,109 +1,109 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Button from '../Button/Button'
-import Icon from '../Icon/Icon'
-import Page from '../Page/Page'
-import ProjectsNavButton from '../ProjectsNavButton/ProjectsNavButton'
-import PageBackButton from '../PageBackButton/PageBackButton'
-import FocusTrap from 'focus-trap-react'
-import './Projects.css'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
+import Page from "../Page/Page";
+import ProjectsNavButton from "../ProjectsNavButton/ProjectsNavButton";
+import PageBackButton from "../PageBackButton/PageBackButton";
+import FocusTrap from "focus-trap-react";
+import "./Projects.css";
 
 class Projects extends Component {
   static propTypes = {
     projectData: PropTypes.array.isRequired
   };
 
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
-    this.closeProject = this.closeProject.bind(this)
-    this.handleResize = this.handleResize.bind(this)
-    this.returnActiveLink = this.returnActiveLink.bind(this)
-    this.teardownNav = this.teardownNav.bind(this)
+    this.closeProject = this.closeProject.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+    this.returnActiveLink = this.returnActiveLink.bind(this);
+    this.teardownNav = this.teardownNav.bind(this);
 
     this.state = {
       activeIndex: 0,
       showingNav: false
-    }
+    };
   }
 
-  componentDidMount () {
-    this.handleResize()
-    window.addEventListener('resize', this.handleResize)
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.handleResize)
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
   }
 
-  handleResize () {
-    const width = window.innerWidth
+  handleResize() {
+    const width = window.innerWidth;
 
     if (width >= 1024) {
       this.setState({
         desktopUI: true,
         showingNav: false
-      })
+      });
     } else {
       this.setState({
         desktopUI: false
-      })
+      });
     }
   }
 
-  returnActiveLink () {
+  returnActiveLink() {
     return document.getElementById(
       `ProjectsNavButton${this.state.activeIndex}`
-    )
+    );
   }
 
-  focusOnProjectHeading () {
+  focusOnProjectHeading() {
     setTimeout(
       () =>
         document
           .getElementById(`ProjectsHeading${this.state.activeIndex}`)
           .focus(),
       100
-    )
+    );
   }
 
-  teardownNav () {
+  teardownNav() {
     this.setState({
       showingNav: false
-    })
-    this.focusOnProjectHeading()
+    });
+    this.focusOnProjectHeading();
   }
 
-  renderProject (index) {
+  renderProject(index) {
     if (this.state.desktopUI) {
       if (index !== this.state.activeIndex) {
         this.setState({
           activeIndex: index
-        })
+        });
       }
-      this.focusOnProjectHeading()
+      this.focusOnProjectHeading();
     } else {
       this.setState({
         activeIndex: index
-      })
-      this.teardownNav()
+      });
+      this.teardownNav();
     }
   }
 
-  closeProject () {
+  closeProject() {
     if (this.state.desktopUI) {
-      this.returnActiveLink().focus()
+      this.returnActiveLink().focus();
     } else {
       this.setState({
         showingNav: true
-      })
+      });
     }
   }
 
-  renderContent () {
-    const { projectData } = this.props
+  renderContent() {
+    const { projectData } = this.props;
 
-    const isCodePen = projectData[this.state.activeIndex].isCodePen
+    const isCodePen = projectData[this.state.activeIndex].isCodePen;
 
     return (
       <Page
@@ -125,7 +125,7 @@ class Projects extends Component {
         action={{
           src: projectData[this.state.activeIndex].action.src,
           prompt: projectData[this.state.activeIndex].action.prompt,
-          variant: isCodePen ? 'CodePen' : 'ExternalLink'
+          variant: isCodePen ? "CodePen" : "ExternalLink"
         }}
         items={projectData[this.state.activeIndex].items}
         isCodePen={isCodePen}
@@ -136,16 +136,16 @@ class Projects extends Component {
         closePage={this.closeProject}
         desktopUI={this.state.desktopUI}
       />
-    )
+    );
   }
 
-  renderNavWrapper () {
+  renderNavWrapper() {
     if (this.state.desktopUI) {
       return (
         <div className="ProjectsNavDesktop" aria-label="Projects Navigation">
           {this.renderNavList()}
         </div>
-      )
+      );
     } else {
       if (this.state.showingNav) {
         return (
@@ -161,44 +161,46 @@ class Projects extends Component {
               }}
               className="ProjectsNavTrap"
             >
-              <span className="ProjectsNavClose">
-                <Button onClick={this.teardownNav}>
-                  <Icon name="X" size="medium" />
-                  Close
-                  <span className="sr"> projects navigation</span>
-                </Button>
-              </span>
-              {this.renderNavList()}
+              <div>
+                <span className="ProjectsNavClose">
+                  <Button onClick={this.teardownNav}>
+                    <Icon name="X" size="medium" />
+                    Close
+                    <span className="sr"> projects navigation</span>
+                  </Button>
+                </span>
+                {this.renderNavList()}
+              </div>
             </FocusTrap>
           </div>
-        )
+        );
       }
     }
   }
 
-  renderNavList () {
+  renderNavList() {
     return (
       <nav className="ProjectsNavMenu">
         <ul className="ProjectsNavMenuList">{this.renderButtons()}</ul>
       </nav>
-    )
+    );
   }
 
-  renderColors () {
-    const arr = []
-    this.props.projectData.map(project => arr.push(project.color))
-    return arr
+  renderColors() {
+    const arr = [];
+    this.props.projectData.map(project => arr.push(project.color));
+    return arr;
   }
 
-  renderButtons () {
+  renderButtons() {
     return this.props.projectData.map((project, index) => (
       <li className="ProjectsNavMenuListItem" key={index}>
         <ProjectsNavButton
           text={project.name}
           screenreaderText={
             index === this.state.activeIndex
-              ? 'Current project: '
-              : 'Open project: '
+              ? "Current project: "
+              : "Open project: "
           }
           color={project.backgroundColor || project.color}
           active={index === this.state.activeIndex}
@@ -207,14 +209,14 @@ class Projects extends Component {
           desktopUI={this.state.desktopUI}
         />
       </li>
-    ))
+    ));
   }
 
-  render () {
+  render() {
     return (
       <section
         className={
-          this.state.desktopUI ? 'Projects Projects--desktopUI' : 'Projects'
+          this.state.desktopUI ? "Projects Projects--desktopUI" : "Projects"
         }
       >
         <div className="ProjectsLayout">
@@ -223,7 +225,7 @@ class Projects extends Component {
         </div>
         <PageBackButton
           text={
-            this.state.desktopUI ? 'Skip to Projects menu' : 'Projects menu'
+            this.state.desktopUI ? "Skip to Projects menu" : "Projects menu"
           }
           screenreaderText="Go back to Projects navigation"
           onClick={this.closeProject}
@@ -233,8 +235,8 @@ class Projects extends Component {
           activeIndex={this.state.activeIndex}
         />
       </section>
-    )
+    );
   }
 }
 
-export default Projects
+export default Projects;
