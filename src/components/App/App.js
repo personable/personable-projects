@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Projects from '../Projects/Projects'
-import AppFooter from '../AppFooter/AppFooter'
-import AppHeader from '../AppHeader/AppHeader'
-import Billboard from '../Billboard/Billboard'
-import Page from '../Page/Page'
-import './App.css'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Projects from "../Projects/Projects";
+import AppFooter from "../AppFooter/AppFooter";
+import AppHeader from "../AppHeader/AppHeader";
+import Billboard from "../Billboard/Billboard";
+import Page from "../Page/Page";
+import "./App.css";
 
 class App extends Component {
   static propTypes = {
-    projectData: PropTypes.array.isRequired
+    projectData: PropTypes.array.isRequired,
   };
 
-  render () {
+  render() {
     const PageNotFound = () => (
       <Billboard headline="Page not found" variant="badNews">
         <p>
@@ -21,9 +21,9 @@ class App extends Component {
           isn't one of them.
         </p>
       </Billboard>
-    )
+    );
 
-    const ProjectPage = () => <Projects projectData={this.props.projectData} />
+    const ProjectPage = () => <Projects projectData={this.props.projectData} />;
 
     /* eslint-disable max-len */
     const AboutPage = () => (
@@ -31,46 +31,47 @@ class App extends Component {
         heading={
           <span>
             <span className="sr">About page: </span>
-            <span>I designed something once&hellip;</span>
+            <span>Chris Hart: Up close and personable</span>
           </span>
         }
         title="Personable Design & Development: Christopher Hart, UI developer in Portland, Maine"
         color="#EA4848"
         backgroundColor="#ed6666"
         media={{
-          img: '/img/me4.jpg',
-          alt: 'A picture of me'
+          img: "/img/me-2020.jpg",
+          alt: "A picture of me",
         }}
         action={{
-          variant: 'Mail',
+          variant: "Mail",
           src:
-            'mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d',
+            "mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d",
           prompt:
-            '\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d'
+            "\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d",
         }}
         items={[
-          'Expert __CSS developer__ and __visual designer__',
-          'Solid javascript skills, especially __React__',
-          'Experience building out user interfaces in __React__, __Angular__, __Backbone__, and __Rails__',
-          'Skilled at __Figma__, __Illustrator__, and __Photoshop__',
-          'Meyers-Briggs: __INFP__',
-          'Hogwarts: __Hufflepuff__'
+          "Expert __CSS developer__ and __visual designer__",
+          "Solid javascript skills, especially __React__",
+          "Experience building out user interfaces in __React__, __Angular__, __Backbone__, and __Rails__",
+          "Skilled at __Figma__, __Illustrator__, and __Photoshop__",
+          "Meyers-Briggs: __INFP__",
+          "Hogwarts: __Hufflepuff__",
         ]}
         year="411"
         id={8171975}
         details={[
-          `__But these days I focus on CSS and JavaScript as a UI Developer at [Instructure](http://www.instructure.com), helping bridge the gap between the design and engineering teams.__ I think what I do is also called a [front-end designer](http://bradfrost.com/blog/post/frontend-design) or [design technologist](https://medium.com/interactive-mind/the-rise-of-the-design-technologist-e9516aa821a0). Whatever it is, the combination of code and creativity fits me perfectly, and I love it!`,
-          `__I began my career as a visual designer.__ However, once I discovered CSS (I think I managed to change a background color), it was a done deal: I was hooked, obsessed. Futzing around with Photoshop layers to create a static mockup suddenly paled in comparison to wiring up a living, breathing design right in the browser.`,
-          `I set about gobbling up as much CSS knowledge as I could, working through the frustrations of layout and positioning, and relentlessly chasing down obscure hacks for Internet Explorer. __I've been writing CSS professionally for almost 10 years now__, and it's still my favorite thing. Over the past few years, however, I've made a lot of room in my heart for JavaScript &mdash; particularly React, which feels as exciting and addictive as CSS did when I was first picking it up.`,
-          `__Web accessibility is another area I've grown into professionally.__ I used to think I was a hero for remembering to put \`alt\` attributes on images and \`:focus\` states on buttons. When I arrived at Instructure, it was a shock to discover that everything I shipped now had to be usable by keyboard-only navigation and three different screen readers. I've been lucky to be able to level up under the tutelage of some of the most knowledgeable and patient developers and QA engineers in the business. While we're on the subject, __this site should be navigable by keyboard or screenreader__: Please let me know if you find that’s not true.`,
-          `Let's see, what else? __I live in Portland, Maine, with my family.__ I'm a proud dad and very occasional musician. I eat a lot of cereal. I've had this domain name for almost 10 years now. I chose *personable* because it's a word that's followed me from performance review to performance review since I joined the working world: __I pride myself on being easy to work with, receptive to feedback, and positive and reasonable when obstacles come up.__ So even though my path has led away from "design" since I began my career and registered this domain, I'm trying hard to make sure the "personable" part remains true.`
+          `Hello! I'm a creative, detail-oriented, and yes, personable web professional with a deep skill set.`,
+          `__I'm a seasoned designer who's ready to design again.__ I've been a successful visual designer in ecommerce, digital agency, and corporate in-house environments. In each setting, I've established myself as a producer of quality design that achieves business goals and delights users. I'm an expert in Photoshop and Illustrator, with recent experience contributing to a [Figma-based design system](https://instructure.design). In addition, my front-end skills give me the option of prototyping right in the browser.`,
+          `__I'm also a UI developer.__ Or [front-end designer](https://bradfrost.com/blog/post/frontend-design/), [design technologist](https://medium.com/interactive-mind/the-rise-of-the-design-technologist-e9516aa821a0), or whatever else you want to call it. I love to code as much as I love to design. The CSS and React components I've contributed to [Instructure's](https://www.instructure.com/) design system over the past five years are used every day by millions of learners who log in to [Canvas LMS](https://www.instructure.com/canvas/). I code with a designer's eye for the kind of detail and polish that takes a user interface from good to great.`,
+          `__I can write.__ Who said getting an English degree would be a waste of time? Well, a lot of people. But they were wrong! I'm a versatile writer and a good judge of tone. Documentation, blog posts and newsletters, UX microcopy, snappy headlines &#151; wherever I go, I usually end up being the one who steps up to write or edit it.`,
+          `__I'm nice to work with.__ Heck, I'm so nice I have this domain name. I pride myself on being an enthusiastic, empathetic, and collaborative colleague. I make an effort to be receptive to feedback, and positive and reasonable when obstacles come up.`,
+          `__Let's see. What else?__ I live in Portland, Maine, with my family. I'm a proud dad and a less proud musician. I eat a lot of cereal for a grown-up. *Finally, I'm looking for a new job, and I'm open to remote work.* Contact me via [email](mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d) or [LinkedIn](https://www.linkedin.com/in/christopher-hart-8b182317b/) if you want to grab a no-pressure virtual coffee together.`,
         ]}
       />
-    )
+    );
     /* eslint-enable max-len */
 
     // First, hide content from old browsers
-    const browserSupportsCSSVars = window.CSS && window.CSS.supports
+    const browserSupportsCSSVars = window.CSS && window.CSS.supports;
     // const browserIsEdge = navigator.userAgent.indexOf('Edge') !== -1
 
     if (browserSupportsCSSVars) {
@@ -92,7 +93,7 @@ class App extends Component {
             </AppFooter>
           </div>
         </Router>
-      )
+      );
     } else {
       return (
         <Billboard headline="Dear Internet Explorer">
@@ -103,9 +104,9 @@ class App extends Component {
           </p>
           <p>Rust in peace, my friend. love, Chris</p>
         </Billboard>
-      )
+      );
     }
   }
 }
 
-export default App
+export default App;
