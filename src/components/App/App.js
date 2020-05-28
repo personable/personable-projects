@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Projects from "../Projects/Projects";
-import AppFooter from "../AppFooter/AppFooter";
 import AppHeader from "../AppHeader/AppHeader";
 import Billboard from "../Billboard/Billboard";
 import Page from "../Page/Page";
@@ -88,9 +87,6 @@ class App extends Component {
                 {/* eslint-enable react/jsx-no-bind */}
               </Switch>
             </main>
-            <AppFooter>
-              &copy;{new Date().getFullYear()} Personable Design &amp; Dev
-            </AppFooter>
           </div>
         </Router>
       );

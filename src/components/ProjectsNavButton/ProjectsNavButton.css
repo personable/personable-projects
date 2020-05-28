@@ -27,6 +27,9 @@
 }
 
 .ProjectsNavButtonText {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   position: relative;
   z-index: 1;
 }
