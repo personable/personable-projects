@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { gradient } from '../../util/gradient'
-import './ProjectsHeading.css'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import { gradient } from "../../util/gradient";
+import "./ProjectsHeading.css";
 
 class ProjectsHeading extends Component {
   static propTypes = {
@@ -9,24 +10,25 @@ class ProjectsHeading extends Component {
     id: PropTypes.string,
     color: PropTypes.string,
     textColor: PropTypes.string,
-    desktopUI: PropTypes.bool,
-    lightUI: PropTypes.bool
+    screens: PropTypes.object,
   };
 
-  render () {
+  render() {
     const background = {
-      background: gradient(this.props.color, 'linear-alpha')
-    }
-
-    const headingClasses = this.props.lightUI
-      ? 'ProjectsHeadingHeadline ProjectsHeadingHeadline--light'
-      : 'ProjectsHeadingHeadline'
+      background: gradient(this.props.color, "linear-alpha"),
+    };
 
     return (
-      <header className="ProjectsHeading">
+      <header
+        className={classnames({
+          ProjectsHeading: true,
+          "ProjectsHeading--tabletUI": this.props.screens.tablet,
+          "ProjectsHeading--desktopUI": this.props.screens.desktop,
+        })}
+      >
         <div className="ProjectsHeadingLayout">
           <h1
-            className={headingClasses}
+            className="ProjectsHeadingHeadline"
             tabIndex="-1"
             id={this.props.id}
             style={background}
@@ -35,8 +37,8 @@ class ProjectsHeading extends Component {
           </h1>
         </div>
       </header>
-    )
+    );
   }
 }
 
-export default ProjectsHeading
+export default ProjectsHeading;

@@ -39,24 +39,22 @@
   bottom: 0;
 }
 
-@media screen and (min-width: 1024px) {
-  .PageBackButton {
-    width: auto;
-    margin: 0;
-  }
+.PageBackButton.PageBackButton--desktopUI {
+  width: auto;
+  margin: 0;
+}
 
-  .PageBackButton > .Button {
-    bottom: 0.5rem;
-    left: 100%;
-    position: fixed;
-    width: auto;
-    z-index: 1;
-  }
+.PageBackButton.PageBackButton--desktopUI > .Button {
+  bottom: 0.5rem;
+  left: 100%;
+  position: fixed;
+  width: auto;
+  z-index: 1;
+}
 
-  .PageBackButton > .Button:focus {
-    left: auto;
-    right: 0.5rem;
-  }
+.PageBackButton.PageBackButton--desktopUI > .Button:focus {
+  left: auto;
+  right: 0.5rem;
 }
 
 @media print {

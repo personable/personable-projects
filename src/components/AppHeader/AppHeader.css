@@ -16,23 +16,19 @@
   padding-left: 1rem;
 }
 
-@media screen and (min-width: 768px) {
-  .AppHeader__Primary {
-    flex: 0 0 10rem;
-  }
+.AppHeader--tabletUI .AppHeader__Primary {
+  flex: 0 0 10rem;
 }
 
-@media screen and (min-width: 1024px) {
-  .AppHeader {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: var(--color-frosted);
-  }
+.AppHeader.AppHeader--desktopUI {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: var(--color-frosted);
+}
 
-  .AppHeader__Secondary {
-    padding-left: 2rem;
-  }
+.AppHeader--desktopUI .AppHeader__Secondary {
+  padding-left: 2rem;
 }
 
 .AppNav {

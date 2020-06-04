@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Projects from "../Projects/Projects";
@@ -8,13 +9,65 @@ import Page from "../Page/Page";
 import "./App.css";
 
 class App extends Component {
+  _breakpointTablet = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--breakpointTablet");
+  _breakpointDesktop = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--breakpointDesktop");
+
   static propTypes = {
     projectData: PropTypes.array.isRequired,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      screens: {
+        tablet: false,
+        desktop: false,
+      },
+    };
+  }
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize = () => {
+    const tablet = window.matchMedia(`(min-width: ${this._breakpointTablet})`);
+    const desktop = window.matchMedia(
+      `(min-width: ${this._breakpointDesktop})`
+    );
+
+    const screens = {
+      tablet: tablet.matches,
+      desktop: desktop.matches,
+    };
+
+    if (
+      this.state.screens.desktop !== screens.desktop ||
+      this.state.screens.tablet !== screens.tablet
+    ) {
+      this.setState({
+        screens,
+      });
+    }
+  };
+
   render() {
     const PageNotFound = () => (
-      <Billboard headline="Page not found" variant="badNews">
+      <Billboard
+        headline="Page not found"
+        variant="badNews"
+        screens={this.state.screens}
+      >
         <p>
           Sorry! I only made three pages for this site, and I'm afraid this
           isn't one of them.
@@ -22,7 +75,13 @@ class App extends Component {
       </Billboard>
     );
 
-    const ProjectPage = () => <Projects projectData={this.props.projectData} />;
+    const ProjectPage = () => (
+      <Projects
+        projectData={this.props.projectData}
+        desktopUI={this.state.screens.desktop}
+        screens={this.state.screens}
+      />
+    );
 
     /* eslint-disable max-len */
     const AboutPage = () => (
@@ -65,6 +124,7 @@ class App extends Component {
           `__I'm nice to work with.__ Heck, I'm so nice I have this domain name. I pride myself on being an enthusiastic, empathetic, and collaborative colleague. I make an effort to be receptive to feedback, and positive and reasonable when obstacles come up.`,
           `__Let's see. What else?__ I live in Portland, Maine, with my family. I'm a proud dad and a less proud musician. I eat a lot of cereal for a grown-up. *Finally, I'm looking for a new job, and I'm open to remote work.* Contact me via [email](mailto:\u0063\u0068\u0072\u0069\u0073\u0040\u0070\u0065\u0072\u0073\u006f\u006e\u0061\u0062\u006c\u0065\u0064\u0065\u0073\u0069\u0067\u006e\u002e\u0063\u006f\u006d) or [LinkedIn](https://www.linkedin.com/in/christopher-hart-8b182317b/) if you want to grab a no-pressure virtual coffee together.`,
         ]}
+        screens={this.state.screens}
       />
     );
     /* eslint-enable max-len */
@@ -76,8 +136,13 @@ class App extends Component {
     if (browserSupportsCSSVars) {
       return (
         <Router>
-          <div className="App">
-            <AppHeader />
+          <div
+            className={classnames({
+              App: true,
+              "App--desktopUI": this.state.screens.desktop,
+            })}
+          >
+            <AppHeader screens={this.state.screens} />
             <main className="AppMain">
               <Switch>
                 {/* eslint-disable react/jsx-no-bind */}
@@ -92,7 +157,10 @@ class App extends Component {
       );
     } else {
       return (
-        <Billboard headline="Dear Internet Explorer">
+        <Billboard
+          headline="Dear Internet Explorer"
+          screens={this.state.screens}
+        >
           <p>
             I spend a <strong>lot</strong> of time at my job working around your
             various limitations, and I wanted my personal site to be a fun

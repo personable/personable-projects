@@ -1,10 +1,17 @@
+@keyframes projectsHeading {
+  to {
+    transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, 45deg);
+    opacity: 1;
+  }
+}
+
 .ProjectsHeading {
   text-align: center;
 }
 
 .ProjectsHeadingHeadline {
   margin: 0;
-  color: var(--color-frosted);
+  color: var(--color-dark);
   font-family: var(--font-family-display);
   text-transform: uppercase;
   line-height: 0.9;
@@ -15,60 +22,33 @@
   outline: none;
 }
 
-.ProjectsHeadingHeadline--light {
-  color: var(--color-dark);
+.ProjectsHeading--tabletUI .ProjectsHeadingHeadline {
+  font-size: 3.5rem;
 }
 
-@keyframes projectsHeading {
-  to {
-    transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, 45deg);
-    opacity: 1;
-  }
+.ProjectsHeading.ProjectsHeading--desktopUI {
+  perspective: var(--perspective);
+  position: relative;
+  z-index: 1;
+  min-height: calc(var(--app-header-offset) - 1rem);
 }
 
-@media screen and (min-width: 768px) {
-  .ProjectsHeadingHeadline {
-    font-size: 3.5rem;
-  }
+.ProjectsHeading--desktopUI .ProjectsHeadingLayout {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.5) rotate3d(0, 1, 0, 180deg);
+  animation: projectsHeading;
+  animation-duration: var(--timing);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-delay: calc(var(--timing) * 2);
 }
 
-/* Horrible hack: TODO: Make App component determine the desktopUI bool */
-@media screen and (max-width: 1024px) {
-  .ProjectsHeadingHeadline {
-    background: transparent !important;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .ProjectsHeading {
-    perspective: var(--perspective);
-    position: relative;
-    z-index: 1;
-    min-height: calc(var(--app-header-offset) - 1rem);
-  }
-
-  .ProjectsHeadingLayout {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.5) rotate3d(0, 1, 0, 180deg);
-    animation: projectsHeading;
-    animation-duration: var(--timing);
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-    animation-delay: calc(var(--timing) * 2);
-  }
-
-  .ProjectsHeadingHeadline {
-    padding: 0;
-    display: inline;
-    line-height: 1.2;
-    box-shadow: -0.25rem 0.25rem 1.5rem rgba(0, 0, 0, 0.2);
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .ProjectsHeadingHeadline {
-    font-size: 4.5rem;
-  }
+.ProjectsHeading--desktopUI .ProjectsHeadingHeadline {
+  padding: 0;
+  display: inline;
+  line-height: 1.2;
+  box-shadow: -0.25rem 0.25rem 1.5rem rgba(0, 0, 0, 0.2);
+  font-size: 4.25rem;
 }
 
 @media print {

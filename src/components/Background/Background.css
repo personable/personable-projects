@@ -20,7 +20,7 @@
   z-index: -1;
 }
 
-.Background.Background--desktopUI {
+.Background.Background--isProjectOnDesktopUI {
   left: var(--desktopNavWidth);
   width: calc(100% - var(--desktopNavWidth));
   animation-name: bg;

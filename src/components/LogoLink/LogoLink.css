@@ -23,9 +23,7 @@
   opacity: 1;
 }
 
-@media screen and (min-width: 48rem) {
-  .LogoLink {
-    overflow: visible;
-    width: auto;
-  }
+.LogoLink.LogoLink--tabletUI {
+  overflow: visible;
+  width: auto;
 }

@@ -1,3 +1,10 @@
+@keyframes pageContentEnter {
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
 .Page {
   padding: 0.75rem;
 }
@@ -137,101 +144,82 @@
   white-space: normal;
 }
 
-@media screen and (min-width: 768px) {
-  .PageBody {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .PageSecondaryInfoLayout {
-    display: flex;
-  }
-
-  .PageSecondaryInfoYear {
-    flex: 0 0 11rem;
-    min-width: 1px;
-  }
-
-  .PageSecondaryInfoMain {
-    flex: 1;
-    min-width: 1px;
-  }
+/* tablet and up */
+.Page--tabletUI .PageBody {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-@keyframes pageContentEnter {
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+.Page--tabletUI .PageSecondaryInfoLayout {
+  display: flex;
 }
 
-@media screen and (min-width: 1024px) {
-  .Page {
-    display: flex;
-    min-height: 100vh;
-    padding: 0;
-  }
-
-  .PagePrimary {
-    padding: 1rem 0.5rem 1rem 0;
-    flex: 1;
-  }
-
-  .Page--isProject .PagePrimary {
-    padding-top: 1rem;
-  }
-
-  .PageSecondary {
-    flex: 1;
-    padding: 1rem 0 1rem 0.5rem;
-    padding-top: var(--app-header-offset);
-  }
-
-  .PageSecondaryContent,
-  .PageBody {
-    animation-name: pageContentEnter;
-    animation-duration: var(--timing);
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-    opacity: 0;
-  }
-
-  .PageSecondaryContent {
-    position: sticky;
-    top: calc(var(--app-header-height) + 1.75rem);
-    transform: translate3d(-3rem, 0, 0);
-    animation-delay: calc(var(--timing) * 3.5);
-  }
-
-  .PageSecondaryInfoList {
-    margin: 0.5rem;
-    padding: 1rem;
-  }
-
-  .PageSecondaryMedia {
-    padding: 0.5rem 0.5rem 0;
-  }
-
-  .PageBody {
-    margin: 0;
-    opacity: 0;
-    transform: translate3d(3rem, 0, 0);
-    animation-delay: calc(var(--timing) * 3.5);
-  }
-
-  .PageDetail:last-of-type {
-    padding-bottom: 2.5rem;
-  }
+.Page--tabletUI .PageSecondaryInfoYear {
+  flex: 0 0 11rem;
+  min-width: 1px;
 }
 
-@media screen and (min-width: 1300px) {
-  .PagePrimary {
-    padding-right: 1rem;
-  }
+.Page--tabletUI .PageSecondaryInfoMain {
+  flex: 1;
+  min-width: 1px;
+}
 
-  .PageSecondary {
-    padding-left: 1rem;
-  }
+/* desktop and up */
+.Page.Page--desktopUI {
+  display: flex;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.Page--desktopUI .PagePrimary {
+  padding: 1rem 1rem 1rem 0;
+  flex: 1;
+}
+
+.Page--desktopUI.Page--isProject .PagePrimary {
+  padding-top: 1rem;
+}
+
+.Page--desktopUI .PageSecondary {
+  flex: 1;
+  padding: 1rem 0 1rem 1rem;
+  padding-top: var(--app-header-offset);
+}
+
+.Page--desktopUI .PageSecondaryContent,
+.Page--desktopUI .PageBody {
+  animation-name: pageContentEnter;
+  animation-duration: var(--timing);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  opacity: 0;
+}
+
+.Page--desktopUI .PageSecondaryContent {
+  position: sticky;
+  top: calc(var(--app-header-height) + 1.75rem);
+  transform: translate3d(-3rem, 0, 0);
+  animation-delay: calc(var(--timing) * 3.5);
+}
+
+.Page--desktopUI .PageSecondaryInfoList {
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.Page--desktopUI .PageSecondaryMedia {
+  padding: 0.5rem 0.5rem 0;
+}
+
+.Page--desktopUI .PageBody {
+  margin: 0;
+  opacity: 0;
+  transform: translate3d(3rem, 0, 0);
+  animation-delay: calc(var(--timing) * 3.5);
+}
+
+.Page--desktopUI .PageDetail:last-of-type {
+  padding-bottom: 2.5rem;
 }
 
 @media print {

@@ -1,6 +1,4 @@
-@media screen and (min-width: 1024px) {
-  .App,
-  .AppMain {
-    height: 100vh;
-  }
+.App--desktopUI,
+.App--desktopUI .AppMain {
+  height: 100vh;
 }

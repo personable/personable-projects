@@ -1,28 +1,33 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { gradient } from '../../util/gradient'
-import './Background.css'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { gradient } from "../../util/gradient";
+import "./Background.css";
 
 class Background extends Component {
   static propTypes = {
     color: PropTypes.string,
-    desktopUI: PropTypes.bool
-  }
+    desktopUI: PropTypes.bool,
+    isProject: PropTypes.bool,
+  };
 
-  render () {
+  render() {
     return (
       <span
-        className={(this.props.desktopUI) ? 'Background Background--desktopUI' : 'Background'}
-        style={{background: this.props.color}}
+        className={
+          this.props.desktopUI && this.props.isProject
+            ? "Background Background--isProjectOnDesktopUI"
+            : "Background"
+        }
+        style={{ background: this.props.color }}
         aria-hidden="true"
       >
         <span
           className="BackgroundInner"
-          style={{background: gradient(this.props.color, 'radial')}}
+          style={{ background: gradient(this.props.color, "radial") }}
         />
       </span>
-    )
+    );
   }
 }
 
-export default Background
+export default Background;

@@ -28,14 +28,18 @@
   --font-family-base: "OpenSans";
   --font-family-display: "OpenSansCond";
 
-  --desktopNavWidth: 10rem;
+  --desktopNavWidth: 20%;
+
+  --breakpointTablet: 768px;
+  --breakpointDesktop: 1100px;
+
   --shadow-level-0: inset 0 0.0625rem 0.25rem var(--color-shadow);
   --shadow-level-1: 0 0 0.25rem var(--color-shadow);
   --shadow-level-2: 0 0 1rem var(--color-shadow);
   --shadow-level-3: 0 0 2rem var(--color-shadow);
 
   --perspective: 60rem;
-  --timing: 0.3s;
+  --timing: 0.3s; /* update line 67 in Pages/Pages.js if this value changes */
 
   font-size: var(--root-font-size);
 }
@@ -169,32 +173,28 @@ img {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   :root {
     --root-font-size: 100%;
     --app-header-height: 5rem;
-    --desktopNavWidth: 11rem;
   }
 }
 
 @media screen and (min-width: 1300px) {
   :root {
     --root-font-size: 105%;
-    --desktopNavWidth: 14rem;
   }
 }
 
 @media screen and (min-width: 1500px) {
   :root {
     --root-font-size: 110%;
-    --desktopNavWidth: 17rem;
   }
 }
 
 @media screen and (min-width: 1700px) {
   :root {
     --root-font-size: 115%;
-    --desktopNavWidth: 19rem;
   }
 }
 

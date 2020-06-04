@@ -23,14 +23,13 @@
   margin-left: 0.5rem;
 }
 
-/* override top margin if used with infolist :( */
-.PageSecondaryInfoList + .ProjectsActionLink {
-  margin-top: 0;
+.ProjectsActionLink.ProjectsActionLink--desktopUI {
+  margin: 0.5rem;
+  padding: 1rem;
 }
 
-@media screen and (min-width: 1024px) {
-  .ProjectsActionLink {
-    margin: 0.5rem;
-    padding: 1rem;
-  }
+/* HACK: override top margin if used with infolist :( */
+.PageSecondaryInfoList + .ProjectsActionLink,
+.PageSecondaryInfoList + .ProjectsActionLink.ProjectsActionLink--desktopUI {
+  margin-top: 0;
 }

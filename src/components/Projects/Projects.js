@@ -10,52 +10,25 @@ import "./Projects.css";
 
 class Projects extends Component {
   static propTypes = {
-    projectData: PropTypes.array.isRequired
+    projectData: PropTypes.array.isRequired,
+    desktopUI: PropTypes.bool,
+    screens: PropTypes.object,
   };
 
   constructor(props) {
     super(props);
 
-    this.closeProject = this.closeProject.bind(this);
-    this.handleResize = this.handleResize.bind(this);
-    this.returnActiveLink = this.returnActiveLink.bind(this);
-    this.teardownNav = this.teardownNav.bind(this);
-
     this.state = {
       activeIndex: 0,
-      showingNav: false
+      showingNav: false,
     };
   }
 
-  componentDidMount() {
-    this.handleResize();
-    window.addEventListener("resize", this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  handleResize() {
-    const width = window.innerWidth;
-
-    if (width >= 1024) {
-      this.setState({
-        desktopUI: true,
-        showingNav: false
-      });
-    } else {
-      this.setState({
-        desktopUI: false
-      });
-    }
-  }
-
-  returnActiveLink() {
+  returnActiveLink = () => {
     return document.getElementById(
       `ProjectsNavButton${this.state.activeIndex}`
     );
-  }
+  };
 
   focusOnProjectHeading() {
     setTimeout(
@@ -67,38 +40,38 @@ class Projects extends Component {
     );
   }
 
-  teardownNav() {
+  teardownNav = () => {
     this.setState({
-      showingNav: false
+      showingNav: false,
     });
     this.focusOnProjectHeading();
-  }
+  };
 
   renderProject(index) {
-    if (this.state.desktopUI) {
+    if (this.props.screens.desktop) {
       if (index !== this.state.activeIndex) {
         this.setState({
-          activeIndex: index
+          activeIndex: index,
         });
       }
       this.focusOnProjectHeading();
     } else {
       this.setState({
-        activeIndex: index
+        activeIndex: index,
       });
       this.teardownNav();
     }
   }
 
-  closeProject() {
-    if (this.state.desktopUI) {
+  closeProject = () => {
+    if (this.props.screens.desktop) {
       this.returnActiveLink().focus();
     } else {
       this.setState({
-        showingNav: true
+        showingNav: true,
       });
     }
-  }
+  };
 
   renderContent() {
     const { projectData } = this.props;
@@ -114,18 +87,20 @@ class Projects extends Component {
             {projectData[this.state.activeIndex].name}
           </span>
         }
-        title={`${projectData[this.state.activeIndex].name}: Personable Design & Development`}
+        title={`${
+          projectData[this.state.activeIndex].name
+        }: Personable Design & Development`}
         color={projectData[this.state.activeIndex].color}
         backgroundColor={projectData[this.state.activeIndex].backgroundColor}
         media={{
           src: projectData[this.state.activeIndex].media.src,
           img: projectData[this.state.activeIndex].media.img,
-          alt: projectData[this.state.activeIndex].media.alt
+          alt: projectData[this.state.activeIndex].media.alt,
         }}
         action={{
           src: projectData[this.state.activeIndex].action.src,
           prompt: projectData[this.state.activeIndex].action.prompt,
-          variant: isCodePen ? "CodePen" : "ExternalLink"
+          variant: isCodePen ? "CodePen" : "ExternalLink",
         }}
         items={projectData[this.state.activeIndex].items}
         isCodePen={isCodePen}
@@ -134,13 +109,13 @@ class Projects extends Component {
         details={projectData[this.state.activeIndex].details}
         id={this.state.activeIndex}
         closePage={this.closeProject}
-        desktopUI={this.state.desktopUI}
+        screens={this.props.screens}
       />
     );
   }
 
   renderNavWrapper() {
-    if (this.state.desktopUI) {
+    if (this.props.screens.desktop) {
       return (
         <div className="ProjectsNavDesktop" aria-label="Projects Navigation">
           {this.renderNavList()}
@@ -157,7 +132,7 @@ class Projects extends Component {
               focusTrapOptions={{
                 initialFocus: this.returnActiveLink,
                 pause: !this.state.showingNav,
-                onDeactivate: this.teardownNav
+                onDeactivate: this.teardownNav,
               }}
               className="ProjectsNavTrap"
             >
@@ -188,7 +163,7 @@ class Projects extends Component {
 
   renderColors() {
     const arr = [];
-    this.props.projectData.map(project => arr.push(project.color));
+    this.props.projectData.map((project) => arr.push(project.color));
     return arr;
   }
 
@@ -206,7 +181,7 @@ class Projects extends Component {
           active={index === this.state.activeIndex}
           onClick={() => this.renderProject(index)} // eslint-disable-line
           id={`ProjectsNavButton${index}`}
-          desktopUI={this.state.desktopUI}
+          desktopUI={this.props.screens.desktop}
         />
       </li>
     ));
@@ -216,7 +191,9 @@ class Projects extends Component {
     return (
       <section
         className={
-          this.state.desktopUI ? "Projects Projects--desktopUI" : "Projects"
+          this.props.screens.desktop
+            ? "Projects Projects--desktopUI"
+            : "Projects"
         }
       >
         <div className="ProjectsLayout">
@@ -225,13 +202,15 @@ class Projects extends Component {
         </div>
         <PageBackButton
           text={
-            this.state.desktopUI ? "Skip to Projects menu" : "Projects menu"
+            this.props.screens.desktop
+              ? "Skip to Projects menu"
+              : "Projects menu"
           }
           screenreaderText="Go back to Projects navigation"
           onClick={this.closeProject}
           id="closer"
           colors={this.renderColors()}
-          desktopUI={this.state.desktopUI}
+          screens={this.props.screens}
           activeIndex={this.state.activeIndex}
         />
       </section>

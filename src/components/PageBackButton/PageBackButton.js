@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Button from '../Button/Button'
-import './PageBackButton.css'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import Button from "../Button/Button";
+import "./PageBackButton.css";
 
 class PageBackButton extends Component {
   static propTypes = {
@@ -11,75 +12,85 @@ class PageBackButton extends Component {
     screenreaderText: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
-    id: PropTypes.string
-  }
+    id: PropTypes.string,
+    screens: PropTypes.object,
+  };
 
   handleClick = (e) => {
-    const {
-      disabled,
-      onClick
-    } = this.props
+    const { disabled, onClick } = this.props;
 
     if (disabled) {
-      e.preventDefault()
-      e.stopPropagation()
-    } else if (typeof onClick === 'function') {
-      onClick(e)
+      e.preventDefault();
+      e.stopPropagation();
+    } else if (typeof onClick === "function") {
+      onClick(e);
     }
-  }
+  };
 
-  checkColor (val) {
-    const white = window.getComputedStyle(document.body).getPropertyValue('--color-shadow')
+  checkColor(val) {
+    const white = window
+      .getComputedStyle(document.body)
+      .getPropertyValue("--color-shadow");
 
     if (val == null) {
-      return white
+      return white;
     } else {
-      return val
+      return val;
     }
   }
 
-  render () {
+  render() {
     const {
       text,
       screenreaderText,
       id,
       colors,
-      activeIndex
-    } = this.props
+      activeIndex,
+      screens,
+    } = this.props;
 
     return (
-      <span className="PageBackButton">
-        <Button
-          onClick={this.handleClick}
-          id={id}
-        >
-          <span className="PageBackButtonBurger" aria-hidden="true" role="presentation">
+      <span
+        className={classnames({
+          PageBackButton: true,
+          "PageBackButton--desktopUI": screens.desktop,
+        })}
+      >
+        <Button onClick={this.handleClick} id={id}>
+          <span
+            className="PageBackButtonBurger"
+            aria-hidden="true"
+            role="presentation"
+          >
             <span
               className="PageBackButtonPatty"
               style={{
-                backgroundColor: this.checkColor(colors[activeIndex - 1])
-              }} />
+                backgroundColor: this.checkColor(colors[activeIndex - 1]),
+              }}
+            />
             <span
               className="PageBackButtonPatty PageBackButtonPatty--active"
-              style={{backgroundColor: colors[activeIndex]}} />
+              style={{ backgroundColor: colors[activeIndex] }}
+            />
             <span
               className="PageBackButtonPatty"
               style={{
-                backgroundColor: this.checkColor(colors[activeIndex + 1])
-              }} />
+                backgroundColor: this.checkColor(colors[activeIndex + 1]),
+              }}
+            />
           </span>
           <span
             className="PageBackButtonText"
-            aria-hidden={(screenreaderText) ? 'true' : 'false'}
-            role={(screenreaderText) ? 'presentation' : ''}
+            aria-hidden={screenreaderText ? "true" : "false"}
+            role={screenreaderText ? "presentation" : ""}
           >
             {text}
           </span>
           <span className="sr">{screenreaderText}</span>
         </Button>
       </span>
-    )
+    );
   }
 }
 
-export default PageBackButton
+export default PageBackButton;

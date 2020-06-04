@@ -53,16 +53,13 @@ ReactDOM.render(
           img: "/img/poster-metro.png",
         },
         action: {
-          src: "http://metro.personabledesign.com",
+          src: "https://metro.personabledesign.com",
           prompt: "Minimal METRO",
         },
         details: [
-          `A couple of years ago, Portland, Maine's METRO transit system implemented bus tracking and made the API public. At the time METRO launched their API, the only options for tracking my bus I could find were sending a text or tapping around on an interactive map that didn't work on phones.`,
-          `Texting in 10 degrees is no fun, so __I decided to see if I could build an app that would tell me when my bus is coming in the morning with a single tap__. The BusTime API didn't accept client-side requests, so I had to learn a bit of PHP to get the data on the page. Once I got the PHP done, I set about the more exciting work of branding the app. I landed on a look I was pleased with: minimal and clean, but also approachable and playful through the use of vibrant color backgrounds.`,
-          "Winter 2016/2017 went on, and I was getting excited about this little side project. Maybe it could grow into something that would help my fellow Portlanders adopt public transit? I built out the CSS. I added functionality for the app to serve the right bus stop based on the time of day.",
-          "__And then I learned about Transit App.__ My band was playing a benefit show for a cat shelter at Flask Lounge. It was snowing. We didn't expect much of a turnout, and I was surprised when a friend of mine walked in. I asked if he drove downtown in the snow. He said he took the bus, and pulled out his iPhone to show me the app he used to catch the bus. Transit provided the same real-time bus information my app did, but with slick map/GPS functionality. It was nicely designed and completely free. I was so mad I couldn't form words for a couple of minutes.",
-          "Lesson learned. __Always do market research before you build a product.__ I downloaded Transit from the App Store and moved on. Soon it was warm enough to bike to work again, and I forgot about the whole until the following winter, when I went back to the bus stop. Once I started using Transit regularly I couldn't escape the feeling I was drinking from the firehose: For a simple weekday commute, it was presenting *too much* information. I didn't need to know when the ferry was leaving to Peaks Island. I didn't want to see buses that were scheduled but not actually coming. I thought wistfully of Minimal METRO...",
-          `So I finished it. It's never going to be as full-featured as Transit (which I still have on my phone). But if you're looking for uncluttered, one-click access to your daily bus commute in Portland, Maine, you could do a whole lot worse.`,
+          `A couple of years ago, Portland, Maine's METRO transit system implemented bus tracking and made the API public.`,
+          `At the time METRO launched their API, the only options for tracking my bus I could find were sending a text or tapping around on an interactive map that didn't work on phones. Texting in 10 degrees is no fun, so I decided to see if I could build an app that would tell me when my bus is coming in the morning with a single tap from my phone's home screen.`,
+          `The BusTime API didn't accept client-side requests, so I had to learn a bit of PHP to get the data on the page. Once I got the PHP done, I set about the more exciting work of branding the app. I landed on a look I was pleased with: minimal and clean, but also approachable and playful through the use of vibrant color backgrounds.`,
         ],
       },
       {
@@ -254,7 +251,7 @@ ReactDOM.render(
         },
         details: [
           `Instructure UI is Instructure's open source React.js- and Figma-based design system.
-          It's primarily used to build user interfaces in <a href="https://canvaslms.com" target="_blank">Canvas LMS</a> and its ecosystem of products.`,
+          It's primarily used to build user interfaces in <a href="https://canvaslms.com" target="_blank" rel="noopener noreferrer">Canvas LMS</a> and its ecosystem of products.`,
           `Canvas has millions of users around the world, which means Instructure UI
           components need to accommodate internationalized text and right-to-left
           language support. By law, the educational institutions Instructure serves have
@@ -263,15 +260,15 @@ ReactDOM.render(
           keyboard-only users.`,
           `I can't overstate how much I've learned about web development by being part
           of the talented team that puts Instructure UI together. As a core contributor, I've focused on design- and CSS-heavy components like
-          <a href="https://instructure.design/#ProgressCircle" target="_blank">ProgressCircle</a> /
-          <a href="https://instructure.design/#ProgressBar" target="_blank">ProgressBar</a>,
-          <a href="https://instructure.design/#Badge" target="_blank">Badge</a>,
-          <a href="https://instructure.design/#Spinner" target="_blank">Spinner</a>,
-          <a href="https://instructure.design/#TreeBrowser" target="_blank">TreeBrowser</a>,
-          <a href="https://instructure.design/#Flex" target="_blank">Flex</a>,
-          <a href="https://instructure.design/#AppNav" target="_blank">AppNav</a>,
-          <a href="https://instructure.design/#CheckboxGroup" target="_blank">CheckboxGroup</a>,
-          and <a href="https://instructure.design/#RadioInputGroup" target="_blank">RadioInputGroup</a>.`,
+          <a href="https://instructure.design/#ProgressCircle" target="_blank" rel="noopener noreferrer">ProgressCircle</a> /
+          <a href="https://instructure.design/#ProgressBar" target="_blank" rel="noopener noreferrer">ProgressBar</a>,
+          <a href="https://instructure.design/#Badge" target="_blank" rel="noopener noreferrer">Badge</a>,
+          <a href="https://instructure.design/#Spinner" target="_blank" rel="noopener noreferrer">Spinner</a>,
+          <a href="https://instructure.design/#TreeBrowser" target="_blank" rel="noopener noreferrer">TreeBrowser</a>,
+          <a href="https://instructure.design/#Flex" target="_blank" rel="noopener noreferrer">Flex</a>,
+          <a href="https://instructure.design/#AppNav" target="_blank" rel="noopener noreferrer">AppNav</a>,
+          <a href="https://instructure.design/#CheckboxGroup" target="_blank" rel="noopener noreferrer">CheckboxGroup</a>,
+          and <a href="https://instructure.design/#RadioInputGroup" target="_blank" rel="noopener noreferrer">RadioInputGroup</a>.`,
         ],
       },
       {
