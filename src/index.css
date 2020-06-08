@@ -28,10 +28,10 @@
   --font-family-base: "OpenSans";
   --font-family-display: "OpenSansCond";
 
-  --desktopNavWidth: 20%;
+  --desktopNavWidth: 15rem;
 
   --breakpointTablet: 768px;
-  --breakpointDesktop: 1100px;
+  --breakpointDesktop: 1200px;
 
   --shadow-level-0: inset 0 0.0625rem 0.25rem var(--color-shadow);
   --shadow-level-1: 0 0 0.25rem var(--color-shadow);
@@ -169,18 +169,12 @@ img {
 
 @media screen and (min-width: 768px) {
   :root {
-    --root-font-size: 95%;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  :root {
     --root-font-size: 100%;
     --app-header-height: 5rem;
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1200px) {
   :root {
     --root-font-size: 105%;
   }
@@ -189,12 +183,14 @@ img {
 @media screen and (min-width: 1500px) {
   :root {
     --root-font-size: 110%;
+    --desktopNavWidth: 16.5rem;
   }
 }
 
 @media screen and (min-width: 1700px) {
   :root {
     --root-font-size: 115%;
+    --desktopNavWidth: 19rem;
   }
 }
 

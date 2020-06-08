@@ -31,7 +31,7 @@ class ProjectsHeading extends Component {
             className="ProjectsHeadingHeadline"
             tabIndex="-1"
             id={this.props.id}
-            style={background}
+            style={this.props.screens.desktop ? background : null}
           >
             {this.props.text}
           </h1>

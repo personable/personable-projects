@@ -195,6 +195,55 @@ class Page extends Component {
   }
 
   render() {
+    const headline = (
+      <div className="PageHeadline">
+        <ProjectsHeading
+          id={this.headingID}
+          text={this.props.heading}
+          color={this.props.backgroundColor || this.props.color}
+          screens={this.props.screens}
+        />
+      </div>
+    );
+
+    const primaryContent = (
+      <div className="PagePrimary">
+        {this.props.screens.desktop && headline}
+        <div className="PageBody">
+          {this.props.details ? this.renderDetails() : null}
+          {this.props.children}
+        </div>
+      </div>
+    );
+
+    const secondaryContent = (
+      <div className="PageSecondary">
+        <div className="PageSecondaryContent">
+          <div className="PageSecondaryMedia">{this.renderMedia()}</div>
+          <div className="PageSecondaryInfo">
+            <div className="PageSecondaryInfoLayout">
+              {this.props.year ? (
+                <div className="PageSecondaryInfoYear">{this.props.year}</div>
+              ) : null}
+              <div className="PageSecondaryInfoMain">
+                <div className="PageSecondaryInfoList">
+                  {this.props.items ? this.renderList() : null}
+                </div>
+                {this.props.action ? (
+                  <ProjectsActionLink
+                    prompt={this.props.action.prompt}
+                    src={this.props.action.src}
+                    variant={this.props.action.variant}
+                    screens={this.props.screens}
+                  />
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
     return (
       <article
         className={classnames({
@@ -209,43 +258,18 @@ class Page extends Component {
           desktopUI={this.props.screens.desktop}
           isProject={this.props.isProject}
         />
-        <div className="PagePrimary">
-          <ProjectsHeading
-            id={this.headingID}
-            text={this.props.heading}
-            color={this.props.backgroundColor || this.props.color}
-            screens={this.props.screens}
-          />
-          <div className="PageBody">
-            {this.props.details ? this.renderDetails() : null}
-            {this.props.children}
-          </div>
-        </div>
-        <div className="PageSecondary">
-          <div className="PageSecondaryContent">
-            <div className="PageSecondaryMedia">{this.renderMedia()}</div>
-            <div className="PageSecondaryInfo">
-              <div className="PageSecondaryInfoLayout">
-                {this.props.year ? (
-                  <div className="PageSecondaryInfoYear">{this.props.year}</div>
-                ) : null}
-                <div className="PageSecondaryInfoMain">
-                  <div className="PageSecondaryInfoList">
-                    {this.props.items ? this.renderList() : null}
-                  </div>
-                  {this.props.action ? (
-                    <ProjectsActionLink
-                      prompt={this.props.action.prompt}
-                      src={this.props.action.src}
-                      variant={this.props.action.variant}
-                      screens={this.props.screens}
-                    />
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {!this.props.screens.desktop ? (
+          <>
+            {headline}
+            {secondaryContent}
+            {primaryContent}
+          </>
+        ) : (
+          <>
+            {primaryContent}
+            {secondaryContent}
+          </>
+        )}
       </article>
     );
   }
