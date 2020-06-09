@@ -46,6 +46,9 @@ class Page extends Component {
     isProject: false,
   };
 
+  _timeouts = [];
+  _intervals = [];
+
   constructor(props) {
     super(props);
 
@@ -76,16 +79,20 @@ class Page extends Component {
         const timer = setInterval(() => {
           this.handleVideo(timer);
         }, 1000);
-        this.setState({ timer: timer });
+        this._intervals.push(timer);
       }, videoWaitTime);
-      this.setState({ timeout: timeout });
+      this._timeouts.push(timeout);
     }
   }
 
   componentWillUnmount() {
     if (this.props.media.src) {
-      clearTimeout(this.state.timeout);
-      clearInterval(this.state.timer);
+      this._timeouts.forEach((timeout) => {
+        clearTimeout(timeout);
+      });
+      this._intervals.forEach((interval) => {
+        clearInterval(interval);
+      });
     }
   }
 
